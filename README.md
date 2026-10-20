@@ -72,8 +72,8 @@ Os números e textos do deck vêm de `prototipo/dados/resultados.json`. Se mudar
 
 | Integrante | Papel | GitHub |
 |---|---|---|
-| Gustavo Rezende | a preencher | a preencher |
-| João Paulo Ventura | a preencher | a preencher |
-| Ludson Fernandes | Negócios B2B (12 anos em telecom corporativo) | a preencher |
-| Rafael Medici | a preencher | a preencher |
-| Vini Pereira | a preencher | a preencher |
+| Gustavo Rezende | a preencher | [guhlrezende](https://github.com/guhlrezende) |
+| João Paulo Ventura | a preencher | [Joaopdiasventura](https://github.com/Joaopdiasventura) |
+| Ludson Fernandes | Negócios B2B (12 anos em telecom corporativo) | [LudsonFernandes](https://github.com/LudsonFernandes) |
+| Rafael Medici | a preencher | [rafamedici](https://github.com/rafamedici) |
+| Vini Pereira | a preencher | [ViNiSanPe](https://github.com/ViNiSanPe) |
