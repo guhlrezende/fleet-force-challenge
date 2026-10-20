@@ -2,6 +2,8 @@
 
 Estado em **20/10/2026**. Marque `[x]` quando fechar e preencha o responsável. Pendências sem dono não andam: escolha um nome.
 
+Cada pendência também virou uma [issue](https://github.com/guhlrezende/fleet-force-challenge/issues), com label de prazo e milestone por Sprint. Assuma a sua se atribuindo na issue e marque aqui quando fechar.
+
 ## Esta semana (Sprint 1)
 
 ### Terça 20/10
