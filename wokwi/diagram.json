@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "FleetForce",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu", "top": -150, "left": 160, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot", "top": 60, "left": 260, "attrs": { "label": "Velocidade (GPS simulado)" } },
+    { "type": "wokwi-pushbutton", "id": "btn", "top": 200, "left": 230, "attrs": { "color": "green", "label": "Ignição" } },
+    { "type": "wokwi-led", "id": "ledOcioso", "top": -40, "left": -200, "attrs": { "color": "yellow", "label": "Ocioso" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 30, "left": -210, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "ledBrusca", "top": -40, "left": -140, "attrs": { "color": "red", "label": "Brusca" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 30, "left": -150, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "ledVel", "top": -40, "left": -80, "attrs": { "color": "blue", "label": "Velocidade" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 30, "left": -90, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu:VCC", "esp:3V3", "red", [] ],
+    [ "imu:GND", "esp:GND.2", "black", [] ],
+    [ "imu:SDA", "esp:21", "blue", [] ],
+    [ "imu:SCL", "esp:22", "orange", [] ],
+    [ "pot:VCC", "esp:3V3", "red", [] ],
+    [ "pot:GND", "esp:GND.2", "black", [] ],
+    [ "pot:SIG", "esp:34", "green", [] ],
+    [ "btn:1.l", "esp:15", "green", [] ],
+    [ "btn:2.l", "esp:GND.2", "black", [] ],
+    [ "ledOcioso:A", "esp:2", "yellow", [] ],
+    [ "ledOcioso:C", "r1:1", "black", [] ],
+    [ "r1:2", "esp:GND.1", "black", [] ],
+    [ "ledBrusca:A", "esp:4", "red", [] ],
+    [ "ledBrusca:C", "r2:1", "black", [] ],
+    [ "r2:2", "esp:GND.1", "black", [] ],
+    [ "ledVel:A", "esp:19", "blue", [] ],
+    [ "ledVel:C", "r3:1", "black", [] ],
+    [ "r3:2", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

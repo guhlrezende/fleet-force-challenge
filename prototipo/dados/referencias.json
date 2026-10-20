@@ -1,0 +1,83 @@
+{
+  "_comentario": "Referencias (benchmark) e configuracao do Fleet Force. Valores de referencia sao REAIS e com fonte; a frota e FICTICIA (caso demonstrativo, cadastro em veiculos_demo.csv).",
+  "versao": "2026-10-12.1",
+  "referencias": {
+    "combustivel": {
+      "diesel_s10": {
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)",
+        "periodo": "04/10/2026 a 10/10/2026",
+        "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/resumo_semanal_lpc_2026-10-04_2026-10-10.xlsx",
+        "unidade": "R$/l",
+        "uf": "SP",
+        "valor": 7.32,
+        "descricao": "Preço médio de revenda do óleo diesel S10 em SP (866 postos)"
+      },
+      "gasolina": {
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)",
+        "periodo": "04/10/2026 a 10/10/2026",
+        "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/resumo_semanal_lpc_2026-10-04_2026-10-10.xlsx",
+        "unidade": "R$/l",
+        "uf": "SP",
+        "valor": 6.36,
+        "descricao": "Preço médio de revenda da gasolina comum em SP (1.253 postos)"
+      },
+      "etanol": {
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)",
+        "periodo": "04/10/2026 a 10/10/2026",
+        "url": "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/arquivos-lpc/2026/resumo_semanal_lpc_2026-10-04_2026-10-10.xlsx",
+        "unidade": "R$/l",
+        "uf": "SP",
+        "valor": 3.86,
+        "descricao": "Preço médio de revenda do etanol hidratado em SP (1.247 postos)"
+      }
+    },
+    "pedagio": {
+      "indicador": "cobranca_sem_duplicidade",
+      "descricao": "Cada passagem (mesma placa, mesma praca, mesmo horario) deve ser cobrada uma unica vez",
+      "fonte": "Conferência do extrato: cada passagem cobrada uma vez"
+    },
+    "ipva": {
+      "indicador": "aliquota_sobre_valor_venal",
+      "aliquotas": {
+        "caminhao": 0.015,
+        "van": 0.04,
+        "carro": 0.04
+      },
+      "unidade": "fracao ao ano",
+      "descricao": "Alíquotas do IPVA em SP por tipo de veículo",
+      "fonte": "Lei estadual SP 13.296/2008, art. 9º",
+      "_conferir": "Caminhão 1,5% (art. 9º, I). Van/utilitário e carro flex: 4% (demais veículos) assumido; conferir o enquadramento e o texto consolidado na Alesp antes de citar."
+    }
+  },
+  "ociosidade": {
+    "consumo_l_por_hora": 3.03,
+    "descricao": "Consumo de caminhão pesado parado com motor ligado (0,8 galão/h)",
+    "fonte": "US DOE/Argonne National Laboratory (AFDC, 2015)",
+    "url": "https://afdc.energy.gov/files/u/publication/hdv_idling_2015.pdf"
+  },
+  "classificacao": {
+    "_regra": "diferenca % acima da referencia: ate eficiente_ate = eficiente; ate atencao_ate = atencao; acima = critico",
+    "eficiente_ate": 5.0,
+    "atencao_ate": 15.0
+  },
+  "cenarios": {
+    "conservador": 0.5,
+    "realista": 0.8
+  },
+  "referencia_interna": {
+    "_regra": "Sem referencia publica: cada veiculo e comparado com a mediana dos veiculos do mesmo tipo. Entra na economia quem passa da mediana mais que 'eficiente_ate'. Grupos com menos de min_grupo veiculos ficam sem referencia.",
+    "fonte": "Mediana da própria frota, por tipo de veículo",
+    "min_grupo": 5
+  },
+  "acoes": {
+    "combustivel_preco": "Negociar preço com a rede de postos e controlar onde a frota abastece",
+    "combustivel_consumo": "Revisar rota, carga e condução dos veículos com pior consumo do seu tipo e checar o motor deles",
+    "manutencao": "Trocar conserto corretivo por preventivo nos veículos que mais custam por km e avaliar a renovação",
+    "pneus": "Calibragem, alinhamento e rodízio nos veículos que gastam mais pneu por km",
+    "pedagio": "Contestar as cobranças em dobro e conferir o extrato todo mês",
+    "ipva": "Nada a fazer: pago na alíquota correta",
+    "etanol_gasolina": "Abastecer os carros flex com etanol enquanto ele custar menos de 70% da gasolina"
+  },
+  "rendimento_etanol": 0.7,
+  "fonte_rendimento_etanol": "regra prática de mercado: o etanol rende cerca de 70% da gasolina por litro"
+}

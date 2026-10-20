@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2E2D2D"/>
+    </marker>
+    <marker id="setaCinza" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a94a3"/>
+    </marker>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Saira+Condensed:wght@800&amp;display=swap");
+      .t { font-size: 17px; fill: #2E2D2D; }
+      .tb { font-size: 18px; font-weight: 700; fill: #2E2D2D; }
+      .st { font-size: 14px; fill: #505050; font-style: italic; }
+      .sm { font-size: 13px; fill: #505050; }
+      .lbl { font-size: 14px; fill: #2E2D2D; font-weight: 600; }
+      .us { font-size: 12px; font-weight: 700; fill: #fff; }
+      .cinza { fill: #8a94a3; }
+      .box { fill: #ffffff; stroke: #2E2D2D; stroke-width: 2; }
+      .face { fill: #F2F2F2; stroke: #2E2D2D; stroke-width: 2; }
+      .comp { fill: #EEF4FF; stroke: #0750ED; stroke-width: 1.6; }
+      .fut { fill: #f5f6f8; stroke: #8a94a3; stroke-width: 1.6; stroke-dasharray: 7 5; }
+      .linha { stroke: #2E2D2D; stroke-width: 2; fill: none; }
+      .tracej { stroke: #2E2D2D; stroke-width: 2; fill: none; stroke-dasharray: 8 6; }
+      .tracejCinza { stroke: #8a94a3; stroke-width: 2; fill: none; stroke-dasharray: 8 6; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <text x="40" y="52" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800" fill="#2E2D2D">Fleet Force · <tspan fill="#0750ED">Diagrama de componentes</tspan></text>
+  <text x="40" y="76" class="sm">Linha cheia = comunicação contínua · tracejada = esporádica · cinza tracejado = evolução futura (fora das 4 sprints ou dependente de parceria)</text>
+
+  <!-- Fronteira do nucleo US01 a US03 -->
+  <rect x="300" y="110" width="930" height="600" rx="10" fill="none" stroke="#0750ED" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="318" y="136" font-size="15" font-weight="700" fill="#0750ED">Núcleo do produto: US01 → US02 → US03</text>
+
+  <!-- Ator gestor -->
+  <g transform="translate(110,300)">
+    <circle cx="0" cy="0" r="16" class="box"/>
+    <line x1="0" y1="16" x2="0" y2="62" class="linha"/>
+    <line x1="-26" y1="34" x2="26" y2="34" class="linha"/>
+    <line x1="0" y1="62" x2="-22" y2="98" class="linha"/>
+    <line x1="0" y1="62" x2="22" y2="98" class="linha"/>
+    <text x="0" y="128" text-anchor="middle" class="tb">Gestor de frota</text>
+    <text x="0" y="148" text-anchor="middle" class="sm">envia a planilha, vê o painel</text>
+  </g>
+
+  <!-- Navegador (device 3D) -->
+  <g transform="translate(340,170)">
+    <polygon points="0,14 14,0 274,0 260,14" class="face"/>
+    <polygon points="260,14 274,0 274,250 260,264" class="face"/>
+    <rect x="0" y="14" width="260" height="250" class="box"/>
+    <text x="130" y="40" text-anchor="middle" class="st">«device»</text>
+    <text x="130" y="62" text-anchor="middle" class="tb">Navegador (PC ou celular)</text>
+    <rect x="18" y="80" width="224" height="166" class="comp" rx="4"/>
+    <text x="130" y="102" text-anchor="middle" class="lbl">Front-end web (React)</text>
+    <text x="34" y="130" class="sm">• Importar planilha</text>
+    <text x="34" y="154" class="sm">• Painel de custos</text>
+    <text x="34" y="178" class="sm">• Comparação (semáforo)</text>
+    <text x="34" y="202" class="sm">• Ranking de economia</text>
+    <text x="34" y="226" class="sm">• Selo "simulado" / "demo"</text>
+  </g>
+
+  <!-- Servidor (execution environment 3D) -->
+  <g transform="translate(680,150)">
+    <polygon points="0,14 14,0 524,0 510,14" class="face"/>
+    <polygon points="510,14 524,0 524,370 510,384" class="face"/>
+    <rect x="0" y="14" width="510" height="370" class="box"/>
+    <text x="255" y="40" text-anchor="middle" class="st">«execution environment»</text>
+    <text x="255" y="62" text-anchor="middle" class="tb">Servidor Fleet Force (API)</text>
+
+    <rect x="20" y="82" width="225" height="78" class="comp" rx="4"/>
+    <rect x="28" y="90" width="44" height="20" rx="10" fill="#0750ED"/><text x="50" y="104" text-anchor="middle" class="us">US01</text>
+    <text x="80" y="105" class="lbl">Leitura e mapeamento</text>
+    <text x="30" y="132" class="sm">pandas: colunas e tipos de</text>
+    <text x="30" y="150" class="sm">despesa → 8 categorias</text>
+
+    <rect x="265" y="82" width="225" height="78" class="comp" rx="4"/>
+    <rect x="273" y="90" width="44" height="20" rx="10" fill="#0750ED"/><text x="295" y="104" text-anchor="middle" class="us">US01</text>
+    <text x="325" y="105" class="lbl">Consolidação</text>
+    <text x="275" y="132" class="sm">total, período, % por</text>
+    <text x="275" y="150" class="sm">categoria, por veículo e km</text>
+
+    <rect x="20" y="178" width="225" height="78" class="comp" rx="4"/>
+    <rect x="28" y="186" width="44" height="20" rx="10" fill="#0750ED"/><text x="50" y="200" text-anchor="middle" class="us">US02</text>
+    <text x="80" y="201" class="lbl">Benchmark</text>
+    <text x="30" y="228" class="sm">compara com ANP, lei</text>
+    <text x="30" y="246" class="sm">e mediana da frota</text>
+
+    <rect x="265" y="178" width="225" height="78" class="comp" rx="4"/>
+    <rect x="273" y="186" width="44" height="20" rx="10" fill="#0750ED"/><text x="295" y="200" text-anchor="middle" class="us">US03</text>
+    <text x="325" y="201" class="lbl">Motor de economia</text>
+    <text x="275" y="228" class="sm">cenários 50% / 80%,</text>
+    <text x="275" y="246" class="sm">ranking em R$ com fórmula</text>
+
+    <rect x="20" y="274" width="470" height="90" class="fut" rx="4"/>
+    <text x="36" y="298" class="lbl">Ingestão IoT (eventos do kit)</text>
+    <text x="36" y="322" class="sm">recebe "ocioso" e "condução brusca" do ESP32 e manda o custo</text>
+    <text x="36" y="342" class="sm">estimado para a US03, sempre marcado como simulado / medido</text>
+    <text x="474" y="298" text-anchor="end" class="sm" font-weight="700">Sprint 2+</text>
+  </g>
+
+  <!-- Banco -->
+  <g transform="translate(830,600)">
+    <ellipse cx="110" cy="0" rx="110" ry="20" class="face"/>
+    <path d="M0,0 V80 A110,20 0 0 0 220,80 V0" class="box"/>
+    <ellipse cx="110" cy="0" rx="110" ry="20" class="face"/>
+    <text x="110" y="42" text-anchor="middle" class="tb">PostgreSQL</text>
+    <text x="110" y="64" text-anchor="middle" class="sm">despesas, referências,</text>
+    <text x="110" y="82" text-anchor="middle" class="sm">diagnósticos</text>
+  </g>
+
+  <!-- Fontes publicas -->
+  <g transform="translate(1320,170)">
+    <rect x="0" y="0" width="255" height="150" class="box" rx="6"/>
+    <text x="127" y="26" text-anchor="middle" class="st">«fontes públicas»</text>
+    <text x="127" y="50" text-anchor="middle" class="tb">Referências</text>
+    <text x="16" y="80" class="sm">• ANP: preço do diesel (semanal)</text>
+    <text x="16" y="104" class="sm">• Lei do IPVA SP (alíquota)</text>
+    <text x="16" y="128" class="sm">• Tarifas de pedágio</text>
+  </g>
+
+  <!-- Kit ESP32 -->
+  <g transform="translate(1320,400)">
+    <polygon points="0,14 14,0 254,0 240,14" class="face"/>
+    <polygon points="240,14 254,0 254,230 240,244" class="face"/>
+    <rect x="0" y="14" width="240" height="230" class="box"/>
+    <text x="120" y="40" text-anchor="middle" class="st">«device»</text>
+    <text x="120" y="62" text-anchor="middle" class="tb">Kit embarcado ESP32</text>
+    <text x="16" y="92" class="sm">• MPU6050: acelerômetro</text>
+    <text x="16" y="116" class="sm">• NEO-6M: GPS</text>
+    <text x="16" y="140" class="sm">• ignição + 0 km/h = ocioso</text>
+    <text x="16" y="164" class="sm">• Firmware C++: detecta "ocioso",</text>
+    <text x="16" y="184" class="sm">  "condução brusca" e posição</text>
+    <rect x="12" y="200" width="216" height="28" rx="6" fill="#e7ebf0"/>
+    <text x="120" y="219" text-anchor="middle" class="sm" font-weight="700">Sprint 1: Wokwi, saída CSV</text>
+  </g>
+
+  <!-- Futuro -->
+  <g transform="translate(40,740)">
+    <rect x="0" y="0" width="1520" height="120" class="fut" rx="8"/>
+    <text x="20" y="30" font-size="16" font-weight="700" class="cinza">Evolução futura (não entra na Sprint 1)</text>
+    <text x="20" y="62" class="sm">• IA documental: ler PDF, foto e print de nota (Sprint 3+)</text>
+    <text x="20" y="90" class="sm">• Relatório do CFO (US05) e cadastro de lead com aceite LGPD (US04)</text>
+    <text x="620" y="62" class="sm">• Kit em bancada (Sprint 2) e envio por MQTT/Wi-Fi; OBD-II e 4G depois</text>
+    <text x="620" y="90" class="sm">• APIs da Sem Parar (tag, CTF): só com parceria e autorização</text>
+  </g>
+
+  <!-- Conexoes -->
+  <line x1="150" y1="335" x2="336" y2="335" class="linha" marker-end="url(#seta)"/>
+  <text x="243" y="325" text-anchor="middle" class="lbl">HTTPS</text>
+
+  <line x1="616" y1="300" x2="676" y2="300" class="linha" marker-end="url(#seta)" marker-start="url(#seta)"/>
+  <text x="646" y="288" text-anchor="middle" class="lbl">REST</text>
+  <text x="646" y="320" text-anchor="middle" class="sm">JSON</text>
+
+  <line x1="940" y1="534" x2="940" y2="576" class="linha" marker-end="url(#seta)" marker-start="url(#seta)"/>
+  <text x="952" y="562" class="lbl">SQL</text>
+
+  <line x1="1316" y1="245" x2="1210" y2="245" class="tracej" marker-end="url(#seta)"/>
+  <text x="1274" y="234" text-anchor="middle" class="lbl">HTTPS</text>
+  <text x="1274" y="266" text-anchor="middle" class="sm">semanal</text>
+
+  <line x1="1316" y1="470" x2="1210" y2="470" class="tracejCinza" marker-end="url(#setaCinza)"/>
+  <text x="1274" y="459" text-anchor="middle" class="lbl" fill="#6a7c93">MQTT</text>
+  <text x="1274" y="491" text-anchor="middle" class="sm">Sprint 2+</text>
+</svg>

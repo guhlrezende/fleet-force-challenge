@@ -1,0 +1,201 @@
+{
+  "brand": {
+    "name": "Fleet Force",
+    "source": "supplied logo assets",
+    "personality": [
+      "decisive",
+      "fast",
+      "technical",
+      "operational",
+      "confident",
+      "pragmatic"
+    ]
+  },
+  "colors": {
+    "primary": {
+      "50": "#EEF4FF",
+      "100": "#D9E6FF",
+      "200": "#B6CEFF",
+      "300": "#85ABFF",
+      "400": "#4F82FF",
+      "500": "#0750ED",
+      "600": "#0643C7",
+      "700": "#07379F",
+      "800": "#0A317F",
+      "900": "#0D2B68",
+      "950": "#07183D"
+    },
+    "secondary": {
+      "900": "#2E2D2D"
+    },
+    "accent": {
+      "cyan": "#16B8F3",
+      "purple": "#7657FF"
+    },
+    "neutral": {
+      "0": "#FFFFFF",
+      "50": "#F6F8FC",
+      "100": "#EEF1F6",
+      "200": "#D8DEE9",
+      "300": "#B8C0CC",
+      "400": "#98A2B3",
+      "500": "#667085",
+      "600": "#475467",
+      "700": "#344054",
+      "800": "#2E2D2D",
+      "900": "#1D1C1C",
+      "950": "#101010"
+    },
+    "semantic": {
+      "success": "#168A53",
+      "warning": "#C97A00",
+      "error": "#C9362B",
+      "info": "#0750ED"
+    },
+    "aliases": {
+      "background": "#FFFFFF",
+      "surface": "#F6F8FC",
+      "textPrimary": "#2E2D2D",
+      "textSecondary": "#667085",
+      "border": "#D8DEE9"
+    }
+  },
+  "typography": {
+    "families": {
+      "ui": "Inter",
+      "display": "Inter Display",
+      "fallback": "Arial, sans-serif",
+      "logo": "Use supplied artwork only"
+    },
+    "sizes": {
+      "display": 56,
+      "h1": 44,
+      "h2": 32,
+      "h3": 24,
+      "h4": 20,
+      "bodyLarge": 18,
+      "body": 16,
+      "bodySmall": 14,
+      "caption": 12,
+      "label": 13,
+      "button": 14,
+      "data": 28
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 650,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "lineHeights": {
+      "display": 1.0,
+      "h1": 1.08,
+      "h2": 1.15,
+      "h3": 1.2,
+      "body": 1.5
+    }
+  },
+  "spacing": {
+    "1": 4,
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "5": 24,
+    "6": 32,
+    "7": 40,
+    "8": 48,
+    "9": 64,
+    "10": 80,
+    "11": 96,
+    "12": 128
+  },
+  "radius": {
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "pill": 999
+  },
+  "shadows": {
+    "sm": "0 1px 2px rgba(16,24,40,.06)",
+    "md": "0 8px 24px rgba(16,24,40,.10)",
+    "lg": "0 20px 48px rgba(16,24,40,.14)"
+  },
+  "layout": {
+    "desktop": {
+      "columns": 12,
+      "maxWidth": 1200,
+      "gutter": 24,
+      "margin": 32
+    },
+    "tablet": {
+      "columns": 8,
+      "gutter": 20
+    },
+    "mobile": {
+      "columns": 4,
+      "gutter": 16,
+      "margin": 16
+    },
+    "majorSectionSpacingDesktop": [
+      80,
+      128
+    ]
+  },
+  "components": {
+    "button": {
+      "height": [
+        44,
+        48
+      ],
+      "radius": 12,
+      "paddingX": [
+        20,
+        24
+      ]
+    },
+    "input": {
+      "height": [
+        44,
+        48
+      ],
+      "radius": 12
+    },
+    "card": {
+      "radius": 16,
+      "padding": 24,
+      "border": 1
+    },
+    "touchTarget": 44
+  },
+  "charts": {
+    "series": [
+      "#0750ED",
+      "#16B8F3",
+      "#7657FF",
+      "#36B37E",
+      "#FF9F43",
+      "#2E2D2D"
+    ],
+    "positive": "#168A53",
+    "negative": "#C9362B",
+    "neutral": "#667085",
+    "benchmark": "#2E2D2D",
+    "gridline": "#E7EAF0"
+  },
+  "logo": {
+    "clearSpaceFull": "0.25H",
+    "clearSpaceSymbol": "0.20H",
+    "minDigitalPx": {
+      "full": 160,
+      "wordmark": 140,
+      "symbol": 32
+    },
+    "minPrintMm": {
+      "full": 42,
+      "wordmark": 38,
+      "symbol": 10
+    }
+  }
+}

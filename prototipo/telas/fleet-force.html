@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleet Force · protótipo de tela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #0750ED; --brand-soft: #EEF4FF; --ink: #2E2D2D; --text: #344054; --muted: #667085;
+    --line: #E7EAF0; --bg: #F6F8FC; --card: #FFFFFF;
+    --ok: #168A53; --ok-soft: #E3F3EA; --warn: #C97A00; --warn-soft: #FFF2D6; --bad: #C9362B; --bad-soft: #FDE8E6;
+    --none: #8C8C8A; --none-soft: #F1F1F1;
+    --r: 16px; --shadow: 0 2px 12px rgba(14, 13, 13, .07);
+    --head: "Inter", Arial, sans-serif; --body: "Inter", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--body); color: var(--text); background: var(--bg); font-size: 15px; }
+  svg.i { width: 22px; height: 22px; stroke: var(--brand); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  header { background: #fff; display: flex; align-items: center; gap: 28px; padding: 0 32px; height: 64px; box-shadow: 0 1px 0 var(--line); }
+  .logo { font-family: var(--head); font-weight: 800; font-size: 26px; letter-spacing: .5px; color: var(--ink); line-height: 1; }
+  .logo b { color: var(--brand); }
+  nav { display: flex; gap: 6px; }
+  nav a { color: var(--text); text-decoration: none; padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+  nav a.on { background: var(--brand); color: #fff; font-weight: 600; }
+  .demo { margin-left: auto; background: var(--ink); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: .6px; padding: 6px 12px; border-radius: 999px; }
+  main { padding: 26px 32px 16px; max-width: 1280px; margin: 0 auto; }
+  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+  h1 { font-family: var(--head); font-weight: 800; font-size: 34px; line-height: 1.08; margin: 0; color: var(--ink); letter-spacing: -.015em; }
+  h1 em { font-style: normal; color: var(--brand); }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--brand); border: 1.5px solid var(--brand); padding: 2px 10px; border-radius: 999px; margin-bottom: 8px; }
+  .sub { color: var(--muted); font-size: 14px; max-width: 460px; text-align: right; }
+  .grid { display: grid; gap: 16px; }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g2 { grid-template-columns: 1.35fr 1fr; }
+  .card { background: var(--card); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); }
+  .kpi .lbl { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .kpi .val { font-family: var(--head); font-weight: 800; font-size: 34px; color: var(--ink); margin-top: 6px; line-height: 1; }
+  .kpi .note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .kpi.hero { background: var(--brand); }
+  .kpi.hero .lbl, .kpi.hero .note { color: #FFE3EC; } .kpi.hero .val { color: #fff; } .kpi.hero svg.i { stroke: #fff; }
+  .card h2 { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 14px; }
+  .bar-row { display: grid; grid-template-columns: 140px 1fr 112px 48px; align-items: center; gap: 12px; font-size: 13px; padding: 6px 0; }
+  .bar { height: 10px; background: #F0F0F0; border-radius: 6px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; background: var(--brand); border-radius: 6px; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .muted { color: var(--muted); }
+  .seg { display: flex; gap: 8px; margin-bottom: 16px; }
+  .seg button { font-family: var(--body); border: 1.5px solid var(--line); background: #fff; padding: 7px 16px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--text); cursor: pointer; }
+  .seg button.on { border-color: var(--brand); color: var(--brand); font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; }
+  .pill { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+  .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .p-eficiente { background: var(--ok-soft); color: var(--ok); } .p-atencao { background: var(--warn-soft); color: var(--warn); }
+  .p-critico { background: var(--bad-soft); color: var(--bad); } .p-none { background: var(--none-soft); color: var(--none); }
+  .src { font-size: 11.5px; color: var(--muted); }
+  .bullet { position: relative; height: 26px; }
+  .bullet .track { position: absolute; inset: 9px 0; background: #F0F0F0; border-radius: 5px; }
+  .bullet .val { position: absolute; top: 9px; height: 8px; left: 0; border-radius: 5px; background: var(--ink); }
+  .bullet .ref { position: absolute; top: 2px; width: 3px; height: 22px; background: var(--brand); border-radius: 2px; }
+  .bench-row { display: grid; grid-template-columns: 170px 1fr 120px 104px 230px; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .bench-row:last-child { border-bottom: 0; }
+  .bench-row .nm { font-weight: 700; color: var(--ink); }
+  .dif { font-family: var(--head); font-weight: 800; font-size: 22px; color: var(--ink); text-align: right; line-height: 1; }
+  .legend { display: flex; gap: 18px; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .rank-row { cursor: pointer; border-radius: 10px; padding: 8px 6px; }
+  .rank-row:hover { background: var(--bg); }
+  .sim-tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .4px; background: var(--none-soft); color: var(--none); padding: 1px 8px; border-radius: 999px; margin-left: 6px; }
+  .sim > i { background: repeating-linear-gradient(45deg, #B9B9B6 0 5px, #DADAD7 5px 10px); }
+  .explain { background: var(--brand-soft); padding: 12px 16px; border-radius: 12px; font-size: 13px; margin-top: 12px; color: var(--ink); line-height: 1.5; }
+  .drop { border: 2px dashed #F0A5BE; border-radius: var(--r); padding: 22px; display: flex; align-items: center; justify-content: center; gap: 14px; color: var(--text); font-size: 15px; margin-bottom: 18px; background: #fff; }
+  .drop b { color: var(--ink); }
+  .check { color: var(--ok); font-weight: 700; }
+  .hidden { display: none; }
+  footer { text-align: center; font-size: 11px; color: var(--muted); padding: 6px 0 16px; }
+</style>
+</head>
+<body>
+<svg style="display:none">
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3v3a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-road" viewBox="0 0 24 24"><path d="M4 21 8 3M20 21 16 3M12 4v2M12 10v3M12 17v3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18M7 6h1v4M16.71 13.88l.7.71-2.82 2.82"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+</svg>
+<header>
+  <img class="logo" src="logo-symbol.png" alt="Fleet Force" style="height:40px;width:auto">
+  <nav>
+    <a href="#importar" data-t="importar">Importar</a>
+    <a href="#us01" data-t="us01">Custo total</a>
+    <a href="#us02" data-t="us02">Benchmark</a>
+    <a href="#us03" data-t="us03">Economia</a>
+  </nav>
+  <div class="demo">DADOS DE DEMONSTRAÇÃO</div>
+</header>
+
+<main>
+  <section id="t-importar">
+    <div class="head"><div><span class="tag">US01</span><h1>Envie a planilha <em>que você já tem</em></h1></div>
+      <div class="sub">CSV ou Excel do seu sistema, do posto ou da administradora de cartões. Não precisa arrumar antes.</div></div>
+    <div class="drop"><svg class="i"><use href="#i-file"/></svg><span><b id="arq">frota_demo.csv</b> · <span id="nlin"></span> linhas lidas</span><span class="check">✓ <span id="ncls"></span> classificadas</span></div>
+    <div class="grid g2">
+      <div class="card"><h2>Confira como entendemos suas colunas</h2>
+        <table id="mapa"><thead><tr><th>Coluna no seu arquivo</th><th>Virou</th><th></th></tr></thead><tbody></tbody></table></div>
+      <div class="card"><h2>Tipos de despesa encontrados</h2>
+        <table id="tipos"><thead><tr><th>No arquivo</th><th>Categoria</th></tr></thead><tbody></tbody></table>
+        <div class="src" style="margin-top:12px">Coluna ou tipo não reconhecido? O sistema pergunta em vez de descartar.</div></div>
+    </div>
+  </section>
+
+  <section id="t-us01" class="hidden">
+    <div class="head"><div><span class="tag">US01</span><h1>Quanto a frota <em>custa</em></h1></div>
+      <div class="sub">Tudo o que estava espalhado em notas, extratos e planilhas, somado num lugar só.</div></div>
+    <div class="seg" id="periodos"></div>
+    <div class="grid g4" id="kpis"></div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><h2>Peso de cada categoria</h2><div id="cats"></div></div>
+      <div class="card"><h2>Por mês</h2><div id="meses"></div><div class="src" style="margin-top:14px" id="preench"></div></div>
+    </div>
+  </section>
+
+  <section id="t-us02" class="hidden">
+    <div class="head"><div><span class="tag">US02</span><h1>Estou gastando <em>bem?</em></h1></div>
+      <div class="sub">Com referência pública quando existe; quando não existe, cada veículo contra a mediana dos veículos do mesmo tipo. Nenhum número sem fonte.</div></div>
+    <div class="card">
+      <div class="legend"><span><i style="width:18px;height:8px;background:var(--ink);border-radius:4px;display:inline-block"></i>sua frota</span>
+        <span><i style="width:3px;height:14px;background:var(--brand);display:inline-block"></i>referência</span></div>
+      <div id="bench"></div>
+      <div class="src" style="margin-top:8px" id="limites"></div>
+    </div>
+  </section>
+
+  <section id="t-us03" class="hidden">
+    <div class="head"><div><span class="tag">US03</span><h1>Onde agir <em>primeiro</em></h1></div>
+      <div class="sub">Economia potencial por ano, da maior para a menor. Clique numa barra para ver a conta.</div></div>
+    <div class="grid g4" id="ekpis"></div>
+    <div class="card" style="margin-top:16px"><h2>Economia potencial anual · cenário realista</h2>
+      <div id="rank"></div><div id="explica" class="explain"></div></div>
+  </section>
+</main>
+<footer>Protótipo de tela · Fleet Force · Sprint 1 · valores de uma frota fictícia de demonstração</footer>
+
+<script>
+const D = {"origem_dados": "dados de demonstração (frota fictícia)", "importacao": {"linhas": 3944, "classificadas": 3944, "sem_categoria": 0, "mapa_colunas": {"data": "Data/Hora", "placa": "Placa", "tipo": "Tipo de despesa", "descricao": "Descricao", "litros": "Qtd (L)", "km": "Km", "valor": "Valor (R$)"}, "colunas_nao_reconhecidas": [], "veiculos_no_cadastro": 40}, "us01": {"periodo": ["07/2026", "08/2026", "09/2026"], "total": 1550632.84, "total_mensal_medio": 516877.61, "n_veiculos": 40, "custo_por_veiculo_mes": 12921.94, "km": 481098, "custo_por_km": 3.22, "categorias": [{"categoria": "combustivel", "nome": "Combustível", "valor": 960525.83, "pct": 61.94, "status": "informado"}, {"categoria": "pedagio", "nome": "Pedágio", "valor": 63707.0, "pct": 4.11, "status": "informado"}, {"categoria": "estacionamento", "nome": "Estacionamento", "valor": 15696.57, "pct": 1.01, "status": "informado"}, {"categoria": "manutencao", "nome": "Manutenção", "valor": 218797.19, "pct": 14.11, "status": "informado"}, {"categoria": "pneus", "nome": "Pneus", "valor": 112327.78, "pct": 7.24, "status": "informado"}, {"categoria": "seguro", "nome": "Seguro", "valor": 102000.0, "pct": 6.58, "status": "informado"}, {"categoria": "ipva", "nome": "IPVA/licenciamento", "valor": 73800.24, "pct": 4.76, "status": "informado"}, {"categoria": "multas", "nome": "Multas", "valor": 3778.23, "pct": 0.24, "status": "informado"}], "por_tipo": [{"tipo": "caminhao", "nome": "caminhão", "n_veiculos": 16, "total": 1193810.33, "custo_por_veiculo_mes": 24871.05, "custo_por_km": 4.72}, {"tipo": "van", "nome": "van", "n_veiculos": 12, "total": 244519.1, "custo_por_veiculo_mes": 6792.2, "custo_por_km": 1.88}, {"tipo": "carro", "nome": "carro", "n_veiculos": 12, "total": 112303.41, "custo_por_veiculo_mes": 3119.54, "custo_por_km": 1.15}], "categorias_preenchidas": 8, "total_por_mes": {"07/2026": 521578.32, "08/2026": 527866.74, "09/2026": 501187.78}}, "us02": {"versao_referencias": "2026-10-12.1", "limites": {"_regra": "diferenca % acima da referencia: ate eficiente_ate = eficiente; ate atencao_ate = atencao; acima = critico", "eficiente_ate": 5.0, "atencao_ate": 15.0}, "comparacoes": [{"id": "combustivel_preco", "categoria": "combustivel", "indicador": "R$ por litro, por combustível", "comparacao_txt": "diesel R$ 8,49 x R$ 7,32 · gasolina R$ 6,64 x R$ 6,36 · etanol R$ 4,01 x R$ 3,86", "por_combustivel": [{"combustivel": "diesel_s10", "nome": "diesel", "litros": 106385.3, "pago": 8.49, "anp": 7.32, "diferenca_pct": 15.9}, {"combustivel": "gasolina", "nome": "gasolina", "litros": 6517.2, "pago": 6.64, "anp": 6.36, "diferenca_pct": 4.4}, {"combustivel": "etanol", "nome": "etanol", "litros": 3614.7, "pago": 4.01, "anp": 3.86, "diferenca_pct": 4.0}], "cliente": 960525.83, "referencia": 834142.53, "custo_cliente": 960525.83, "custo_referencia": 834142.53, "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)", "periodo_fonte": "04/10/2026 a 10/10/2026", "diferenca_rs": 126383.3, "diferenca_pct": 15.15, "classificacao": "critico", "nome": "Combustível: preço", "tipo_referencia": "publica"}, {"id": "etanol_gasolina", "categoria": "combustivel", "indicador": "gasolina x etanol nos flex", "comparacao_txt": "etanol a 61% da gasolina (compensa abaixo de 70%)", "detalhe": "6.517 l de gasolina em carros flex", "cliente": 41449.39, "referencia": 35937.7, "custo_cliente": 41449.39, "custo_referencia": 35937.7, "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal) · rendimento do etanol: regra prática de mercado: o etanol rende cerca de 70% da gasolina por litro", "periodo_fonte": "04/10/2026 a 10/10/2026", "diferenca_rs": 5511.69, "diferenca_pct": 15.34, "classificacao": "critico", "nome": "Flex: etanol x gasolina", "tipo_referencia": "publica"}, {"id": "combustivel_consumo", "categoria": "combustivel", "nome": "Combustível: consumo", "indicador": "km por litro (equivalente)", "tipo_referencia": "frota", "medianas": {"caminhao": 2.9, "van": 8.23, "carro": 11.29}, "custo_cliente": 177112.41, "custo_referencia": 145616.32, "diferenca_rs": 31496.09, "diferenca_pct": 21.63, "classificacao": "critico", "veiculos_acima": [{"placa": "DEM0C01", "tipo": "caminhao", "valor": 2.3, "diferenca_pct": 25.9, "diferenca_rs": 10017.83, "classificacao": "critico"}, {"placa": "DEM1C03", "tipo": "caminhao", "valor": 2.36, "diferenca_pct": 22.8, "diferenca_rs": 9522.58, "classificacao": "critico"}, {"placa": "DEM0C02", "tipo": "caminhao", "valor": 2.47, "diferenca_pct": 17.3, "diferenca_rs": 6555.55, "classificacao": "critico"}, {"placa": "DEM0V06", "tipo": "van", "valor": 6.88, "diferenca_pct": 19.5, "diferenca_rs": 2016.46, "classificacao": "critico"}, {"placa": "DEM0V05", "tipo": "van", "valor": 7.31, "diferenca_pct": 12.5, "diferenca_rs": 1161.08, "classificacao": "atencao"}, {"placa": "DEM1F01", "tipo": "carro", "valor": 8.75, "diferenca_pct": 29.1, "diferenca_rs": 1116.03, "classificacao": "critico"}, {"placa": "DEM0F08", "tipo": "carro", "valor": 8.79, "diferenca_pct": 28.5, "diferenca_rs": 1106.56, "classificacao": "critico"}], "grupos_sem_referencia": [], "detalhe": "7 de 40 veículos acima da mediana do seu tipo", "comparacao_txt": "mediana caminhão 2,9 km/l · van 8,2 km/l · carro 11,3 km/l", "fonte": "Mediana da própria frota, por tipo de veículo", "periodo_fonte": "40 veículos, comparados só com o mesmo tipo"}, {"id": "manutencao", "categoria": "manutencao", "nome": "Manutenção", "indicador": "R$ por km", "tipo_referencia": "frota", "medianas": {"caminhao": 0.61, "van": 0.22, "carro": 0.12}, "custo_cliente": 78090.25, "custo_referencia": 51132.68, "diferenca_rs": 26957.57, "diferenca_pct": 52.72, "classificacao": "critico", "veiculos_acima": [{"placa": "DEM1C01", "tipo": "caminhao", "valor": 1.24, "diferenca_pct": 103.9, "diferenca_rs": 10525.41, "classificacao": "critico"}, {"placa": "DEM0C08", "tipo": "caminhao", "valor": 1.16, "diferenca_pct": 90.9, "diferenca_rs": 9306.22, "classificacao": "critico"}, {"placa": "DEM0V08", "tipo": "van", "valor": 0.47, "diferenca_pct": 110.6, "diferenca_rs": 2844.72, "classificacao": "critico"}, {"placa": "DEM0V03", "tipo": "van", "valor": 0.4, "diferenca_pct": 77.4, "diferenca_rs": 1769.07, "classificacao": "critico"}, {"placa": "DEM0F01", "tipo": "carro", "valor": 0.23, "diferenca_pct": 95.7, "diferenca_rs": 944.88, "classificacao": "critico"}, {"placa": "DEM1C04", "tipo": "caminhao", "valor": 0.65, "diferenca_pct": 6.1, "diferenca_rs": 560.68, "classificacao": "atencao"}, {"placa": "DEM0C02", "tipo": "caminhao", "valor": 0.64, "diferenca_pct": 5.9, "diferenca_rs": 542.07, "classificacao": "atencao"}, {"placa": "DEM0V00", "tipo": "van", "valor": 0.24, "diferenca_pct": 8.4, "diferenca_rs": 199.34, "classificacao": "atencao"}, {"placa": "DEM0V02", "tipo": "van", "valor": 0.24, "diferenca_pct": 6.3, "diferenca_rs": 148.6, "classificacao": "atencao"}, {"placa": "DEM0F04", "tipo": "carro", "valor": 0.12, "diferenca_pct": 6.8, "diferenca_rs": 65.75, "classificacao": "atencao"}, {"placa": "DEM0F08", "tipo": "carro", "valor": 0.12, "diferenca_pct": 5.5, "diferenca_rs": 50.83, "classificacao": "atencao"}], "grupos_sem_referencia": [], "detalhe": "11 de 40 veículos acima da mediana do seu tipo", "comparacao_txt": "mediana caminhão R$ 0,61/km · van R$ 0,22/km · carro R$ 0,12/km", "fonte": "Mediana da própria frota, por tipo de veículo", "periodo_fonte": "40 veículos, comparados só com o mesmo tipo"}, {"id": "pneus", "categoria": "pneus", "nome": "Pneus", "indicador": "R$ por km", "tipo_referencia": "frota", "medianas": {"caminhao": 0.35, "van": 0.09, "carro": 0.04}, "custo_cliente": 33631.38, "custo_referencia": 24609.56, "diferenca_rs": 9021.82, "diferenca_pct": 36.66, "classificacao": "critico", "veiculos_acima": [{"placa": "DEM0C05", "tipo": "caminhao", "valor": 0.61, "diferenca_pct": 72.7, "diferenca_rs": 3896.29, "classificacao": "critico"}, {"placa": "DEM1C02", "tipo": "caminhao", "valor": 0.57, "diferenca_pct": 62.4, "diferenca_rs": 3475.94, "classificacao": "critico"}, {"placa": "DEM1V00", "tipo": "van", "valor": 0.15, "diferenca_pct": 57.3, "diferenca_rs": 578.72, "classificacao": "critico"}, {"placa": "DEM0C01", "tipo": "caminhao", "valor": 0.38, "diferenca_pct": 7.3, "diferenca_rs": 395.21, "classificacao": "atencao"}, {"placa": "DEM1C04", "tipo": "caminhao", "valor": 0.38, "diferenca_pct": 6.4, "diferenca_rs": 340.12, "classificacao": "atencao"}, {"placa": "DEM0F03", "tipo": "carro", "valor": 0.07, "diferenca_pct": 74.4, "diferenca_rs": 233.66, "classificacao": "critico"}, {"placa": "DEM0V05", "tipo": "van", "valor": 0.1, "diferenca_pct": 5.7, "diferenca_rs": 55.65, "classificacao": "atencao"}, {"placa": "DEM0F06", "tipo": "carro", "valor": 0.04, "diferenca_pct": 8.5, "diferenca_rs": 25.91, "classificacao": "atencao"}, {"placa": "DEM0F09", "tipo": "carro", "valor": 0.04, "diferenca_pct": 6.0, "diferenca_rs": 20.32, "classificacao": "atencao"}], "grupos_sem_referencia": [], "detalhe": "9 de 40 veículos acima da mediana do seu tipo", "comparacao_txt": "mediana caminhão R$ 0,35/km · van R$ 0,09/km · carro R$ 0,04/km", "fonte": "Mediana da própria frota, por tipo de veículo", "periodo_fonte": "40 veículos, comparados só com o mesmo tipo"}, {"id": "pedagio", "categoria": "pedagio", "indicador": "cobrado x devido", "comparacao_txt": "R$ 63.707,00 cobrado x R$ 59.983,50 devido", "cliente": 63707.0, "referencia": 59983.5, "custo_cliente": 63707.0, "custo_referencia": 59983.5, "detalhe": "133 passagens cobradas em duplicidade", "fonte": "Conferência do extrato: cada passagem cobrada uma vez", "periodo_fonte": "extrato do cliente", "diferenca_rs": 3723.5, "diferenca_pct": 6.21, "classificacao": "atencao", "nome": "Pedágio", "tipo_referencia": "publica"}, {"id": "ipva", "categoria": "ipva", "indicador": "pago x alíquota legal", "comparacao_txt": "R$ 73.800,24 pago x R$ 73.800,24 pela alíquota", "cliente": 73800.24, "referencia": 73800.24, "custo_cliente": 73800.24, "custo_referencia": 73800.24, "fonte": "Lei estadual SP 13.296/2008, art. 9º", "periodo_fonte": "vigente", "diferenca_rs": 0.0, "diferenca_pct": 0.0, "classificacao": "eficiente", "nome": "IPVA/licenciamento", "tipo_referencia": "publica"}, {"categoria": "estacionamento", "nome": "Estacionamento", "classificacao": "sem referencia disponivel"}, {"categoria": "seguro", "nome": "Seguro", "classificacao": "sem referencia disponivel"}, {"categoria": "multas", "nome": "Multas", "classificacao": "sem referencia disponivel"}]}, "us03": {"cenarios": {"conservador": 0.5, "realista": 0.8}, "ranking": [{"id": "combustivel_preco", "categoria": "combustivel", "nome": "Combustível: preço", "tipo_referencia": "publica", "acao": "Negociar preço com a rede de postos e controlar onde a frota abastece", "veiculos": [], "diferenca_mensal": 42127.77, "formula": "max(0, custo cliente − referência); diferença no período R$ 126.383,30 ÷ 3 meses × cenário", "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)", "conservador_mensal": 21063.88, "realista_mensal": 33702.21, "conservador_anual": 252766.6, "realista_anual": 404426.56}, {"id": "combustivel_consumo", "categoria": "combustivel", "nome": "Combustível: consumo", "tipo_referencia": "frota", "acao": "Revisar rota, carga e condução dos veículos com pior consumo do seu tipo e checar o motor deles", "veiculos": ["DEM0C01", "DEM1C03", "DEM0C02", "DEM0V06", "DEM0V05", "DEM1F01", "DEM0F08"], "diferenca_mensal": 10498.7, "formula": "litros a mais do que o veículo gastaria no consumo mediano do seu tipo × melhor preço ANP (o preço acima da ANP e a troca de combustível já estão nos outros itens); diferença no período R$ 31.496,09 ÷ 3 meses × cenário", "fonte": "Mediana da própria frota, por tipo de veículo", "conservador_mensal": 5249.35, "realista_mensal": 8398.96, "conservador_anual": 62992.18, "realista_anual": 100787.49}, {"id": "manutencao", "categoria": "manutencao", "nome": "Manutenção", "tipo_referencia": "frota", "acao": "Trocar conserto corretivo por preventivo nos veículos que mais custam por km e avaliar a renovação", "veiculos": ["DEM1C01", "DEM0C08", "DEM0V08", "DEM0V03", "DEM0F01", "DEM1C04", "DEM0C02", "DEM0V00", "DEM0V02", "DEM0F04", "DEM0F08"], "diferenca_mensal": 8985.86, "formula": "custo do veículo − km × custo por km mediano do seu tipo, só nos veículos acima do limite; diferença no período R$ 26.957,57 ÷ 3 meses × cenário", "fonte": "Mediana da própria frota, por tipo de veículo", "conservador_mensal": 4492.93, "realista_mensal": 7188.69, "conservador_anual": 53915.14, "realista_anual": 86264.22}, {"id": "pneus", "categoria": "pneus", "nome": "Pneus", "tipo_referencia": "frota", "acao": "Calibragem, alinhamento e rodízio nos veículos que gastam mais pneu por km", "veiculos": ["DEM0C05", "DEM1C02", "DEM1V00", "DEM0C01", "DEM1C04", "DEM0F03", "DEM0V05", "DEM0F06", "DEM0F09"], "diferenca_mensal": 3007.27, "formula": "custo do veículo − km × custo por km mediano do seu tipo, só nos veículos acima do limite; diferença no período R$ 9.021,82 ÷ 3 meses × cenário", "fonte": "Mediana da própria frota, por tipo de veículo", "conservador_mensal": 1503.64, "realista_mensal": 2405.82, "conservador_anual": 18043.64, "realista_anual": 28869.82}, {"id": "etanol_gasolina", "categoria": "combustivel", "nome": "Flex: etanol x gasolina", "tipo_referencia": "publica", "acao": "Abastecer os carros flex com etanol enquanto ele custar menos de 70% da gasolina", "veiculos": [], "diferenca_mensal": 1837.23, "formula": "litros de gasolina nos flex × preço ANP da gasolina − os mesmos km com etanol (litros ÷ rendimento) × preço ANP do etanol; diferença no período R$ 5.511,69 ÷ 3 meses × cenário", "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal) · rendimento do etanol: regra prática de mercado: o etanol rende cerca de 70% da gasolina por litro", "conservador_mensal": 918.61, "realista_mensal": 1469.78, "conservador_anual": 11023.38, "realista_anual": 17637.41}, {"id": "pedagio", "categoria": "pedagio", "nome": "Pedágio", "tipo_referencia": "publica", "acao": "Contestar as cobranças em dobro e conferir o extrato todo mês", "veiculos": [], "diferenca_mensal": 1241.17, "formula": "max(0, custo cliente − referência); diferença no período R$ 3.723,50 ÷ 3 meses × cenário", "fonte": "Conferência do extrato: cada passagem cobrada uma vez", "conservador_mensal": 620.58, "realista_mensal": 992.93, "conservador_anual": 7447.0, "realista_anual": 11915.2}, {"id": "ipva", "categoria": "ipva", "nome": "IPVA/licenciamento", "tipo_referencia": "publica", "acao": "Nada a fazer: pago na alíquota correta", "veiculos": [], "diferenca_mensal": 0.0, "formula": "max(0, custo cliente − referência); diferença no período R$ 0,00 ÷ 3 meses × cenário", "fonte": "Lei estadual SP 13.296/2008, art. 9º", "conservador_mensal": 0.0, "realista_mensal": 0.0, "conservador_anual": 0.0, "realista_anual": 0.0}], "totais": {"conservador_mensal": 33848.99, "conservador_anual": 406187.94, "realista_mensal": 54158.39, "realista_anual": 649900.7}}, "ociosidade_simulada": {"origem": "simulado (ESP32 no Wokwi)", "veiculo": "DEM0C00", "eventos": 132, "horas_ociosas": 43.2, "litros_estimados": 130.8, "custo_estimado": 957.42, "eventos_conducao_brusca": 28, "km": 5720, "bruscos_por_100km": 0.5, "excesso_velocidade": 2, "abastecimentos_fora_da_rota": 1, "sensores": "acelerômetro MPU6050 + GPS NEO-6M", "regra_ocioso": "ignição ligada e GPS a 0 km/h", "formula": "horas ociosas × consumo parado (l/h) × preço ANP", "fonte_consumo": "US DOE/Argonne National Laboratory (AFDC, 2015)", "fora_do_total": true}, "us01_por_periodo": {"todos": {"periodo": ["07/2026", "08/2026", "09/2026"], "total": 1550632.84, "total_mensal_medio": 516877.61, "n_veiculos": 40, "custo_por_veiculo_mes": 12921.94, "km": 481098, "custo_por_km": 3.22, "categorias": [{"categoria": "combustivel", "nome": "Combustível", "valor": 960525.83, "pct": 61.94, "status": "informado"}, {"categoria": "pedagio", "nome": "Pedágio", "valor": 63707.0, "pct": 4.11, "status": "informado"}, {"categoria": "estacionamento", "nome": "Estacionamento", "valor": 15696.57, "pct": 1.01, "status": "informado"}, {"categoria": "manutencao", "nome": "Manutenção", "valor": 218797.19, "pct": 14.11, "status": "informado"}, {"categoria": "pneus", "nome": "Pneus", "valor": 112327.78, "pct": 7.24, "status": "informado"}, {"categoria": "seguro", "nome": "Seguro", "valor": 102000.0, "pct": 6.58, "status": "informado"}, {"categoria": "ipva", "nome": "IPVA/licenciamento", "valor": 73800.24, "pct": 4.76, "status": "informado"}, {"categoria": "multas", "nome": "Multas", "valor": 3778.23, "pct": 0.24, "status": "informado"}], "por_tipo": [{"tipo": "caminhao", "nome": "caminhão", "n_veiculos": 16, "total": 1193810.33, "custo_por_veiculo_mes": 24871.05, "custo_por_km": 4.72}, {"tipo": "van", "nome": "van", "n_veiculos": 12, "total": 244519.1, "custo_por_veiculo_mes": 6792.2, "custo_por_km": 1.88}, {"tipo": "carro", "nome": "carro", "n_veiculos": 12, "total": 112303.41, "custo_por_veiculo_mes": 3119.54, "custo_por_km": 1.15}], "categorias_preenchidas": 8}, "07/2026": {"periodo": ["07/2026"], "total": 521578.32, "total_mensal_medio": 521578.32, "n_veiculos": 40, "custo_por_veiculo_mes": 13039.46, "km": 163524, "custo_por_km": 3.19, "categorias": [{"categoria": "combustivel", "nome": "Combustível", "valor": 322925.68, "pct": 61.91, "status": "informado"}, {"categoria": "pedagio", "nome": "Pedágio", "valor": 21154.6, "pct": 4.06, "status": "informado"}, {"categoria": "estacionamento", "nome": "Estacionamento", "valor": 4719.01, "pct": 0.9, "status": "informado"}, {"categoria": "manutencao", "nome": "Manutenção", "valor": 74996.22, "pct": 14.38, "status": "informado"}, {"categoria": "pneus", "nome": "Pneus", "valor": 37716.63, "pct": 7.23, "status": "informado"}, {"categoria": "seguro", "nome": "Seguro", "valor": 34000.0, "pct": 6.52, "status": "informado"}, {"categoria": "ipva", "nome": "IPVA/licenciamento", "valor": 24600.08, "pct": 4.72, "status": "informado"}, {"categoria": "multas", "nome": "Multas", "valor": 1466.1, "pct": 0.28, "status": "informado"}], "por_tipo": [{"tipo": "caminhao", "nome": "caminhão", "n_veiculos": 16, "total": 400095.83, "custo_por_veiculo_mes": 25005.99, "custo_por_km": 4.68}, {"tipo": "van", "nome": "van", "n_veiculos": 12, "total": 83481.66, "custo_por_veiculo_mes": 6956.81, "custo_por_km": 1.85}, {"tipo": "carro", "nome": "carro", "n_veiculos": 12, "total": 38000.83, "custo_por_veiculo_mes": 3166.74, "custo_por_km": 1.15}], "categorias_preenchidas": 8}, "08/2026": {"periodo": ["08/2026"], "total": 527866.74, "total_mensal_medio": 527866.74, "n_veiculos": 40, "custo_por_veiculo_mes": 13196.67, "km": 159948, "custo_por_km": 3.3, "categorias": [{"categoria": "combustivel", "nome": "Combustível", "valor": 327683.63, "pct": 62.08, "status": "informado"}, {"categoria": "pedagio", "nome": "Pedágio", "valor": 21429.4, "pct": 4.06, "status": "informado"}, {"categoria": "estacionamento", "nome": "Estacionamento", "valor": 6191.38, "pct": 1.17, "status": "informado"}, {"categoria": "manutencao", "nome": "Manutenção", "valor": 74147.76, "pct": 14.05, "status": "informado"}, {"categoria": "pneus", "nome": "Pneus", "valor": 39195.63, "pct": 7.43, "status": "informado"}, {"categoria": "seguro", "nome": "Seguro", "valor": 34000.0, "pct": 6.44, "status": "informado"}, {"categoria": "ipva", "nome": "IPVA/licenciamento", "valor": 24600.08, "pct": 4.66, "status": "informado"}, {"categoria": "multas", "nome": "Multas", "valor": 618.86, "pct": 0.12, "status": "informado"}], "por_tipo": [{"tipo": "caminhao", "nome": "caminhão", "n_veiculos": 16, "total": 410959.27, "custo_por_veiculo_mes": 25684.95, "custo_por_km": 4.77}, {"tipo": "van", "nome": "van", "n_veiculos": 12, "total": 80273.7, "custo_por_veiculo_mes": 6689.47, "custo_por_km": 1.87}, {"tipo": "carro", "nome": "carro", "n_veiculos": 12, "total": 36633.77, "custo_por_veiculo_mes": 3052.81, "custo_por_km": 1.19}], "categorias_preenchidas": 8}, "09/2026": {"periodo": ["09/2026"], "total": 501187.78, "total_mensal_medio": 501187.78, "n_veiculos": 40, "custo_por_veiculo_mes": 12529.69, "km": 157626, "custo_por_km": 3.18, "categorias": [{"categoria": "combustivel", "nome": "Combustível", "valor": 309916.52, "pct": 61.84, "status": "informado"}, {"categoria": "pedagio", "nome": "Pedágio", "valor": 21123.0, "pct": 4.21, "status": "informado"}, {"categoria": "estacionamento", "nome": "Estacionamento", "valor": 4786.18, "pct": 0.95, "status": "informado"}, {"categoria": "manutencao", "nome": "Manutenção", "valor": 69653.21, "pct": 13.9, "status": "informado"}, {"categoria": "pneus", "nome": "Pneus", "valor": 35415.52, "pct": 7.07, "status": "informado"}, {"categoria": "seguro", "nome": "Seguro", "valor": 34000.0, "pct": 6.78, "status": "informado"}, {"categoria": "ipva", "nome": "IPVA/licenciamento", "valor": 24600.08, "pct": 4.91, "status": "informado"}, {"categoria": "multas", "nome": "Multas", "valor": 1693.27, "pct": 0.34, "status": "informado"}], "por_tipo": [{"tipo": "caminhao", "nome": "caminhão", "n_veiculos": 16, "total": 382755.23, "custo_por_veiculo_mes": 23922.2, "custo_por_km": 4.71}, {"tipo": "van", "nome": "van", "n_veiculos": 12, "total": 80763.74, "custo_por_veiculo_mes": 6730.31, "custo_por_km": 1.9}, {"tipo": "carro", "nome": "carro", "n_veiculos": 12, "total": 37668.81, "custo_por_veiculo_mes": 3139.07, "custo_por_km": 1.11}], "categorias_preenchidas": 8}}, "total_por_mes": {"07/2026": 521578.32, "08/2026": 527866.74, "09/2026": 501187.78}, "tipos": [["Abastecimento", "Combustível"], ["Estac.", "Estacionamento"], ["IPVA/Licenc.", "IPVA/licenciamento"], ["Oficina", "Manutenção"], ["Infracao", "Multas"], ["Tag pedagio", "Pedágio"], ["Pneus", "Pneus"], ["Seguro frota", "Seguro"]], "consumo_ocioso": 3.03, "preco_anp": 7.32};
+const brl = v => v == null ? "—" : v.toLocaleString("pt-BR", {style: "currency", currency: "BRL", maximumFractionDigits: 0});
+const brl2 = v => v.toLocaleString("pt-BR", {style: "currency", currency: "BRL"});
+const pct = v => (v > 0 ? "+" : "") + v.toLocaleString("pt-BR", {maximumFractionDigits: 1}) + "%";
+const nf = v => v.toLocaleString("pt-BR");
+const $ = s => document.querySelector(s);
+const ic = id => `<svg class="i"><use href="#i-${id}"/></svg>`;
+const ROTULO = {eficiente: "eficiente", atencao: "atenção", critico: "crítico",
+  "sem referencia disponivel": "sem referência (Sprint 3)", "sem dado para comparar": "sem dado"};
+const CAMPO = {data: "Data", placa: "Placa do veículo", tipo: "Categoria da despesa", descricao: "Descrição",
+  litros: "Litros", km: "Quilometragem", valor: "Valor (R$)"};
+const kpi = (k, hero) => `<div class="card kpi${hero ? " hero" : ""}"><div class="lbl">${ic(k[3])}${k[0]}</div><div class="val">${k[1]}</div><div class="note">${k[2]}</div></div>`;
+
+$("#nlin").textContent = nf(D.importacao.linhas);
+$("#ncls").textContent = nf(D.importacao.classificadas);
+$("#mapa tbody").innerHTML = Object.entries(D.importacao.mapa_colunas).map(([k, col]) =>
+  `<tr><td>${col}</td><td><b>${CAMPO[k]}</b></td><td class="check">✓</td></tr>`).join("");
+$("#tipos tbody").innerHTML = D.tipos.map(t => `<tr><td>${t[0]}</td><td><b>${t[1]}</b></td></tr>`).join("");
+
+function us01(chave) {
+  const u = D.us01_por_periodo[chave];
+  $("#kpis").innerHTML = [
+    ["Custo total do período", brl(u.total), u.periodo.length > 1 ? `${u.periodo[0]} a ${u.periodo.at(-1)}` : u.periodo[0], "wallet"],
+    ["Média por mês", brl(u.total_mensal_medio), "todas as categorias", "cal"],
+    ["Por veículo / mês", brl(u.custo_por_veiculo_mes), u.por_tipo.map(t => `${t.n_veiculos} ${{caminhao: "caminhões", van: "vans", carro: "carros"}[t.tipo]}`).join(" · "), "truck"],
+    ["Custo por km", brl2(u.custo_por_km), `${nf(u.km)} km rodados`, "road"],
+  ].map((k, i) => kpi(k, i === 0)).join("");
+  const cats = [...u.categorias].sort((a, b) => (b.valor || 0) - (a.valor || 0));
+  const max = cats[0].valor;
+  $("#cats").innerHTML = cats.map(c => `<div class="bar-row"><div>${c.nome}</div>
+    <div class="bar"><i style="width:${100 * (c.valor || 0) / max}%"></i></div>
+    <div class="num">${c.valor == null ? '<span class="muted">não informado</span>' : brl(c.valor)}</div>
+    <div class="num muted">${c.pct == null ? "" : nf(Math.round(c.pct * 10) / 10) + "%"}</div></div>`).join("");
+  const tm = D.total_por_mes, mmax = Math.max(...Object.values(tm));
+  $("#meses").innerHTML = Object.entries(tm).map(([m, v]) => `<div class="bar-row" style="grid-template-columns:70px 1fr 110px">
+    <div>${m}</div><div class="bar"><i style="width:${100 * v / mmax}%;background:var(--ink)"></i></div><div class="num">${brl(v)}</div></div>`).join("");
+  $("#preench").textContent = `${u.categorias_preenchidas} de 8 categorias preenchidas. Categoria sem dado aparece como "não informado", nunca como zero.`;
+  document.querySelectorAll("#periodos button").forEach(b => b.classList.toggle("on", b.dataset.k === chave));
+}
+$("#periodos").innerHTML = Object.keys(D.us01_por_periodo).map(k =>
+  `<button data-k="${k}">${k === "todos" ? "Trimestre (jul–set)" : k}</button>`).join("");
+document.querySelectorAll("#periodos button").forEach(b => b.onclick = () => us01(b.dataset.k));
+us01("todos");
+
+const semRef = D.us02.comparacoes.filter(c => c.diferenca_pct == null);
+$("#bench").innerHTML = D.us02.comparacoes.filter(c => c.diferenca_pct != null).map(c => {
+  const escala = Math.max(c.custo_cliente, c.custo_referencia) * 1.08;
+  const unit = c.comparacao_txt;
+  const placas = (c.veiculos_acima || []).slice(0, 3).map(a => `${a.placa} ${pct(a.diferenca_pct)}`).join(" · ");
+  return `<div class="bench-row"><div><div class="nm">${c.nome}</div><div class="src">${c.detalhe || c.indicador}${placas ? "<br>" + placas + (c.veiculos_acima.length > 3 ? " …" : "") : ""}</div></div>
+    <div><div class="bullet"><div class="track"></div><div class="val" style="width:${100 * c.custo_cliente / escala}%"></div>
+      <div class="ref" style="left:${100 * c.custo_referencia / escala}%"></div></div><div class="src">${unit}</div></div>
+    <div><div class="dif">${pct(c.diferenca_pct)}</div><div class="src" style="text-align:right">${brl(c.diferenca_rs)} no período</div></div>
+    <div><span class="pill p-${c.classificacao}">${ROTULO[c.classificacao]}</span></div>
+    <div class="src">${c.fonte}<br>${c.periodo_fonte}</div></div>`;
+}).join("") + (semRef.length ? `<div class="bench-row"><div class="nm" style="font-weight:500;color:var(--text)">${semRef.map(c => c.nome).join(", ")}</div>
+    <div class="src">ainda sem referência pública; aparecem como "sem referência", nunca como eficiente</div><div></div>
+    <div><span class="pill p-none">Sprint 3</span></div><div></div></div>` : "");
+const L = D.us02.limites;
+$("#limites").textContent = `Regra configurável: até ${L.eficiente_ate}% acima = eficiente · até ${L.atencao_ate}% = atenção · acima = crítico. Versão das referências: ${D.us02.versao_referencias}.`;
+
+const T = D.us03.totais, O = D.ociosidade_simulada;
+$("#ekpis").innerHTML = [
+  ["Economia anual · realista", brl(T.realista_anual), `${D.us03.cenarios.realista * 100}% da diferença`, "trend"],
+  ["Economia anual · conservador", brl(T.conservador_anual), `${D.us03.cenarios.conservador * 100}% da diferença`, "coins"],
+  ["Por mês · realista", brl(T.realista_mensal), "categorias com referência", "cal"],
+  ["Motor ligado parado", brl(O.custo_estimado) + "/mês", `1 veículo · ${nf(O.horas_ociosas)} h · simulado`, "gauge"],
+].map((k, i) => kpi(k, i === 0)).join("");
+const R = D.us03.ranking.filter(i => i.realista_anual > 0);
+const rmax = R[0].realista_anual;
+$("#rank").innerHTML = R.map((i, n) => `<div class="bar-row rank-row" data-n="${n}" style="grid-template-columns:140px 1fr 120px 48px"><div><b>${i.nome}</b></div>
+  <div class="bar" style="height:14px"><i style="width:${100 * i.realista_anual / rmax}%"></i></div>
+  <div class="num"><b>${brl(i.realista_anual)}</b></div><div class="num muted">#${n + 1}</div></div>`).join("") +
+  `<div class="bar-row rank-row" data-n="sim" style="grid-template-columns:140px 1fr 120px 48px"><div>Ociosidade<span class="sim-tag">SIMULADO</span></div>
+  <div class="bar sim" style="height:14px"><i style="width:${Math.max(2, 100 * O.custo_estimado * 12 / rmax)}%"></i></div>
+  <div class="num muted">${brl(O.custo_estimado * 12)}</div><div class="num muted">fora</div></div>`;
+document.querySelectorAll(".rank-row").forEach(r => r.onclick = () => {
+  if (r.dataset.n === "sim") {
+    $("#explica").innerHTML = `<b>Ociosidade (simulado, ESP32 no Wokwi, veículo ${O.veiculo})</b><br>
+      ${nf(O.horas_ociosas)} h de motor ligado parado × ${nf(D.consumo_ocioso)} l/h × ${brl2(D.preco_anp)}/l = <b>${brl2(O.custo_estimado)}</b> no mês.<br>
+      <span class="src">Consumo parado: ${O.fonte_consumo}. Fora do total porque é simulado.</span>`;
+    return;
+  }
+  const i = R[+r.dataset.n];
+  $("#explica").innerHTML = `<b>Como chegamos em ${brl(i.realista_anual)} · ${i.nome}</b><br>${i.formula}<br>
+    <b>O que fazer:</b> ${i.acao}${i.veiculos.length ? ` · veículos: ${i.veiculos.join(", ")}` : ""}<br>
+    Diferença média por mês ${brl2(i.diferenca_mensal)} × ${D.us03.cenarios.realista * 100}% × 12 = <b>${brl2(i.realista_anual)}</b> · conservador: ${brl2(i.conservador_anual)}<br>
+    <span class="src">Fonte da referência: ${i.fonte}</span>`;
+});
+// ?item=N abre a conta de outra barra (usado nas capturas do deck)
+document.querySelector(`.rank-row[data-n="${new URLSearchParams(location.search).get("item") || 0}"]`).click();
+
+function aba() {
+  const t = (location.hash || "#importar").slice(1);
+  ["importar", "us01", "us02", "us03"].forEach(x => $("#t-" + x).classList.toggle("hidden", x !== t));
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.t === t));
+}
+window.onhashchange = aba; aba();
+</script>
+</body>
+</html>

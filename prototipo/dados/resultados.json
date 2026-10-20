@@ -1,0 +1,698 @@
+{
+  "origem_dados": "dados de demonstração (frota fictícia)",
+  "importacao": {
+    "linhas": 3944,
+    "classificadas": 3944,
+    "sem_categoria": 0,
+    "mapa_colunas": {
+      "data": "Data/Hora",
+      "placa": "Placa",
+      "tipo": "Tipo de despesa",
+      "descricao": "Descricao",
+      "litros": "Qtd (L)",
+      "km": "Km",
+      "valor": "Valor (R$)"
+    },
+    "colunas_nao_reconhecidas": [],
+    "veiculos_no_cadastro": 40
+  },
+  "us01": {
+    "periodo": [
+      "07/2026",
+      "08/2026",
+      "09/2026"
+    ],
+    "total": 1550632.84,
+    "total_mensal_medio": 516877.61,
+    "n_veiculos": 40,
+    "custo_por_veiculo_mes": 12921.94,
+    "km": 481098,
+    "custo_por_km": 3.22,
+    "categorias": [
+      {
+        "categoria": "combustivel",
+        "nome": "Combustível",
+        "valor": 960525.83,
+        "pct": 61.94,
+        "status": "informado"
+      },
+      {
+        "categoria": "pedagio",
+        "nome": "Pedágio",
+        "valor": 63707.0,
+        "pct": 4.11,
+        "status": "informado"
+      },
+      {
+        "categoria": "estacionamento",
+        "nome": "Estacionamento",
+        "valor": 15696.57,
+        "pct": 1.01,
+        "status": "informado"
+      },
+      {
+        "categoria": "manutencao",
+        "nome": "Manutenção",
+        "valor": 218797.19,
+        "pct": 14.11,
+        "status": "informado"
+      },
+      {
+        "categoria": "pneus",
+        "nome": "Pneus",
+        "valor": 112327.78,
+        "pct": 7.24,
+        "status": "informado"
+      },
+      {
+        "categoria": "seguro",
+        "nome": "Seguro",
+        "valor": 102000.0,
+        "pct": 6.58,
+        "status": "informado"
+      },
+      {
+        "categoria": "ipva",
+        "nome": "IPVA/licenciamento",
+        "valor": 73800.24,
+        "pct": 4.76,
+        "status": "informado"
+      },
+      {
+        "categoria": "multas",
+        "nome": "Multas",
+        "valor": 3778.23,
+        "pct": 0.24,
+        "status": "informado"
+      }
+    ],
+    "por_tipo": [
+      {
+        "tipo": "caminhao",
+        "nome": "caminhão",
+        "n_veiculos": 16,
+        "total": 1193810.33,
+        "custo_por_veiculo_mes": 24871.05,
+        "custo_por_km": 4.72
+      },
+      {
+        "tipo": "van",
+        "nome": "van",
+        "n_veiculos": 12,
+        "total": 244519.1,
+        "custo_por_veiculo_mes": 6792.2,
+        "custo_por_km": 1.88
+      },
+      {
+        "tipo": "carro",
+        "nome": "carro",
+        "n_veiculos": 12,
+        "total": 112303.41,
+        "custo_por_veiculo_mes": 3119.54,
+        "custo_por_km": 1.15
+      }
+    ],
+    "categorias_preenchidas": 8,
+    "total_por_mes": {
+      "07/2026": 521578.32,
+      "08/2026": 527866.74,
+      "09/2026": 501187.78
+    }
+  },
+  "us02": {
+    "versao_referencias": "2026-10-12.1",
+    "limites": {
+      "_regra": "diferenca % acima da referencia: ate eficiente_ate = eficiente; ate atencao_ate = atencao; acima = critico",
+      "eficiente_ate": 5.0,
+      "atencao_ate": 15.0
+    },
+    "comparacoes": [
+      {
+        "id": "combustivel_preco",
+        "categoria": "combustivel",
+        "indicador": "R$ por litro, por combustível",
+        "comparacao_txt": "diesel R$ 8,49 x R$ 7,32 · gasolina R$ 6,64 x R$ 6,36 · etanol R$ 4,01 x R$ 3,86",
+        "por_combustivel": [
+          {
+            "combustivel": "diesel_s10",
+            "nome": "diesel",
+            "litros": 106385.3,
+            "pago": 8.49,
+            "anp": 7.32,
+            "diferenca_pct": 15.9
+          },
+          {
+            "combustivel": "gasolina",
+            "nome": "gasolina",
+            "litros": 6517.2,
+            "pago": 6.64,
+            "anp": 6.36,
+            "diferenca_pct": 4.4
+          },
+          {
+            "combustivel": "etanol",
+            "nome": "etanol",
+            "litros": 3614.7,
+            "pago": 4.01,
+            "anp": 3.86,
+            "diferenca_pct": 4.0
+          }
+        ],
+        "cliente": 960525.83,
+        "referencia": 834142.53,
+        "custo_cliente": 960525.83,
+        "custo_referencia": 834142.53,
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)",
+        "periodo_fonte": "04/10/2026 a 10/10/2026",
+        "diferenca_rs": 126383.3,
+        "diferenca_pct": 15.15,
+        "classificacao": "critico",
+        "nome": "Combustível: preço",
+        "tipo_referencia": "publica"
+      },
+      {
+        "id": "etanol_gasolina",
+        "categoria": "combustivel",
+        "indicador": "gasolina x etanol nos flex",
+        "comparacao_txt": "etanol a 61% da gasolina (compensa abaixo de 70%)",
+        "detalhe": "6.517 l de gasolina em carros flex",
+        "cliente": 41449.39,
+        "referencia": 35937.7,
+        "custo_cliente": 41449.39,
+        "custo_referencia": 35937.7,
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal) · rendimento do etanol: regra prática de mercado: o etanol rende cerca de 70% da gasolina por litro",
+        "periodo_fonte": "04/10/2026 a 10/10/2026",
+        "diferenca_rs": 5511.69,
+        "diferenca_pct": 15.34,
+        "classificacao": "critico",
+        "nome": "Flex: etanol x gasolina",
+        "tipo_referencia": "publica"
+      },
+      {
+        "id": "combustivel_consumo",
+        "categoria": "combustivel",
+        "nome": "Combustível: consumo",
+        "indicador": "km por litro (equivalente)",
+        "tipo_referencia": "frota",
+        "medianas": {
+          "caminhao": 2.9,
+          "van": 8.23,
+          "carro": 11.29
+        },
+        "custo_cliente": 177112.41,
+        "custo_referencia": 145616.32,
+        "diferenca_rs": 31496.09,
+        "diferenca_pct": 21.63,
+        "classificacao": "critico",
+        "veiculos_acima": [
+          {
+            "placa": "DEM0C01",
+            "tipo": "caminhao",
+            "valor": 2.3,
+            "diferenca_pct": 25.9,
+            "diferenca_rs": 10017.83,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM1C03",
+            "tipo": "caminhao",
+            "valor": 2.36,
+            "diferenca_pct": 22.8,
+            "diferenca_rs": 9522.58,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0C02",
+            "tipo": "caminhao",
+            "valor": 2.47,
+            "diferenca_pct": 17.3,
+            "diferenca_rs": 6555.55,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0V06",
+            "tipo": "van",
+            "valor": 6.88,
+            "diferenca_pct": 19.5,
+            "diferenca_rs": 2016.46,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0V05",
+            "tipo": "van",
+            "valor": 7.31,
+            "diferenca_pct": 12.5,
+            "diferenca_rs": 1161.08,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM1F01",
+            "tipo": "carro",
+            "valor": 8.75,
+            "diferenca_pct": 29.1,
+            "diferenca_rs": 1116.03,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0F08",
+            "tipo": "carro",
+            "valor": 8.79,
+            "diferenca_pct": 28.5,
+            "diferenca_rs": 1106.56,
+            "classificacao": "critico"
+          }
+        ],
+        "grupos_sem_referencia": [],
+        "detalhe": "7 de 40 veículos acima da mediana do seu tipo",
+        "comparacao_txt": "mediana caminhão 2,9 km/l · van 8,2 km/l · carro 11,3 km/l",
+        "fonte": "Mediana da própria frota, por tipo de veículo",
+        "periodo_fonte": "40 veículos, comparados só com o mesmo tipo"
+      },
+      {
+        "id": "manutencao",
+        "categoria": "manutencao",
+        "nome": "Manutenção",
+        "indicador": "R$ por km",
+        "tipo_referencia": "frota",
+        "medianas": {
+          "caminhao": 0.61,
+          "van": 0.22,
+          "carro": 0.12
+        },
+        "custo_cliente": 78090.25,
+        "custo_referencia": 51132.68,
+        "diferenca_rs": 26957.57,
+        "diferenca_pct": 52.72,
+        "classificacao": "critico",
+        "veiculos_acima": [
+          {
+            "placa": "DEM1C01",
+            "tipo": "caminhao",
+            "valor": 1.24,
+            "diferenca_pct": 103.9,
+            "diferenca_rs": 10525.41,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0C08",
+            "tipo": "caminhao",
+            "valor": 1.16,
+            "diferenca_pct": 90.9,
+            "diferenca_rs": 9306.22,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0V08",
+            "tipo": "van",
+            "valor": 0.47,
+            "diferenca_pct": 110.6,
+            "diferenca_rs": 2844.72,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0V03",
+            "tipo": "van",
+            "valor": 0.4,
+            "diferenca_pct": 77.4,
+            "diferenca_rs": 1769.07,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0F01",
+            "tipo": "carro",
+            "valor": 0.23,
+            "diferenca_pct": 95.7,
+            "diferenca_rs": 944.88,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM1C04",
+            "tipo": "caminhao",
+            "valor": 0.65,
+            "diferenca_pct": 6.1,
+            "diferenca_rs": 560.68,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0C02",
+            "tipo": "caminhao",
+            "valor": 0.64,
+            "diferenca_pct": 5.9,
+            "diferenca_rs": 542.07,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0V00",
+            "tipo": "van",
+            "valor": 0.24,
+            "diferenca_pct": 8.4,
+            "diferenca_rs": 199.34,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0V02",
+            "tipo": "van",
+            "valor": 0.24,
+            "diferenca_pct": 6.3,
+            "diferenca_rs": 148.6,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0F04",
+            "tipo": "carro",
+            "valor": 0.12,
+            "diferenca_pct": 6.8,
+            "diferenca_rs": 65.75,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0F08",
+            "tipo": "carro",
+            "valor": 0.12,
+            "diferenca_pct": 5.5,
+            "diferenca_rs": 50.83,
+            "classificacao": "atencao"
+          }
+        ],
+        "grupos_sem_referencia": [],
+        "detalhe": "11 de 40 veículos acima da mediana do seu tipo",
+        "comparacao_txt": "mediana caminhão R$ 0,61/km · van R$ 0,22/km · carro R$ 0,12/km",
+        "fonte": "Mediana da própria frota, por tipo de veículo",
+        "periodo_fonte": "40 veículos, comparados só com o mesmo tipo"
+      },
+      {
+        "id": "pneus",
+        "categoria": "pneus",
+        "nome": "Pneus",
+        "indicador": "R$ por km",
+        "tipo_referencia": "frota",
+        "medianas": {
+          "caminhao": 0.35,
+          "van": 0.09,
+          "carro": 0.04
+        },
+        "custo_cliente": 33631.38,
+        "custo_referencia": 24609.56,
+        "diferenca_rs": 9021.82,
+        "diferenca_pct": 36.66,
+        "classificacao": "critico",
+        "veiculos_acima": [
+          {
+            "placa": "DEM0C05",
+            "tipo": "caminhao",
+            "valor": 0.61,
+            "diferenca_pct": 72.7,
+            "diferenca_rs": 3896.29,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM1C02",
+            "tipo": "caminhao",
+            "valor": 0.57,
+            "diferenca_pct": 62.4,
+            "diferenca_rs": 3475.94,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM1V00",
+            "tipo": "van",
+            "valor": 0.15,
+            "diferenca_pct": 57.3,
+            "diferenca_rs": 578.72,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0C01",
+            "tipo": "caminhao",
+            "valor": 0.38,
+            "diferenca_pct": 7.3,
+            "diferenca_rs": 395.21,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM1C04",
+            "tipo": "caminhao",
+            "valor": 0.38,
+            "diferenca_pct": 6.4,
+            "diferenca_rs": 340.12,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0F03",
+            "tipo": "carro",
+            "valor": 0.07,
+            "diferenca_pct": 74.4,
+            "diferenca_rs": 233.66,
+            "classificacao": "critico"
+          },
+          {
+            "placa": "DEM0V05",
+            "tipo": "van",
+            "valor": 0.1,
+            "diferenca_pct": 5.7,
+            "diferenca_rs": 55.65,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0F06",
+            "tipo": "carro",
+            "valor": 0.04,
+            "diferenca_pct": 8.5,
+            "diferenca_rs": 25.91,
+            "classificacao": "atencao"
+          },
+          {
+            "placa": "DEM0F09",
+            "tipo": "carro",
+            "valor": 0.04,
+            "diferenca_pct": 6.0,
+            "diferenca_rs": 20.32,
+            "classificacao": "atencao"
+          }
+        ],
+        "grupos_sem_referencia": [],
+        "detalhe": "9 de 40 veículos acima da mediana do seu tipo",
+        "comparacao_txt": "mediana caminhão R$ 0,35/km · van R$ 0,09/km · carro R$ 0,04/km",
+        "fonte": "Mediana da própria frota, por tipo de veículo",
+        "periodo_fonte": "40 veículos, comparados só com o mesmo tipo"
+      },
+      {
+        "id": "pedagio",
+        "categoria": "pedagio",
+        "indicador": "cobrado x devido",
+        "comparacao_txt": "R$ 63.707,00 cobrado x R$ 59.983,50 devido",
+        "cliente": 63707.0,
+        "referencia": 59983.5,
+        "custo_cliente": 63707.0,
+        "custo_referencia": 59983.5,
+        "detalhe": "133 passagens cobradas em duplicidade",
+        "fonte": "Conferência do extrato: cada passagem cobrada uma vez",
+        "periodo_fonte": "extrato do cliente",
+        "diferenca_rs": 3723.5,
+        "diferenca_pct": 6.21,
+        "classificacao": "atencao",
+        "nome": "Pedágio",
+        "tipo_referencia": "publica"
+      },
+      {
+        "id": "ipva",
+        "categoria": "ipva",
+        "indicador": "pago x alíquota legal",
+        "comparacao_txt": "R$ 73.800,24 pago x R$ 73.800,24 pela alíquota",
+        "cliente": 73800.24,
+        "referencia": 73800.24,
+        "custo_cliente": 73800.24,
+        "custo_referencia": 73800.24,
+        "fonte": "Lei estadual SP 13.296/2008, art. 9º",
+        "periodo_fonte": "vigente",
+        "diferenca_rs": 0.0,
+        "diferenca_pct": 0.0,
+        "classificacao": "eficiente",
+        "nome": "IPVA/licenciamento",
+        "tipo_referencia": "publica"
+      },
+      {
+        "categoria": "estacionamento",
+        "nome": "Estacionamento",
+        "classificacao": "sem referencia disponivel"
+      },
+      {
+        "categoria": "seguro",
+        "nome": "Seguro",
+        "classificacao": "sem referencia disponivel"
+      },
+      {
+        "categoria": "multas",
+        "nome": "Multas",
+        "classificacao": "sem referencia disponivel"
+      }
+    ]
+  },
+  "us03": {
+    "cenarios": {
+      "conservador": 0.5,
+      "realista": 0.8
+    },
+    "ranking": [
+      {
+        "id": "combustivel_preco",
+        "categoria": "combustivel",
+        "nome": "Combustível: preço",
+        "tipo_referencia": "publica",
+        "acao": "Negociar preço com a rede de postos e controlar onde a frota abastece",
+        "veiculos": [],
+        "diferenca_mensal": 42127.77,
+        "formula": "max(0, custo cliente − referência); diferença no período R$ 126.383,30 ÷ 3 meses × cenário",
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal)",
+        "conservador_mensal": 21063.88,
+        "realista_mensal": 33702.21,
+        "conservador_anual": 252766.6,
+        "realista_anual": 404426.56
+      },
+      {
+        "id": "combustivel_consumo",
+        "categoria": "combustivel",
+        "nome": "Combustível: consumo",
+        "tipo_referencia": "frota",
+        "acao": "Revisar rota, carga e condução dos veículos com pior consumo do seu tipo e checar o motor deles",
+        "veiculos": [
+          "DEM0C01",
+          "DEM1C03",
+          "DEM0C02",
+          "DEM0V06",
+          "DEM0V05",
+          "DEM1F01",
+          "DEM0F08"
+        ],
+        "diferenca_mensal": 10498.7,
+        "formula": "litros a mais do que o veículo gastaria no consumo mediano do seu tipo × melhor preço ANP (o preço acima da ANP e a troca de combustível já estão nos outros itens); diferença no período R$ 31.496,09 ÷ 3 meses × cenário",
+        "fonte": "Mediana da própria frota, por tipo de veículo",
+        "conservador_mensal": 5249.35,
+        "realista_mensal": 8398.96,
+        "conservador_anual": 62992.18,
+        "realista_anual": 100787.49
+      },
+      {
+        "id": "manutencao",
+        "categoria": "manutencao",
+        "nome": "Manutenção",
+        "tipo_referencia": "frota",
+        "acao": "Trocar conserto corretivo por preventivo nos veículos que mais custam por km e avaliar a renovação",
+        "veiculos": [
+          "DEM1C01",
+          "DEM0C08",
+          "DEM0V08",
+          "DEM0V03",
+          "DEM0F01",
+          "DEM1C04",
+          "DEM0C02",
+          "DEM0V00",
+          "DEM0V02",
+          "DEM0F04",
+          "DEM0F08"
+        ],
+        "diferenca_mensal": 8985.86,
+        "formula": "custo do veículo − km × custo por km mediano do seu tipo, só nos veículos acima do limite; diferença no período R$ 26.957,57 ÷ 3 meses × cenário",
+        "fonte": "Mediana da própria frota, por tipo de veículo",
+        "conservador_mensal": 4492.93,
+        "realista_mensal": 7188.69,
+        "conservador_anual": 53915.14,
+        "realista_anual": 86264.22
+      },
+      {
+        "id": "pneus",
+        "categoria": "pneus",
+        "nome": "Pneus",
+        "tipo_referencia": "frota",
+        "acao": "Calibragem, alinhamento e rodízio nos veículos que gastam mais pneu por km",
+        "veiculos": [
+          "DEM0C05",
+          "DEM1C02",
+          "DEM1V00",
+          "DEM0C01",
+          "DEM1C04",
+          "DEM0F03",
+          "DEM0V05",
+          "DEM0F06",
+          "DEM0F09"
+        ],
+        "diferenca_mensal": 3007.27,
+        "formula": "custo do veículo − km × custo por km mediano do seu tipo, só nos veículos acima do limite; diferença no período R$ 9.021,82 ÷ 3 meses × cenário",
+        "fonte": "Mediana da própria frota, por tipo de veículo",
+        "conservador_mensal": 1503.64,
+        "realista_mensal": 2405.82,
+        "conservador_anual": 18043.64,
+        "realista_anual": 28869.82
+      },
+      {
+        "id": "etanol_gasolina",
+        "categoria": "combustivel",
+        "nome": "Flex: etanol x gasolina",
+        "tipo_referencia": "publica",
+        "acao": "Abastecer os carros flex com etanol enquanto ele custar menos de 70% da gasolina",
+        "veiculos": [],
+        "diferenca_mensal": 1837.23,
+        "formula": "litros de gasolina nos flex × preço ANP da gasolina − os mesmos km com etanol (litros ÷ rendimento) × preço ANP do etanol; diferença no período R$ 5.511,69 ÷ 3 meses × cenário",
+        "fonte": "ANP, Levantamento de Preços de Combustíveis (resumo semanal) · rendimento do etanol: regra prática de mercado: o etanol rende cerca de 70% da gasolina por litro",
+        "conservador_mensal": 918.61,
+        "realista_mensal": 1469.78,
+        "conservador_anual": 11023.38,
+        "realista_anual": 17637.41
+      },
+      {
+        "id": "pedagio",
+        "categoria": "pedagio",
+        "nome": "Pedágio",
+        "tipo_referencia": "publica",
+        "acao": "Contestar as cobranças em dobro e conferir o extrato todo mês",
+        "veiculos": [],
+        "diferenca_mensal": 1241.17,
+        "formula": "max(0, custo cliente − referência); diferença no período R$ 3.723,50 ÷ 3 meses × cenário",
+        "fonte": "Conferência do extrato: cada passagem cobrada uma vez",
+        "conservador_mensal": 620.58,
+        "realista_mensal": 992.93,
+        "conservador_anual": 7447.0,
+        "realista_anual": 11915.2
+      },
+      {
+        "id": "ipva",
+        "categoria": "ipva",
+        "nome": "IPVA/licenciamento",
+        "tipo_referencia": "publica",
+        "acao": "Nada a fazer: pago na alíquota correta",
+        "veiculos": [],
+        "diferenca_mensal": 0.0,
+        "formula": "max(0, custo cliente − referência); diferença no período R$ 0,00 ÷ 3 meses × cenário",
+        "fonte": "Lei estadual SP 13.296/2008, art. 9º",
+        "conservador_mensal": 0.0,
+        "realista_mensal": 0.0,
+        "conservador_anual": 0.0,
+        "realista_anual": 0.0
+      }
+    ],
+    "totais": {
+      "conservador_mensal": 33848.99,
+      "conservador_anual": 406187.94,
+      "realista_mensal": 54158.39,
+      "realista_anual": 649900.7
+    }
+  },
+  "ociosidade_simulada": {
+    "origem": "simulado (ESP32 no Wokwi)",
+    "veiculo": "DEM0C00",
+    "eventos": 132,
+    "horas_ociosas": 43.2,
+    "litros_estimados": 130.8,
+    "custo_estimado": 957.42,
+    "eventos_conducao_brusca": 28,
+    "km": 5720,
+    "bruscos_por_100km": 0.5,
+    "excesso_velocidade": 2,
+    "abastecimentos_fora_da_rota": 1,
+    "sensores": "acelerômetro MPU6050 + GPS NEO-6M",
+    "regra_ocioso": "ignição ligada e GPS a 0 km/h",
+    "formula": "horas ociosas × consumo parado (l/h) × preço ANP",
+    "fonte_consumo": "US DOE/Argonne National Laboratory (AFDC, 2015)",
+    "fora_do_total": true
+  }
+}
