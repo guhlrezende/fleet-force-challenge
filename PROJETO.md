@@ -20,7 +20,8 @@ Uma calculadora de economia para frotas: o gestor envia a planilha que já tem e
 - **Para o gestor de frota:** visibilidade dos custos e das oportunidades de economia, sem instalar nada nem arrumar planilha.
 - **Para a Sem Parar:** uma forma de atrair empresas e gerar oportunidades comerciais qualificadas, mediante consentimento. Não é mais um sistema de gestão de frotas, e sim um canal de aquisição e expansão. **Isso é uma hipótese a validar com a empresa, não uma certeza.**
 - **Mensagem central:** transformar dados de frotas em economia para o gestor e em oportunidades de negócio para a Sem Parar.
-- **Posicionamento:** os concorrentes cuidam de quem já é cliente; nós, de quem ainda não é.
+- **Posicionamento:** os concorrentes cuidam de quem já é cliente; nós, de quem ainda não é. No pitch, evitamos afirmações genéricas sobre concorrentes que não conseguimos comprovar.
+- **Semáforo comercial (ideia do Rafa, a validar):** classificar as oportunidades em verde, amarelo e vermelho pelos problemas achados no diagnóstico e pelo potencial de oferecer uma solução da Sem Parar. O critério de cada cor ainda precisa ser definido.
 
 ## História que usamos no pitch
 
@@ -33,7 +34,7 @@ A Naira gerencia uma frota de 40 veículos (caminhões, vans e carros). O gasto 
 | US01 Custo total | Quanto eu gasto? | Lê a planilha, soma, separa em 8 categorias e mostra custo por veículo, por tipo e por km | Sprint 1 |
 | US02 Benchmark | Estou gastando bem? | Compara com referência pública (ANP, lei do IPVA, extrato de pedágio) e, onde não há, com a mediana dos veículos do mesmo tipo; marca eficiente, atenção ou crítico | Sprint 1 |
 | US03 Economia | Onde agir primeiro? | Economia de cada alavanca acima da referência, em dois cenários, ranking em R$ com a ação e os veículos | Sprint 1 |
-| US04 Cadastro | Quem é o contato? | Cadastro com CNPJ e consentimento (LGPD): o diagnóstico vira um contato qualificado | Backlog |
+| US04 Cadastro | Quem é a empresa? | Cadastro com CNPJ só para liberar o diagnóstico; o contato comercial da Sem Parar depende de uma autorização separada (LGPD) | Backlog |
 | US05 Relatório do CFO | O que levo ao diretor? | Relatório executivo de uma página, com os 3 maiores custos e as 3 maiores oportunidades | Backlog |
 
 Valor, funcionalidades e os **30 critérios de aceite** das três primeiras estão em [docs/user-stories-sprint-1.md](docs/user-stories-sprint-1.md). O protótipo tem 28 testes automáticos que cobrem 27 desses critérios; os 3 restantes são de tela.
@@ -47,14 +48,14 @@ Valor, funcionalidades e os **30 critérios de aceite** das três primeiras est�
 ## Hardware
 
 - **Kit com acelerômetro e GPS**, para qualquer veículo. O acelerômetro mede aceleração (frenagens e arrancadas bruscas, contadas por 100 km); o GPS dá velocidade, km e posição.
-- **Motor ligado parado** só é confirmado com o sinal de ignição.
+- **Motor ligado parado:** GPS e acelerômetro, sozinhos, não sabem se o motor está ligado. Para isso é preciso o sinal de ignição ou a leitura pela porta OBD.
 - **Próxima etapa de coleta:** leitura pela porta OBD do veículo, com módulo Bluetooth barato (cerca de R$ 100). Sem sensor no tanque de combustível e sem fio exposto no veículo.
 - **Fases futuras citadas na ata:** temperatura e nível de combustível, de preferência via OBD.
 - **Hoje é simulação.** Os eventos do kit são gerados por script (`prototipo/gerar_caso_demo.py`); o firmware em `wokwi/` compila, mas ainda não foi rodado no simulador.
 
 ## Arquitetura em alto nível
 
-Cinco peças: **interface web**, **servidor com API**, **banco de dados**, **motor de IA** (prevista) e **kit no veículo**. O diagrama técnico interno está em `prototipo/uml/`; no pitch, mostramos só as peças e os critérios de aceite de cada uma (slide 9 do deck).
+Cinco peças: **interface web**, **servidor com API**, **banco de dados**, **motor de IA** (prevista) e **kit no veículo**. O pitch mostra um diagrama de componentes UML (slide 9, gerado por `deck/assets-fleet-force/gerar_uml.py`) e, em seguida, os critérios de aceite de cada peça (slide 10). O diagrama técnico antigo, com nomes de tecnologia, está em `prototipo/uml/` e é só para uso interno.
 
 Direção, não decisão: Python, nuvem (AWS em estudo) e API em nuvem ou IA local. Os detalhes técnicos serão definidos pelo grupo ao longo do projeto.
 
@@ -68,7 +69,7 @@ Direção, não decisão: Python, nuvem (AWS em estudo) e API em nuvem ou IA loc
 4. **Concorrência:** dizer "não encontramos", nunca "não existe". Não usar números de economia que os concorrentes divulgam: são marketing deles.
 5. **No pitch, não cravar tecnologia nem modelo de peça** (orientação do professor). Falar "sensor de X", dar só a pista da direção.
 6. **Identidade visual própria da Fleet Force** (azul `#0750ED`, grafite `#2E2D2D`, branco, fonte Inter). Nada de cores, logo ou ilustrações da Sem Parar. Regras completas em [identidade-visual/design-system.md](identidade-visual/design-system.md).
-7. **LGPD:** o diagnóstico não autoriza compartilhar dados nem fazer marketing. Contato só com o consentimento da empresa.
+7. **LGPD:** o cadastro que libera o diagnóstico é separado da autorização para a Sem Parar entrar em contato comercial. O diagnóstico não autoriza compartilhar dados nem fazer marketing.
 8. **Critérios de aceite verificáveis.** Toda funcionalidade nova vira critério que dê para testar.
 9. **A Sprint 1 mostra o que será feito e o raciocínio, não o desenvolvimento.** Os testes ficam como resposta para as perguntas da banca.
 
@@ -94,4 +95,4 @@ Depende de parceria com a Sem Parar: piloto com dados autorizados e integraçõe
 - Manutenção e pneus em 3 meses são pouco; no produto, usar 12 meses.
 - As alíquotas do IPVA de vans e carros (4%) são assumidas e faltam conferir na legislação paulista.
 - O rendimento do etanol (70% da gasolina) é regra prática.
-- Os limites do semáforo (até 5% acima é eficiente, até 15% atenção) e os cenários de economia (50% e 80% da diferença) são hipóteses do grupo, ainda sem aprovação formal.
+- Os limites do semáforo de eficiência (até 5% acima é eficiente, até 15% atenção) e os cenários de economia (50% e 80% da diferença) são hipóteses do grupo, ainda sem aprovação formal.

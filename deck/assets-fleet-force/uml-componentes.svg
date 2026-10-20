@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 1700 740" width="1700" height="740" font-family="Inter, Arial, sans-serif">
+<defs><marker id="ponta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2E2D2D"/></marker></defs>
+<rect y="60" width="1700" height="740" fill="#fff"/>
+<circle cx="70" cy="410" r="14" fill="#fff" stroke="#2E2D2D" stroke-width="2"/>
+<path d="M70 424 V470 M70 438 H44 M70 438 H96 M70 470 L50 505 M70 470 L90 505" stroke="#2E2D2D" stroke-width="2" fill="none" stroke-linecap="round"/>
+<text x="70" y="532" font-size="15" font-weight="700" fill="#2E2D2D" text-anchor="middle">Gestor</text>
+<text x="70" y="550" font-size="15" font-weight="700" fill="#2E2D2D" text-anchor="middle">de frota</text>
+<rect x="120" y="100" width="300" height="480" rx="8" fill="#fff" stroke="#2E2D2D" stroke-width="3"/>
+<rect x="382" y="112" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="377" y="115" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="377" y="120" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="142" y="134" font-size="13" font-weight="400" fill="#667085" text-anchor="start" font-style="italic">«component»</text>
+<text x="142" y="160" font-size="21" font-weight="700" fill="#2E2D2D" text-anchor="start">Interface Web</text>
+<text x="142" y="182" font-size="14" font-weight="400" fill="#667085" text-anchor="start">roda no navegador</text>
+<rect x="142" y="200" width="256" height="170" rx="6" fill="#EEF4FF" stroke="#0750ED" stroke-width="2.2"/>
+<rect x="156" y="214" width="44" height="20" rx="10" fill="#0750ED"/>
+<text x="178" y="228.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">US01</text>
+<rect x="366" y="216" width="20" height="14" rx="2" fill="#fff" stroke="#0750ED" stroke-width="1.6"/>
+<rect x="361" y="219" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<rect x="361" y="224" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<text x="156" y="262" font-size="18" font-weight="700" fill="#2E2D2D" text-anchor="start">Pré-processamento</text>
+<text x="156" y="290" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">lê o CSV/Excel aqui;</text>
+<text x="156" y="308" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">envia só as colunas usadas,</text>
+<text x="156" y="326" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">em JSON, e não o arquivo</text>
+<text x="156" y="344" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">inteiro</text>
+<rect x="142" y="410" width="256" height="140" rx="6" fill="#fff" stroke="#2E2D2D" stroke-width="2.2"/>
+<rect x="366" y="424" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="361" y="427" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="361" y="432" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="156" y="452" font-size="18" font-weight="700" fill="#2E2D2D" text-anchor="start">Painel</text>
+<text x="156" y="480" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">custos, semáforo e</text>
+<text x="156" y="498" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">economia em R$</text>
+<path d="M 88 432 L 142 285" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ponta)"/>
+<circle cx="112" cy="352" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="104" y="328" font-size="13" font-weight="400" fill="#667085" text-anchor="end">planilha</text>
+<path d="M 96 470 L 142 480" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5"/>
+<circle cx="120" cy="476" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="98" y="460" font-size="13" font-weight="400" fill="#667085" text-anchor="start">painel</text>
+<path d="M 398 285 H 520" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<rect x="415" y="280" width="10" height="10" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<rect x="485" y="280" width="10" height="10" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<circle cx="445" cy="285" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 474 276 A 9 9 0 0 0 474 294" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="452" y="262" font-size="12" font-weight="400" fill="#667085" text-anchor="middle">REST/JSON</text>
+<path d="M 398 480 H 440 V 285" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<rect x="490" y="100" width="850" height="480" rx="8" fill="#fff" stroke="#2E2D2D" stroke-width="3"/>
+<rect x="1304" y="112" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="1299" y="115" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="1299" y="120" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="512" y="134" font-size="13" font-weight="400" fill="#667085" text-anchor="start" font-style="italic">«component»</text>
+<text x="512" y="160" font-size="21" font-weight="700" fill="#2E2D2D" text-anchor="start">Servidor Fleet Force</text>
+<text x="740" y="160" font-size="15" font-weight="400" fill="#667085" text-anchor="start">Python · API</text>
+<rect x="515" y="210" width="130" height="105" rx="6" fill="#fff" stroke="#2E2D2D" stroke-width="2.2"/>
+<rect x="615" y="218" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="610" y="221" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="610" y="226" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="527" y="245" font-size="17" font-weight="700" fill="#2E2D2D" text-anchor="start">API REST</text>
+<text x="527" y="268" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">orquestra as US</text>
+<text x="527" y="285" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">e devolve JSON</text>
+<rect x="690" y="200" width="140" height="125" rx="6" fill="#EEF4FF" stroke="#0750ED" stroke-width="2.2"/>
+<rect x="700" y="212" width="44" height="20" rx="10" fill="#0750ED"/>
+<text x="722" y="226.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">US01</text>
+<rect x="802" y="214" width="20" height="14" rx="2" fill="#fff" stroke="#0750ED" stroke-width="1.6"/>
+<rect x="797" y="217" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<rect x="797" y="222" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<text x="700" y="262" font-size="16.5" font-weight="700" fill="#2E2D2D" text-anchor="start">Importação</text>
+<text x="700" y="284" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">valida as linhas</text>
+<text x="700" y="301" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">já extraídas</text>
+<rect x="860" y="200" width="140" height="125" rx="6" fill="#EEF4FF" stroke="#0750ED" stroke-width="2.2"/>
+<rect x="870" y="212" width="44" height="20" rx="10" fill="#0750ED"/>
+<text x="892" y="226.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">US01</text>
+<rect x="972" y="214" width="20" height="14" rx="2" fill="#fff" stroke="#0750ED" stroke-width="1.6"/>
+<rect x="967" y="217" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<rect x="967" y="222" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<text x="870" y="262" font-size="16.5" font-weight="700" fill="#2E2D2D" text-anchor="start">Consolidação</text>
+<text x="870" y="284" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">8 categorias, por</text>
+<text x="870" y="301" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">veículo e por km</text>
+<rect x="1030" y="200" width="140" height="125" rx="6" fill="#EEF4FF" stroke="#0750ED" stroke-width="2.2"/>
+<rect x="1040" y="212" width="44" height="20" rx="10" fill="#0750ED"/>
+<text x="1062" y="226.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">US02</text>
+<rect x="1142" y="214" width="20" height="14" rx="2" fill="#fff" stroke="#0750ED" stroke-width="1.6"/>
+<rect x="1137" y="217" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<rect x="1137" y="222" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<text x="1040" y="262" font-size="16.5" font-weight="700" fill="#2E2D2D" text-anchor="start">Benchmark</text>
+<text x="1040" y="284" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">ANP, lei do IPVA e</text>
+<text x="1040" y="301" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">mediana do tipo</text>
+<rect x="1200" y="200" width="140" height="125" rx="6" fill="#EEF4FF" stroke="#0750ED" stroke-width="2.2"/>
+<rect x="1210" y="212" width="44" height="20" rx="10" fill="#0750ED"/>
+<text x="1232" y="226.5" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">US03</text>
+<rect x="1312" y="214" width="20" height="14" rx="2" fill="#fff" stroke="#0750ED" stroke-width="1.6"/>
+<rect x="1307" y="217" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<rect x="1307" y="222" width="9" height="3.5" fill="#fff" stroke="#0750ED" stroke-width="1.4"/>
+<text x="1210" y="262" font-size="16.5" font-weight="700" fill="#2E2D2D" text-anchor="start">Economia</text>
+<text x="1210" y="284" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">cenários 50%/80%,</text>
+<text x="1210" y="301" font-size="13.5" font-weight="400" fill="#2E2D2D" text-anchor="start">conta aberta</text>
+<path d="M 830 262 H 860" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<circle cx="838" cy="262" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 853 253 A 9 9 0 0 0 853 271" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="845" y="196" font-size="12.5" font-weight="400" fill="#667085" text-anchor="middle">despesas</text>
+<path d="M 1000 262 H 1030" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<circle cx="1008" cy="262" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 1023 253 A 9 9 0 0 0 1023 271" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="1015" y="196" font-size="12.5" font-weight="400" fill="#667085" text-anchor="middle">custos</text>
+<path d="M 1170 262 H 1200" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<circle cx="1178" cy="262" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 1193 253 A 9 9 0 0 0 1193 271" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="1185" y="196" font-size="12.5" font-weight="400" fill="#667085" text-anchor="middle">desvios</text>
+<path d="M 580 210 V 178 H 1270" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5"/>
+<path d="M 760 178 V 200" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ponta)"/>
+<path d="M 930 178 V 200" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ponta)"/>
+<path d="M 1100 178 V 200" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ponta)"/>
+<path d="M 1270 178 V 200" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ponta)"/>
+<text x="880" y="172" font-size="13" font-weight="400" fill="#667085" text-anchor="start" font-style="italic">«use»</text>
+<rect x="515" y="395" width="150" height="110" rx="6" fill="#F6F8FC" stroke="#98A2B3" stroke-width="2" stroke-dasharray="7 5"/>
+<rect x="635" y="403" width="20" height="14" rx="2" fill="#fff" stroke="#98A2B3" stroke-width="1.6"/>
+<rect x="630" y="406" width="9" height="3.5" fill="#fff" stroke="#98A2B3" stroke-width="1.4"/>
+<rect x="630" y="411" width="9" height="3.5" fill="#fff" stroke="#98A2B3" stroke-width="1.4"/>
+<text x="527" y="430" font-size="16" font-weight="700" fill="#667085" text-anchor="start">IA explicativa</text>
+<text x="527" y="452" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">explica números já</text>
+<text x="527" y="469" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">calculados</text>
+<text x="527" y="486" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">(futuro)</text>
+<path d="M 580 315 V 395" fill="none" stroke="#98A2B3" stroke-width="1.8" stroke-dasharray="6 5"/>
+<text x="592" y="360" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start">resultados</text>
+<rect x="1030" y="395" width="140" height="110" rx="6" fill="#fff" stroke="#2E2D2D" stroke-width="2.2"/>
+<rect x="1142" y="403" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="1137" y="406" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="1137" y="411" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="1042" y="430" font-size="16" font-weight="700" fill="#2E2D2D" text-anchor="start">Referências</text>
+<text x="1042" y="452" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">versionadas,</text>
+<text x="1042" y="469" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">com fonte e</text>
+<text x="1042" y="486" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">data</text>
+<path d="M 1100 325 V 395" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<circle cx="1100" cy="345" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 1100 363 A 9 9 0 0 0 1100 381" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="1112" y="362" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start">referências</text>
+<rect x="1200" y="395" width="120" height="110" rx="6" fill="#F6F8FC" stroke="#98A2B3" stroke-width="2" stroke-dasharray="7 5"/>
+<rect x="1292" y="403" width="20" height="14" rx="2" fill="#fff" stroke="#98A2B3" stroke-width="1.6"/>
+<rect x="1287" y="406" width="9" height="3.5" fill="#fff" stroke="#98A2B3" stroke-width="1.4"/>
+<rect x="1287" y="411" width="9" height="3.5" fill="#fff" stroke="#98A2B3" stroke-width="1.4"/>
+<text x="1212" y="430" font-size="16" font-weight="700" fill="#667085" text-anchor="start">Ingestão</text>
+<text x="1212" y="448" font-size="16" font-weight="700" fill="#667085" text-anchor="start">IoT</text>
+<text x="1212" y="470" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">eventos do kit</text>
+<text x="1212" y="487" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">(Sprint 2+)</text>
+<path d="M 1270 325 V 395" fill="none" stroke="#98A2B3" stroke-width="1.8" stroke-dasharray="6 5"/>
+<text x="1282" y="362" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start">eventos</text>
+<rect x="790" y="650" width="320" height="100" rx="6" fill="#fff" stroke="#2E2D2D" stroke-width="2.2"/>
+<rect x="1074" y="660" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="1069" y="663" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="1069" y="668" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="805" y="684" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start" font-style="italic">«component»</text>
+<text x="805" y="708" font-size="18" font-weight="700" fill="#2E2D2D" text-anchor="start">Banco de dados</text>
+<text x="805" y="730" font-size="13.5" font-weight="400" fill="#667085" text-anchor="start">na nuvem: despesas, referências e diagnósticos</text>
+<path d="M 950 580 V 650" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<rect x="945" y="575" width="10" height="10" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<circle cx="950" cy="606" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 950 621 A 9 9 0 0 0 950 639" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="964" y="618" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start">persistência</text>
+<rect x="1385" y="130" width="295" height="200" rx="6" fill="#F6F8FC" stroke="#98A2B3" stroke-width="2" stroke-dasharray="7 5"/>
+<rect x="1646" y="142" width="20" height="14" rx="2" fill="#fff" stroke="#98A2B3" stroke-width="1.6"/>
+<rect x="1641" y="145" width="9" height="3.5" fill="#fff" stroke="#98A2B3" stroke-width="1.4"/>
+<rect x="1641" y="150" width="9" height="3.5" fill="#fff" stroke="#98A2B3" stroke-width="1.4"/>
+<text x="1402" y="164" font-size="13" font-weight="400" fill="#667085" text-anchor="start" font-style="italic">Sprint 2+ · no veículo</text>
+<text x="1402" y="192" font-size="19" font-weight="700" fill="#667085" text-anchor="start">Kit no veículo</text>
+<text x="1402" y="218" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">acelerômetro + GPS</text>
+<text x="1402" y="237" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">sinal de ignição ou</text>
+<text x="1402" y="256" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">porta OBD, depois</text>
+<path d="M 1340 450 H 1362 V 240 H 1385" stroke="#98A2B3" stroke-width="1.8" fill="none" stroke-dasharray="6 5"/>
+<rect x="1335" y="445" width="10" height="10" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<circle cx="1356" cy="450" r="7" fill="#fff" stroke="#98A2B3" stroke-width="1.8"/>
+<text x="1372" y="400" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start">dados do kit</text>
+<rect x="1385" y="440" width="295" height="130" rx="6" fill="#fff" stroke="#2E2D2D" stroke-width="2.2"/>
+<rect x="1646" y="452" width="20" height="14" rx="2" fill="#fff" stroke="#2E2D2D" stroke-width="1.6"/>
+<rect x="1641" y="455" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<rect x="1641" y="460" width="9" height="3.5" fill="#fff" stroke="#2E2D2D" stroke-width="1.4"/>
+<text x="1402" y="474" font-size="13" font-weight="400" fill="#667085" text-anchor="start" font-style="italic">«externo»</text>
+<text x="1402" y="500" font-size="19" font-weight="700" fill="#2E2D2D" text-anchor="start">Fontes públicas</text>
+<text x="1402" y="526" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">ANP (semanal), lei do IPVA</text>
+<text x="1402" y="545" font-size="14.5" font-weight="400" fill="#667085" text-anchor="start">de SP e pedágio</text>
+<path d="M 1100 505 V 545 H 1385" stroke="#2E2D2D" stroke-width="1.8" fill="none"/>
+<rect x="1335" y="540" width="10" height="10" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 1370 536 A 9 9 0 0 0 1370 554" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="1256" y="535" font-size="12.5" font-weight="400" fill="#667085" text-anchor="start">HTTPS</text>
+<text x="150" y="650" font-size="14" font-weight="700" fill="#0750ED" text-anchor="start">COMO LER</text>
+<path d="M 150 683 H 176" stroke="#2E2D2D" stroke-width="1.8"/>
+<circle cx="182" cy="683" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="204" y="688" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">interface fornecida</text>
+<path d="M 178 704 A 9 9 0 0 0 178 722" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 150 713 H 178" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="204" y="718" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">interface requerida</text>
+<circle cx="166" cy="743" r="7" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<path d="M 176 734 A 9 9 0 0 0 176 752" fill="none" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="204" y="748" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">ligação entre componentes</text>
+<rect x="158" y="768" width="10" height="10" fill="#fff" stroke="#2E2D2D" stroke-width="1.8"/>
+<text x="204" y="778" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">porta de conexão</text>
+<path d="M 440 683 H 480" fill="none" stroke="#2E2D2D" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#ponta)"/>
+<text x="494" y="688" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">«use»: depende de</text>
+<rect x="440" y="703" width="38" height="20" rx="4" fill="#EEF4FF" stroke="#0750ED" stroke-width="2"/>
+<text x="494" y="718" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">núcleo da Sprint 1</text>
+<rect x="440" y="733" width="38" height="20" rx="4" fill="#F6F8FC" stroke="#98A2B3" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="494" y="748" font-size="14" font-weight="400" fill="#2E2D2D" text-anchor="start">evolução (Sprint 2+ ou futuro)</text>
+<rect x="1130" y="640" width="550" height="140" rx="6" fill="#F6F8FC"/>
+<rect x="1130" y="640" width="5" height="140" fill="#0750ED"/>
+<text x="1152" y="668" font-size="13.5" font-weight="700" fill="#0750ED" text-anchor="start">PRÓXIMAS US VIRAM COMPONENTES DA MESMA API</text>
+<text x="1152" y="694" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">US04 (cadastro e autorização de contato, LGPD) e US05</text>
+<text x="1152" y="714" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">(relatório do CFO) se ligam à API REST sem mudar o</text>
+<text x="1152" y="734" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">núcleo. APIs da Sem Parar (tag, cartão) só com parceria;</text>
+<text x="1152" y="754" font-size="14.5" font-weight="400" fill="#2E2D2D" text-anchor="start">ignição e OBD entram depois do kit básico.</text>
+</svg>

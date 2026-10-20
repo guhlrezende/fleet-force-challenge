@@ -16,7 +16,7 @@ A empresa envia a planilha de gastos que já tem. A ferramenta mostra **quanto a
 | Quem são os concorrentes, com fontes | [docs/concorrencia.md](docs/concorrencia.md) |
 | Como os testes e os números foram conferidos | [docs/simulados-passo-a-passo.md](docs/simulados-passo-a-passo.md) |
 | O que o professor orientou (ata de 19/10) | [docs/referencias/Ata - Orientacao Sprint 1.pdf](docs/referencias/Ata%20-%20Orientacao%20Sprint%201.pdf) |
-| O deck do pitch | [deck/Fleet_Force_Pitch_Sprint1_v4.pdf](deck/Fleet_Force_Pitch_Sprint1_v4.pdf) (PPTX ao lado) |
+| O deck do pitch | [deck/Fleet_Force_Pitch_Sprint1_v5.pdf](deck/Fleet_Force_Pitch_Sprint1_v5.pdf) (PPTX ao lado) |
 | Logos, cores e fontes oficiais | [identidade-visual/](identidade-visual/) |
 
 ## Datas
@@ -55,10 +55,10 @@ python gerar_telas.py         # telas/fleet-force.html, abre direto no navegador
 ```bash
 cd deck
 npm install
-npm run build                 # grava deck/Fleet_Force_Pitch_Sprint1_v4.pptx
+npm run build                 # grava deck/Fleet_Force_Pitch_Sprint1_v5.pptx
 ```
 
-Os números e textos do deck vêm de `prototipo/dados/resultados.json`. Se mudar o cálculo, rode o protótipo de novo antes de gerar o deck. O PDF final e as fontes embutidas saem de abrir o PPTX no PowerPoint e exportar.
+Os números e textos do deck vêm de `prototipo/dados/resultados.json`. O diagrama de componentes do slide 9 é gerado por `deck/assets-fleet-force/gerar_uml.py` (SVG; depois renderize para PNG, por exemplo com o Edge). Se mudar o cálculo, rode o protótipo de novo antes de gerar o deck. O PDF final e as fontes embutidas saem de abrir o PPTX no PowerPoint e exportar.
 
 ## Como trabalhar aqui
 

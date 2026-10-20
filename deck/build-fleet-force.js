@@ -18,7 +18,7 @@ const path = require("path");
 
 const CH = path.resolve(__dirname, ".."); // raiz do repositório
 const AS = CH + "/deck/assets-fleet-force";
-const OUT = process.env.OUT || CH + "/deck/Fleet_Force_Pitch_Sprint1_v4.pptx";
+const OUT = process.env.OUT || CH + "/deck/Fleet_Force_Pitch_Sprint1_v5.pptx";
 const R = JSON.parse(fs.readFileSync(CH + "/prototipo/dados/resultados.json", "utf8"));
 
 const THEME = {
@@ -186,7 +186,7 @@ const png64 = async (file) => "image/png;base64," + (await sharp(file).png().toB
   });
   T(s, "30%", { x: 1310, y: 210, w: 580, h: 240, font: DISP, size: 184, bold: true, color: K.blue, lh: 0.95 });
   T(s, "ou mais de redução no gasto com combustível é o que gestores relatam ao adotar gestão profissional de abastecimento.", { x: 1316, y: 500, w: 540, h: 300, size: 34, color: K.ink, lh: 1.15 });
-  T(s, "FONTE: SEM PARAR EMPRESAS, LEVANTAMENTO COM GESTORES, CITADO PELA SETCESP (2023)", { x: 1316, y: 880, w: 540, h: 70, font: BODYS, size: 16, color: K.muted, cs: 1, lh: 1.3 });
+  T(s, "FONTE: SEM PARAR EMPRESAS, LEVANTAMENTO COM GESTORES, CITADO PELA SETCESP (2023). É RELATO DE GESTORES, NÃO PROMESSA DO FLEET FORCE.", { x: 1316, y: 880, w: 540, h: 70, font: BODYS, size: 16, color: K.muted, cs: 1, lh: 1.3 });
   s.addNotes(
 `0:00–0:25 (25 s)
 A: "Esta é a Naira. Ela cuida de uma frota de 40 veículos: caminhões, vans e carros. Toda segunda o diretor pergunta: quanto a frota custa? E ela não sabe responder."
@@ -211,7 +211,7 @@ A: "Quem faz gestão profissional do abastecimento relata mais de 30% de reduç�
   });
   // CFO e Sem Parar: desdobramentos no backlog
   [["userI", "CFO", "US05", "Relatório executivo de uma página, com os 3 maiores custos e as 3 maiores oportunidades"],
-   ["buildingI", "Sem Parar", "US04", "Cadastro com CNPJ e aceite da LGPD: cada diagnóstico vira um contato qualificado"]].forEach(([k, t, us, d], i) => {
+   ["buildingI", "Sem Parar", "US04", "Cadastro com CNPJ para o diagnóstico; o contato comercial só com autorização separada (LGPD)"]].forEach(([k, t, us, d], i) => {
     const x = 960 + i * 440;
     Rc(s, { x, y: 330, w: 400, h: 540, fill: K.paper, r: 24, line: K.line, lw: 1 });
     Ic(s, k, x + 40, 372, 64);
@@ -224,7 +224,7 @@ A: "Quem faz gestão profissional do abastecimento relata mais de 30% de reduç�
     { x: 120, y: 915, w: 1700, h: 60, size: 32, font: BODYS });
   rail(s, 1070);
   s.addNotes(
-`0:25–0:45 (20 s)
+`0:25–0:44 (19 s)
 B: "Escolhemos três user stories do gestor de frota para a Sprint 1: ver o custo total, comparar com um benchmark e ver a economia em reais."
 A: "Resolvendo a dele, resolvemos a do CFO, que quer o resumo, e a da Sem Parar, que quer o contato."`);
 
@@ -236,7 +236,7 @@ A: "Resolvendo a dele, resolvemos a do CFO, que quer o resumo, e a da Sem Parar,
   nav(s, 1, "claro"); sig(s, false);
   T(s, [run("Sem instalar nada,", K.ink, { breakLine: true }), run("sem arrumar planilha", K.blue)], { x: 120, y: 128, w: 1500, h: 210, font: DISP, size: 88, bold: true, lh: 1.02 });
   const passos = [["Envia", "a planilha que já tem, pelo navegador. Depois, também PDF e foto de nota"], ["Confere", "como entendemos as colunas; só pergunta o que não reconheceu"],
-    ["Se cadastra", "CNPJ e aceite da LGPD: vira contato para a Sem Parar (US04)"], ["Recebe", "as 3 respostas em R$, com a conta aberta"], ["Age", "leva o resumo ao diretor ou fala com a Sem Parar"]];
+    ["Se cadastra", "CNPJ e tamanho da frota, só para liberar o diagnóstico (US04)"], ["Recebe", "as 3 respostas em R$, com a conta aberta"], ["Age", "leva o resumo ao diretor e, se quiser, autoriza a Sem Parar a entrar em contato"]];
   Rc(s, { x: 0, y: 438, w: 1920, h: 4, fill: K.line });
   passos.forEach(([t, d], i) => {
     const x = 120 + i * 352, lead = i === 2;
@@ -255,9 +255,9 @@ A: "Resolvendo a dele, resolvemos a do CFO, que quer o resumo, e a da Sem Parar,
   T(s, "PILARES: SEMPARAREMPRESAS.COM.BR/SOBRE", { x: 120, y: 975, w: 900, h: 30, font: BODYS, size: 15, color: K.muted, cs: 2 });
   rail(s, 1070);
   s.addNotes(
-`0:45–1:05 (20 s)
-B: "Como funciona: a Naira não instala nada nem arruma planilha. Envia o arquivo, confere, faz o cadastro e recebe as três respostas em reais. Hoje a entrada é a planilha; PDF, foto e dados do veículo vêm depois."
-A: "Isso conversa com os pilares da Sem Parar: eficiência, confiança e visão inovadora."`);
+`0:44–1:10 (26 s)
+B: "Como funciona: a Naira não instala nada nem arruma planilha. Envia o arquivo, faz um cadastro só para liberar o diagnóstico e recebe as três respostas em reais. Hoje a entrada é a planilha; PDF, foto e dados do veículo vêm depois."
+A: "E só se ela quiser, autoriza a Sem Parar a entrar em contato. Isso conversa com os pilares da empresa: eficiência, confiança e visão inovadora."`);
 
   // ================= 5 US01 =================
   s = slide(K.paper);
@@ -274,7 +274,7 @@ A: "Isso conversa com os pilares da Sem Parar: eficiência, confiança e visão 
   T(s, `por mês na frota de demonstração\n${frotaTxt}`, { x: 1430, y: 762, w: 400, h: 110, size: 24, color: K.ink, lh: 1.1 });
   pill(s, "DADOS DE DEMONSTRAÇÃO", 820, 910, 400, K.ink, K.white);
   s.addNotes(
-`1:05–1:30 (25 s)
+`1:10–1:32 (22 s)
 A: "Primeira US: quanto eu gasto. Total do período, peso das 8 categorias, custo por tipo de veículo e por km. Na demonstração, ${mesTxt} por mês."
 B: "Pronta quando o total bate com a planilha centavo por centavo, trocar o período recalcula tudo e o que faltou aparece como não informado, nunca como zero."`);
 
@@ -295,7 +295,7 @@ B: "Pronta quando o total bate com a planilha centavo por centavo, trocar o per�
     cas: ["Toda referência mostra fonte, data e versão", "Veículo fora da curva aparece com a placa", "Sem referência nunca vira “eficiente”"],
   }, true);
   s.addNotes(
-`1:30–2:00 (30 s)
+`1:32–1:59 (27 s)
 A: "Segunda: estou gastando bem? No diesel, a frota pagou R$ ${pago} contra R$ 7,32 da média da ANP, ${dsl.diferenca_pct.toFixed(0)}% acima. É o preço da semana de 4 a 10 de outubro, aplicado ao caso de demonstração."
 B: "Sem referência pública, cada veículo é comparado só com os do mesmo tipo: ${nCons} gastam ${cons.diferenca_pct.toFixed(0)}% mais combustível. Toda referência tem fonte, e o que não tem nunca vira eficiente."
 (Se perguntarem do 16% x 15%: no diesel é 16%; no combustível todo, 15%.)`);
@@ -305,6 +305,7 @@ B: "Sem referência pública, cada veículo é comparado só com os do mesmo tip
   kicker(s, "SOLUÇÃO · US03", 120, 96);
   nav(s, 1, "claro"); sig(s, false);
   T(s, "Onde agir primeiro", { x: 120, y: 124, w: 1200, h: 90, font: DISP, size: 76, bold: true, color: K.ink });
+  pill(s, "ECONOMIA SIMULADA, AINDA NÃO COMPROVADA", 1240, 150, 560, K.ink, K.white);
   T(s, [run(milhar(u3.totais.conservador_anual) + " ", K.blue), run("→ ", K.ink), run(grandeza(u3.totais.realista_anual), K.blue)], { x: 120, y: 222, w: 1750, h: 130, font: DISP, size: 108, bold: true });
   T(s, "por ano na frota de demonstração · cenário conservador (50% da diferença) → realista (80%)", { x: 120, y: 372, w: 1700, h: 40, size: 28, color: K.muted });
   await img(s, CAP + "us03.png", 725, 120, 465, 1000);
@@ -314,7 +315,7 @@ B: "Sem referência pública, cada veículo é comparado só com os do mesmo tip
     cas: ["Só há economia acima da referência", "A conta refeita à mão dá o mesmo valor", "Nada conta duas vezes; simulado fica fora"],
   });
   s.addNotes(
-`2:00–2:20 (20 s)
+`1:59–2:17 (18 s)
 A: "Terceira: onde agir primeiro? A economia de cada alavanca, com a ação e os veículos: de ${milhar(u3.totais.conservador_anual)} a ${grandeza(u3.totais.realista_anual).replace(/ mi$/, " milhão")} por ano na demonstração."
 B: "Só há economia acima da referência, a conta refeita à mão bate e nada conta duas vezes. A Naira finalmente responde ao diretor."`);
 
@@ -338,7 +339,7 @@ B: "Só há economia acima da referência, a conta refeita à mão bate e nada c
     T(s, milhar(v), { x: 1560, y: y + 22, w: 210, h: 44, font: DISP, size: 30, bold: true, color: K.ink, align: "right" });
   });
   const cols = [["sheet", "MESMOS DADOS, PRÓXIMAS SPRINTS", ["Abastecimento suspeito", "Multas por placa e motorista", "Veículo que já compensa trocar"]],
-    ["pulse", "ACELERÔMETRO + GPS (SIMULADO)", ["Motor ligado com o veículo parado", "Frenagem e arrancada bruscas", "Abastecimento longe do posto"]],
+    ["pulse", "ACELERÔMETRO + GPS (SIMULADO)", ["Motor ligado parado (com ignição ou OBD)", "Frenagem e arrancada bruscas", "Abastecimento longe do posto"]],
     ["handshake", "COM PARCERIA DA SEM PARAR", ["Extratos da tag de pedágio", "Extratos do cartão combustível"]]];
   cols.forEach(([k, t, itens], i) => {
     const x = 120 + i * 580, y = 720;
@@ -348,16 +349,28 @@ B: "Só há economia acima da referência, a conta refeita à mão bate e nada c
     itens.forEach((it, j) => T(s, it, { x, y: y + 92 + j * 48, w: 540, h: 44, size: 27, color: K.text }));
   });
   s.addNotes(
-`2:20–2:35 (15 s)
+`2:17–2:33 (16 s)
 B: "Não é só o combustível: cada veículo é comparado com os do mesmo tipo em consumo, manutenção e pneus, e os flex ganham a troca para o etanol."
 A: "Depois vêm multas, sensores e, com parceria, tag e cartão."`);
 
-  // ================= 9 UML COM CRITÉRIOS DE ACEITE (ata da orientação, 19/10) =================
-  // Componentes em palavras simples, sem nome de tecnologia nem de peça; cada componente leva os seus critérios de aceite.
+  // ================= 9 UML DE COMPONENTES (feedback do grupo, 20/10) =================
+  // Diagrama gerado por deck/assets-fleet-force/gerar_uml.py: sem nome de tecnologia nem de peça (ata do professor).
   s = slide(K.white);
-  kicker(s, "SOLUÇÃO · UML · DIAGRAMA DE COMPONENTES", 120, 96);
+  kicker(s, "SOLUÇÃO · UML", 120, 96);
   nav(s, 1, "claro"); sig(s, false);
-  T(s, [run("Como funciona ", K.ink), run("por dentro", K.blue)], { x: 120, y: 128, w: 1000, h: 90, font: DISP, size: 60, bold: true });
+  T(s, [run("Como funciona ", K.ink), run("por dentro", K.blue)], { x: 120, y: 120, w: 900, h: 80, font: DISP, size: 52, bold: true });
+  T(s, "Diagrama de componentes (UML): um componente por user story. A planilha é lida no navegador e só os dados usados vão ao servidor.", { x: 1000, y: 118, w: 800, h: 80, size: 22, color: K.muted, lh: 1.15 });
+  s.addImage({ path: AS + "/uml-componentes.png", x: px(130), y: px(205), w: px(1660), h: px((1660 * 740) / 1700) });
+  s.addNotes(
+`2:33–2:46 (13 s)
+B: "Por dentro, um componente por user story: a interface lê a planilha no navegador e manda só os dados usados; o servidor faz as contas; o banco de dados fica na nuvem."
+(Direção, não decisão: o professor pediu para não cravar tecnologia. Dizer "Python", "nuvem" e "IA" só como pista. Se perguntarem "e se o celular do cliente for fraco?": o pré-processamento é básico, só extração; se o aparelho abre o arquivo, ele consegue extrair os dados.)`);
+
+  // ================= 10 CRITÉRIOS DE ACEITE POR COMPONENTE =================
+  s = slide(K.white);
+  kicker(s, "SOLUÇÃO · UML · CRITÉRIOS DE ACEITE", 120, 96);
+  nav(s, 1, "claro"); sig(s, false);
+  T(s, [run("Pronto quando, ", K.ink), run("em cada peça", K.blue)], { x: 120, y: 128, w: 1000, h: 90, font: DISP, size: 60, bold: true });
   T(s, "DIREÇÃO, NÃO DECISÃO: PYTHON, NUVEM E IA AINDA EM ESTUDO", { x: 1000, y: 160, w: 800, h: 30, font: BODYS, size: 14, color: K.muted, align: "right", cs: 1 });
   const caixa = (x, y, w, h, ic, titulo, sub, tag, itens, extra) => {
     Rc(s, { x, y, w, h, fill: K.white, r: 20, line: K.line, lw: 1.5 });
@@ -378,28 +391,27 @@ A: "Depois vêm multas, sensores e, com parceria, tag e cartão."`);
     });
   };
   const seta = (x, y, w, duas) => s.addShape(pres.shapes.LINE, { x: px(x), y: px(y), w: px(w), h: 0, line: { color: K.blue, width: 3, endArrowType: "triangle", beginArrowType: duas ? "triangle" : undefined } });
-  const LX = 120, CX = 720, RX = 1280, CW = 480, SW = 520, TOP = 250, BOT = 670, BH = 400, BH2 = 360;
-  caixa(LX, TOP, SW, BH, "monitorM", "Interface web", "pelo PC ou celular; planilha hoje, PDF, foto e dados do veículo depois", null,
-    ["Lê a planilha do gestor sem ele arrumar nada", "Mostra o resultado em gráficos, com a fonte de cada número"]);
+  const LX = 120, CX = 720, RX = 1280, CW = 480, SW = 520, TOP = 250, BOT = 690, BH = 420, BH2 = 340;
+  caixa(LX, TOP, SW, BH, "monitorM", "Interface web", "o gestor usa pelo PC ou celular", null,
+    ["Lê a planilha do gestor sem ele arrumar nada", "Envia ao servidor só os dados usados, não o arquivo inteiro", "Mostra o resultado em gráficos, com a fonte de cada número"]);
   caixa(CX, TOP, CW, 780, "serverM", "Servidor com API", "em Python; onde roda (nuvem) está em estudo", null,
     ["Todo número bate com a planilha, centavo por centavo", "Compara cada veículo só com os do mesmo tipo", "Mostra a economia em R$, com a ação e os veículos"],
     (x, yy, w) => { ["US01 · Custo total", "US02 · Comparação", "US03 · Economia"].forEach((t, i) => { Rc(s, { x: x + 28, y: yy + i * 62, w: w - 56, h: 52, fill: K.blue50, r: 12 }); T(s, t, { x: x + 28, y: yy + i * 62, w: w - 56, h: 52, size: 22, font: BODYS, color: K.blue, align: "center", valign: "middle" }); }); return yy + 3 * 62 + 4; });
   caixa(RX, TOP, SW, BH, "truckM", "Kit no veículo", "sensores de movimento e de posição", "SIMULADO",
-    ["Conta as frenagens e arrancadas bruscas por 100 km", "Registra velocidade, km rodado e posição", "Só marca motor ligado parado com o sinal de ignição"]);
-  caixa(LX, BOT, SW, BH2, "databaseM", "Banco de dados", "guarda gastos, referências e diagnósticos", null,
-    ["Guarda gastos e diagnósticos, com data e versão de cada referência", "Só guarda o contato da empresa com o consentimento dela (LGPD)"]);
+    ["Conta as frenagens e arrancadas bruscas por 100 km", "Registra velocidade, km rodado e posição", "Só marca motor ligado parado com o sinal de ignição ou o OBD"]);
+  caixa(LX, BOT, SW, BH2, "databaseM", "Banco de dados", "na nuvem; guarda gastos e diagnósticos", null,
+    ["Guarda gastos e diagnósticos, com data e versão de cada referência", "Só guarda o contato comercial com autorização, separada do cadastro"]);
   caixa(RX, BOT, SW, BH2, "sparklesM", "Motor de IA", "explica os números; API em nuvem ou IA local, em estudo", "PREVISTO",
     ["Explica por que um custo subiu, usando só valores já calculados", "Nunca inventa números"]);
-  seta(LX + SW + 6, TOP + 200, CX - LX - SW - 12, true);
-  seta(LX + SW + 6, BOT + 180, CX - LX - SW - 12, true);
-  seta(CX + CW + 6, TOP + 200, RX - CX - CW - 12, true);
-  seta(CX + CW + 6, BOT + 180, RX - CX - CW - 12, true);
+  seta(LX + SW + 6, TOP + 210, CX - LX - SW - 12, true);
+  seta(LX + SW + 6, BOT + 170, CX - LX - SW - 12, true);
+  seta(CX + CW + 6, TOP + 210, RX - CX - CW - 12, true);
+  seta(CX + CW + 6, BOT + 170, RX - CX - CW - 12, true);
   rail(s, 1070);
   s.addNotes(
-`2:35–3:00 (25 s)
-B: "Por dentro, cinco peças: a interface web, o servidor que faz as contas, o banco de dados, o motor de IA, que é etapa prevista, e o kit no veículo."
-A: "Cada peça tem seu critério de aceite. Por exemplo: todo número bate com a planilha, a IA nunca inventa número e o kit só marca motor parado com o sinal de ignição."
-(Direção, não decisão: o professor pediu para não cravar tecnologia. Dizer "Python", "nuvem" e "IA" só como pista. Os critérios do banco de dados, da interface em gráficos, da comparação por tipo e da IA são proposta nova, escrita a partir das US e do documento do Rafa. O Gustavo aprovou todos os critérios deste slide em 20/10; falta o grupo (Rafa e Ludson) confirmar.)`);
+`2:46–2:56 (10 s)
+A: "E cada peça tem o seu critério de aceite. Por exemplo: todo número bate com a planilha, e a IA nunca inventa número."
+(Os critérios do banco de dados, da interface, da comparação por tipo e da IA são proposta nova, escrita a partir das US e do documento do Rafa. O Gustavo aprovou em 20/10; falta o grupo confirmar. O contato comercial só com autorização separada vem do feedback do Rafa (LGPD).)`);
 
   // ================= 10 HARDWARE (alto nível: sensor de X, sem modelo de peça) =================
   s = slide(K.dark);
@@ -410,14 +422,14 @@ A: "Cada peça tem seu critério de aceite. Por exemplo: todo número bate com a
   T(s, brl(o.custo_estimado) + "/mês", { x: 120, y: 640, w: 820, h: 130, font: DISP, size: 108, bold: true, color: K.blue4 });
   T(s, `num caminhão: ${o.horas_ociosas.toLocaleString("pt-BR")} h parado com a ignição ligada = ${o.litros_estimados.toLocaleString("pt-BR")} l × R$ 7,32 · ${o.eventos_conducao_brusca} frenagens ou arrancadas bruscas em ${o.km.toLocaleString("pt-BR")} km · SIMULADO`, { x: 120, y: 790, w: 780, h: 120, size: 24, color: K.soft, lh: 1.15 });
   [["pulseL", "Acelerômetro", "SIMULADO", K.blue, "Mede frenagens e arrancadas bruscas, contadas por 100 km. Quem pisa demais gasta mais combustível."],
-   ["pinL", "GPS", "SIMULADO", K.blue, "Velocidade, km rodado e excesso de velocidade. Motor ligado parado só com o sinal de ignição."],
-   ["plugL", "Porta OBD do veículo", "PRÓXIMA ETAPA", "475467", "Dados do próprio veículo por um módulo Bluetooth barato, sem mexer no tanque e sem fio exposto."]].forEach(([k, t, chip, cf, d], i) => {
-    const y = 130 + i * 196;
-    Rc(s, { x: 1000, y, w: 800, h: 180, fill: K.panel, r: 24, line: "475467", lw: 1 });
+   ["pinL", "GPS", "SIMULADO", K.blue, "Velocidade e km rodado. Sozinhos, GPS e acelerômetro não sabem se o motor está ligado: para isso, precisamos do sinal de ignição ou da porta OBD."],
+   ["plugL", "Porta OBD do veículo", "PRÓXIMA ETAPA", "475467", "Dados do próprio veículo por um módulo Bluetooth barato, sem mexer no tanque nem fio exposto. Pode mostrar se o motor está ligado."]].forEach(([k, t, chip, cf, d], i) => {
+    const y = 116 + i * 206;
+    Rc(s, { x: 1000, y, w: 800, h: 198, fill: K.panel, r: 24, line: "475467", lw: 1 });
     Ic(s, k, 1036, y + 28, 60);
     T(s, t, { x: 1116, y: y + 24, w: 440, h: 56, font: DISP, size: 38, bold: true, color: K.white, valign: "middle" });
     pill(s, chip, 1560, y + 28, 210, cf, K.white);
-    T(s, d, { x: 1036, y: y + 104, w: 730, h: 66, size: 24, color: K.white, lh: 1.12 });
+    T(s, d, { x: 1036, y: y + 98, w: 730, h: 92, size: 22, color: K.white, lh: 1.1 });
   });
   // fluxo do dado: sensores -> kit -> Wi-Fi -> nuvem e banco de dados -> análise
   T(s, "COMO O DADO CHEGA", { x: 1000, y: 742, w: 800, h: 30, font: BODYS, size: 18, color: K.blue3, cs: 2 });
@@ -431,18 +443,18 @@ A: "Cada peça tem seu critério de aceite. Por exemplo: todo número bate com a
   T(s, "CONSUMO PARADO: US DOE/ARGONNE (0,8 GALÃO/H) · PREÇO: ANP, DIESEL S10 SP, 04 A 10/10/2026", { x: 120, y: 975, w: 820, h: 50, font: BODYS, size: 14, color: K.soft, cs: 1, lh: 1.25 });
   rail(s, 1070);
   s.addNotes(
-`3:00–3:20 (20 s)
-A: "O hardware: um kit com acelerômetro e GPS, para qualquer veículo. Ele mede frenagens bruscas e excesso de velocidade."
+`2:56–3:22 (26 s)
+A: "O hardware: um kit com acelerômetro e GPS, para qualquer veículo. Ele mede frenagens bruscas e velocidade. Para saber se o motor está ligado, precisamos do sinal de ignição ou da porta OBD."
 B: "Parado com o motor ligado, gasta uns 3 litros por hora: na simulação, ${brl(o.custo_estimado)} num mês. O próximo passo é ler os dados pela porta OBD, sem mexer no tanque."
-(Alto nível, como o professor pediu: dizer "sensor de X", sem nome de peça. É simulação com dados gerados por script. Motor parado só vale com o sinal de ignição; se a banca perguntar da fiação, a leitura pela porta OBD é o caminho sem fio exposto. Fases futuras da ata: temperatura e nível de combustível, de preferência via OBD.)`);
+(Alto nível, como o professor pediu: dizer "sensor de X", sem nome de peça. É simulação com dados gerados por script. GPS e acelerômetro sozinhos não confirmam motor ligado; isso vem da ignição ou do OBD. Fases futuras da ata: temperatura e nível de combustível, de preferência via OBD.)`);
 
   // ================= 11 MODELO DE NEGÓCIO =================
   s = slide(K.paper);
   kicker(s, "MODELO DE NEGÓCIO", 120, 96);
   nav(s, 2, "claro"); sig(s, false);
   T(s, [run("Grátis para o gestor. ", K.ink, { breakLine: true }), run("Negócio para a Sem Parar.", K.blue)], { x: 120, y: 128, w: 1700, h: 180, font: DISP, size: 72, bold: true, lh: 1.05 });
-  [["Diagnóstico grátis", "o gestor envia a planilha e quer ver a economia"], ["Cadastro", "empresa, CNPJ, tamanho da frota e consentimento para contato (LGPD, US04)"],
-   ["Lead qualificado", "a Sem Parar sabe onde está o desperdício, em reais"], ["Oferta certa", "cartão combustível, tag ou manutenção: a solução para aquela dor"]].forEach(([t, d], i) => {
+  [["Diagnóstico grátis", "o gestor envia a planilha e quer ver a economia"], ["Cadastro", "CNPJ e tamanho da frota, só para liberar o diagnóstico (US04)"],
+   ["Autorização", "a empresa decide, em separado, se a Sem Parar pode entrar em contato (LGPD)"], ["Oferta certa", "com autorização, um lead qualificado: cartão, tag ou manutenção para aquela dor"]].forEach(([t, d], i) => {
     const x = 120 + i * 426, ult = i === 3;
     Rc(s, { x, y: 350, w: 400, h: 300, fill: ult ? K.blue : i === 0 ? K.white : K.ink, r: 20, line: i === 0 ? K.line : null, lw: 1 });
     const tc = i === 0 ? K.ink : K.white;
@@ -453,23 +465,27 @@ B: "Parado com o motor ligado, gasta uns 3 litros por hora: na simulação, ${br
   });
   T(s, "ALINHADO À ESTRATÉGIA DA SEM PARAR", { x: 120, y: 720, w: 1000, h: 30, font: BODYS, size: 19, color: K.blue, cs: 2 });
   T(s, "O CEO da Sem Parar Empresas, Wagner Gramigna, diz que a empresa deixou de ser só pedágio e atua como plataforma de mobilidade corporativa, e vê a IA como ferramenta para reduzir custos de frotas.",
-    { x: 120, y: 765, w: 1050, h: 150, size: 29, color: K.ink, lh: 1.15 });
+    { x: 120, y: 765, w: 960, h: 150, size: 27, color: K.ink, lh: 1.15 });
   T(s, "FONTE: TIMES BRASIL (CNBC), 10/06/2026", { x: 120, y: 940, w: 900, h: 30, font: BODYS, size: 15, color: K.muted, cs: 1 });
-  Rc(s, { x: 1260, y: 720, w: 540, h: 250, fill: K.white, r: 20, line: K.line, lw: 1 });
-  T(s, "E DEPOIS", { x: 1300, y: 750, w: 460, h: 30, font: BODYS, size: 19, color: K.blue, cs: 2 });
-  T(s, "Piloto com o kit nos veículos, para medir a economia de verdade. Hipótese a testar: custo, duração e conversão.", { x: 1300, y: 795, w: 470, h: 160, size: 24, color: K.ink, lh: 1.12 });
+  Rc(s, { x: 1120, y: 700, w: 680, h: 290, fill: K.white, r: 20, line: K.line, lw: 1 });
+  T(s, "SEMÁFORO COMERCIAL · IDEIA A VALIDAR", { x: 1156, y: 730, w: 620, h: 30, font: BODYS, size: 18, color: K.blue, cs: 2 });
+  [["VERDE", K.green], ["AMARELO", K.amber], ["VERMELHO", K.red]].forEach(([t, cor], i) => {
+    Rc(s, { x: 1156 + i * 210, y: 778, w: 190, h: 46, fill: K.white, r: 23, line: cor, lw: 3 });
+    T(s, t, { x: 1156 + i * 210, y: 778, w: 190, h: 46, font: BODYS, size: 18, color: cor, align: "center", valign: "middle", cs: 2 });
+  });
+  T(s, "Cada oportunidade é classificada pelos problemas achados no diagnóstico e pelo potencial de oferecer uma solução da Sem Parar. O critério de cada cor o grupo ainda vai definir.", { x: 1156, y: 846, w: 610, h: 130, size: 22, color: K.ink, lh: 1.12 });
   s.addNotes(
-`3:20–3:45 (25 s)
-B: "O diagnóstico é grátis, mas só sai depois do cadastro com CNPJ e consentimento para contato, pela LGPD."
-A: "Para a Sem Parar, vira um contato que já chega com o desperdício medido em reais. Não é mais um sistema de gestão de frotas, é um canal de aquisição, e é uma hipótese que queremos validar com vocês."
-(Se perguntarem "por que não desenvolver internamente?": slide de apoio logo depois da equipe.)`);
+`3:22–3:46 (24 s)
+B: "O diagnóstico é grátis e só pede um cadastro, para liberar o resultado. O contato da Sem Parar é uma autorização separada: a empresa decide."
+A: "Com ela, a Sem Parar recebe um contato que já chega com o desperdício medido em reais, classificado num semáforo comercial. É um canal de aquisição, uma hipótese que queremos validar com vocês."
+(Semáforo comercial é ideia do Rafa, a validar: o critério de cada cor ainda será definido. Se perguntarem "por que não desenvolver internamente?": slide de apoio logo depois da equipe. Se perguntarem do CEO: Wagner Gramigna diz que a empresa deixou de ser só pedágio e atua como plataforma de mobilidade corporativa. Um piloto com o kit nos veículos é hipótese: custo, duração e conversão a testar.)`);
 
   // ================= 12 CONCORRÊNCIA EM DUAS DIMENSÕES =================
   s = slide(K.white);
   kicker(s, "CONCORRÊNCIA", 120, 96);
   nav(s, 3, "claro"); sig(s, false);
   T(s, [run("Eles cuidam de quem já é cliente. ", K.ink), run("Nós, de quem ainda não é.", K.blue)], { x: 120, y: 150, w: 580, h: 340, font: DISP, size: 50, bold: true, lh: 1.08 });
-  T(s, "Para começar, cartões, tags, telemetria e plataformas pedem contrato, instalação ou assinatura. As planilhas grátis não dizem onde agir.", { x: 120, y: 540, w: 540, h: 250, size: 27, color: K.text, lh: 1.15 });
+  T(s, "Pelo que cada empresa divulga, cartões, tags, telemetria e plataformas partem de contrato, instalação ou assinatura. As planilhas grátis que vimos organizam o custo, mas não dizem onde agir.", { x: 120, y: 540, w: 540, h: 250, size: 27, color: K.text, lh: 1.15 });
   T(s, "POSIÇÕES: AVALIAÇÃO DO GRUPO PELO QUE CADA EMPRESA DIVULGA. DETALHE E FONTES NO APOIO.", { x: 120, y: 900, w: 540, h: 60, font: BODYS, size: 14, color: K.muted, lh: 1.3, cs: 1 });
   // gráfico: x = facilidade para começar (preço e esforço), y = o que entrega
   const gx = 760, gy = 150, gw = 1040, gh = 760;
@@ -495,10 +511,10 @@ A: "Para a Sem Parar, vira um contato que já chega com o desperdício medido em
   Ov(s, fx - 34, fy - 34, 68, K.blue);
   T(s, [run("FLEET FORCE", K.blue, { breakLine: true }), run("diagnóstico grátis, em R$", K.ink)], { x: fx - 270, y: fy + 44, w: 400, h: 80, size: 26, font: BODYS, align: "right", lh: 1.05 });
   s.addNotes(
-`3:45–4:05 (20 s)
-B: "Na concorrência olhamos duas coisas: o esforço para começar e o que a ferramenta entrega. Cartões, tags, telemetria e a Infleet pedem contrato, instalação ou assinatura."
+`3:46–4:09 (23 s)
+B: "Na concorrência olhamos duas coisas: o esforço para começar e o que a ferramenta entrega. Pelo que cada empresa divulga, cartões, tags, telemetria e a Infleet partem de contrato, instalação ou assinatura."
 A: "Até onde encontramos, nenhum faz isso grátis com a planilha do gestor. O Fleet Force é a porta de entrada da Sem Parar."
-(Não criticar ninguém. Dizer "não encontramos", nunca "não existe". A tabela de apoio, depois do slide da equipe, mostra quem faz o quê.)`);
+(Não criticar ninguém nem afirmar o que não conseguimos comprovar. Dizer "não encontramos", nunca "não existe". A posição de cada empresa é avaliação do grupo pelo que ela divulga. A tabela de apoio, depois do slide da equipe, mostra quem faz o quê.)`);
 
   // ================= 13 VALIDAÇÃO =================
   s = slide(K.paper);
@@ -514,17 +530,20 @@ A: "Até onde encontramos, nenhum faz isso grátis com a planilha do gestor. O F
   });
   T(s, "FONTE: ATA DA ORIENTAÇÃO COM O PROFESSOR (19/10/2026) E USER STORIES DA SPRINT 1", { x: 120, y: 632, w: 1680, h: 30, font: BODYS, size: 15, color: K.muted, cs: 1 });
   Rc(s, { x: 120, y: 680, w: 1680, h: 2, fill: K.line });
-  T(s, "COMO VAMOS MEDIR O SUCESSO · METAS", { x: 120, y: 715, w: 900, h: 30, font: BODYS, size: 19, color: K.blue, cs: 3 });
-  [["< 2 min", "do arquivo ao painel"], ["% linhas", "classificadas sem ajuste manual"], ["100%", "dos números com fonte e conta aberta"], ["R$/ano", "de economia encontrada no diagnóstico"]].forEach(([n, d], i) => {
-    const x = 120 + i * 440;
-    T(s, n, { x, y: 760, w: 420, h: 100, font: DISP, size: 68, bold: true, color: K.ink });
-    T(s, d, { x, y: 865, w: 380, h: 70, size: 24, color: K.text, lh: 1.1 });
+  T(s, "O QUE FUNCIONA, O QUE É SIMULADO E O QUE FALTA", { x: 120, y: 712, w: 1400, h: 30, font: BODYS, size: 19, color: K.blue, cs: 3 });
+  [[K.green, "FUNCIONA HOJE", "Cálculo das 3 user stories e telas, com dados de demonstração"], [K.gray, "SIMULADO", "Frota de 40 veículos e eventos do kit de sensores, gerados por script"],
+   [K.amber, "A DESENVOLVER", "Importação real, sensores e OBD no veículo, IA que explica, dados reais"]].forEach(([cor, t, d], i) => {
+    const x = 120 + i * 580;
+    Ov(s, x, 770, 24, cor);
+    T(s, t, { x: x + 40, y: 764, w: 480, h: 36, font: BODYS, size: 24, color: K.ink, cs: 2 });
+    T(s, d, { x: x + 40, y: 808, w: 500, h: 90, size: 24, color: K.text, lh: 1.12 });
   });
+  T(s, "METAS DE SUCESSO: menos de 2 min do arquivo ao painel · linhas classificadas sem ajuste manual · todo número com fonte e conta aberta · R$ por ano de economia encontrada", { x: 120, y: 940, w: 1680, h: 60, font: BODYS, size: 18, color: K.muted, lh: 1.2 });
   s.addNotes(
-`4:05–4:20 (15 s)
-B: "Definimos 30 critérios de aceite para as três user stories, e o professor considerou que a proposta faz sentido."
-A: "Vamos medir o sucesso pelo tempo até o painel, pelas linhas classificadas sem ajuste e pela fonte de cada número."
-(Só para perguntas: o protótipo de demonstração tem 28 testes automáticos que passam (19/10), cobrindo 27 dos 30 critérios; os 3 restantes são de tela. Os 16 veículos com problema plantado foram todos encontrados. É caso de demonstração, não dado real. Os limites do semáforo e os percentuais dos cenários (50% e 80%) ainda são hipóteses do grupo. A Sprint 1 mostra o que será feito, não o desenvolvimento.)`);
+`4:09–4:28 (19 s)
+B: "Definimos 30 critérios de aceite, e o professor achou que a proposta faz sentido. Hoje funcionam o cálculo e as telas; frota e kit são simulados."
+A: "O resto vamos desenvolver, e mediremos o sucesso pelo tempo até o painel e pela fonte de cada número."
+(Só para perguntas: o protótipo de demonstração tem 28 testes automáticos que passam (19/10), cobrindo 27 dos 30 critérios; os 3 restantes são de tela. Os 16 veículos com problema plantado foram todos encontrados. É caso de demonstração, não dado real, e a economia mostrada é simulação, ainda não comprovada. Os limites do semáforo e os percentuais dos cenários (50% e 80%) ainda são hipóteses do grupo.)`);
 
   // ================= 14 ROADMAP =================
   s = slide(K.dark);
@@ -532,26 +551,30 @@ A: "Vamos medir o sucesso pelo tempo até o painel, pelas linhas classificadas s
   nav(s, 5, "escuro"); sig(s, true);
   T(s, [run("O que existe ", K.white), run("e o que vem", K.blue4)], { x: 120, y: 128, w: 1700, h: 120, font: DISP, size: 88, bold: true });
   Rc(s, { x: 0, y: 402, w: 1920, h: 4, fill: "475467" });
-  [["SPRINT 1", "Proposta", "3 US com critérios, UML, telas e kit simulado"], ["SPRINT 2", "Base funcional", "importar CSV/Excel, primeiro painel, kit em bancada e leitura pela porta OBD"],
-   ["SPRINT 3", "Valor financeiro", "benchmark com fontes, economia rastreável, relatório do CFO"], ["SPRINT 4", "Integrado", "fluxo ponta a ponta sem depender das APIs da Sem Parar, testes e eventos do kit"]].forEach(([sp, t, d], i) => {
+  [["SPRINT 1", "Proposta", [["Funciona: ", "cálculo das 3 US e telas, no demo"], ["Simulado: ", "kit de sensores"]]],
+   ["SPRINT 2", "Base funcional", [["A desenvolver: ", "importar CSV/Excel, primeiro painel, kit em bancada e leitura pela porta OBD"]]],
+   ["SPRINT 3", "Valor financeiro", [["A desenvolver: ", "benchmark com fontes, economia rastreável e relatório do CFO"]]],
+   ["SPRINT 4", "Integrado", [["A desenvolver: ", "fluxo ponta a ponta, sem depender das APIs da Sem Parar"], ["Depende de parceria: ", "piloto com dados autorizados"]]]].forEach(([sp, t, itens], i) => {
     const x = 160 + i * 440, atual = i === 0;
     Ov(s, x, 365, 80, atual ? K.blue : K.dark, atual ? null : K.white);
     T(s, String(i + 1), { x, y: 365, w: 80, h: 80, font: DISP, size: 40, bold: true, color: K.white, align: "center", valign: "middle" });
     if (atual) pill(s, "ESTAMOS AQUI", x - 10, 285, 220, K.blue, K.white);
     T(s, sp, { x, y: 490, w: 400, h: 34, font: BODYS, size: 19, color: atual ? K.blue3 : K.soft, cs: 2 });
     T(s, t, { x, y: 530, w: 410, h: 60, font: DISP, size: 40, bold: true, color: K.white });
-    T(s, d, { x, y: 600, w: 380, h: 130, size: 25, color: K.soft, lh: 1.12 });
+    const runs = [];
+    itens.forEach(([r, d], j) => { runs.push(run(r, K.white, { bold: true })); runs.push(run(d, K.soft, j < itens.length - 1 ? { breakLine: true } : {})); });
+    T(s, runs, { x, y: 600, w: 390, h: 220, size: 24, lh: 1.12, psa: 8 });
   });
-  [[K.green, "Funcionando agora", "telas, cálculo e testes no caso demo"], [K.gray, "Simulado", "dados do kit de sensores"], [K.amber, "Próxima fase", "importação real (planilha, PDF e foto), porta OBD, bancada e assistente de IA"], [K.blue4, "Depende de parceria", "piloto com dados autorizados e APIs da Sem Parar"]].forEach(([cor, t, d], i) => {
+  [[K.green, "Funciona hoje", "cálculo e telas, com dados de demonstração"], [K.gray, "Simulado", "frota de demonstração e kit de sensores"], [K.amber, "A desenvolver", "importação real, OBD, bancada e IA que explica"], [K.blue4, "Depende de parceria", "piloto com dados autorizados e APIs da Sem Parar"]].forEach(([cor, t, d], i) => {
     const x = 120 + i * 440;
     Ov(s, x, 868, 22, cor);
     T(s, [run(t, K.white, { bold: true, breakLine: true }), run(d, K.soft)], { x: x + 38, y: 858, w: 380, h: 100, size: 22, lh: 1.12 });
   });
   rail(s, 1070);
   s.addNotes(
-`4:20–4:30 (10 s)
+`4:28–4:40 (12 s)
 A: "Sprint 2: importação real, kit em bancada e porta OBD. Sprint 3: benchmark e relatório do CFO. Sprint 4: tudo integrado, sem depender das APIs da Sem Parar."
-(Se perguntarem: a IA entra como assistente que explica os números, e o piloto com dados reais só depois de uma parceria.)`);
+(Se perguntarem: a IA entra como assistente que explica os números, e o piloto com dados reais só depois de uma parceria. Em qual Sprint entra o OBD ainda precisa de alinhamento do grupo; hoje está na Sprint 2.)`);
 
   // ================= 15 EQUIPE =================
   s = slide(K.white);
@@ -574,7 +597,7 @@ A: "Sprint 2: importação real, kit em bancada e porta OBD. Sprint 3: benchmark
   s.addImage({ path: LG.full, x: px(1570), y: px(800), w: px(lw2), h: px(lh2) });
   rail(s, 1070);
   s.addNotes(
-`4:30–4:50 (20 s)
+`4:40–4:50 (10 s)
 A: "Somos a FleetForce: [nomes, um papel cada]."
 B: "Para o gestor, decisões melhores; para a Sem Parar, clientes com a dor medida. Gratidão, vamos às perguntas?"`);
 
@@ -626,7 +649,7 @@ B: "Para o gestor, decisões melhores; para a Sem Parar, clientes com a dor medi
   const cx0 = 600, cw = 240;
   colsC.forEach((c, j) => T(s, c, { x: cx0 + j * cw, y: 240, w: cw - 30, h: 90, size: 20, font: BODYS, color: K.ink, lh: 1.05, valign: "bottom" }));
   // 2 = faz · 1 = em parte · 0 = não encontramos
-  const linhas = [["Cartões", "Ticket Log, Pluxee, ValeCard", [0, 0, 1, 1, 1]], ["Tag e plataforma", "Veloe, ConectCar", [0, 0, 1, 1, 0]],
+  const linhas = [["Cartões", "Ticket Log, Pluxee, ValeCard", [0, 0, 1, 1, 0]], ["Tag e plataforma", "Veloe, ConectCar", [0, 0, 1, 1, 0]],
     ["Telemetria", "Cobli, Sascar", [0, 0, 1, 1, 0]], ["Infleet", "telemetria, abastecimento e manutenção com IA", [0, 0, 1, 1, 1]],
     ["Planilhas grátis", "RoutEasy, calculadoras de custo/km", [2, 1, 1, 0, 0]], ["Fleet Force", "diagnóstico grátis, porta de entrada", [2, 2, 2, 1, 2]]];
   linhas.forEach(([n, d, v], i) => {

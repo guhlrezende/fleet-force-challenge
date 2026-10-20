@@ -22,14 +22,16 @@ Cada pendência também virou uma [issue](https://github.com/guhlrezende/fleet-f
 
 ### Deck
 
-- [ ] **Slide 15 (equipe):** foto padronizada (mesmo fundo, roupa de cor parecida), papel, formação e experiência de cada integrante. Hoje só há iniciais e a linha do Ludson. Responsável: cada um
-- [ ] Confirmar com o grupo os **critérios de aceite novos do slide 9** (banco de dados, interface, comparação por tipo, motor de IA) e o **OBD na Sprint 2**. Responsável: ___
-- [ ] Rafa e Ludson revisarem o deck v4 e dizerem o que querem mudar. Responsável: Rafa e Ludson
+- [ ] **Slide 16 (equipe):** foto padronizada (mesmo fundo, roupa de cor parecida), papel, formação e experiência de cada integrante. Hoje só há iniciais e a linha do Ludson. Responsável: cada um
+- [ ] Confirmar com o grupo os **critérios de aceite novos do slide 10** (banco de dados, interface, comparação por tipo, motor de IA) e o **OBD na Sprint 2**. Responsável: ___
+- [x] Rafa e Ludson revisaram o deck v4 (20/10): UML de componentes, LGPD separada, simulação explícita, motor ligado com ignição ou OBD, concorrência, validação e semáforo comercial já aplicados no v5. Falta eles olharem o v5.
 
 ## Decisões do grupo
 
 - [ ] **Limites do semáforo** (hoje: até 5% acima da referência é eficiente, até 15% atenção, acima disso crítico) e **percentuais dos cenários** (hoje 50% e 80% da diferença). Estão em `prototipo/dados/referencias.json`.
 - [ ] **Locação e depreciação** (tabela FIPE) entram como categorias novas? Sugestão: Sprint 2 ou depois.
+- [ ] **Semáforo comercial:** definir o critério de cada cor (verde, amarelo, vermelho) para classificar as oportunidades. Ideia do Rafa, já citada no slide 12 como "ideia a validar".
+- [ ] **Em qual Sprint entra o OBD** (hoje está na Sprint 2, ainda precisa de alinhamento do grupo).
 - [ ] **Entradas de dados** além da planilha (PDF, foto de nota, dados do veículo): em qual Sprint entram?
 - [ ] Aguardar o material que o professor disse que enviaria ao grupo (encaminhamento da ata).
 
