@@ -17,6 +17,7 @@ A empresa envia a planilha de gastos que já tem. A ferramenta mostra **quanto a
 | Como os testes e os números foram conferidos | [docs/simulados-passo-a-passo.md](docs/simulados-passo-a-passo.md) |
 | O que o professor orientou (ata de 19/10) | [docs/referencias/Ata - Orientacao Sprint 1.pdf](docs/referencias/Ata%20-%20Orientacao%20Sprint%201.pdf) |
 | O deck do pitch | [deck/Fleet_Force_Pitch_Sprint1_v5.pdf](deck/Fleet_Force_Pitch_Sprint1_v5.pdf) (PPTX ao lado) |
+| O wireframe navegável da Sprint 2 (7 telas, TASK-04 do Trello) | [prototipo/wireframe/](prototipo/wireframe/LEIA-ME.md) |
 | Logos, cores e fontes oficiais | [identidade-visual/](identidade-visual/) |
 
 ## Datas
@@ -34,7 +35,7 @@ O calendário completo das 4 sprints está em [PROJETO.md](PROJETO.md#roadmap).
 deck/                pitch da Sprint 1: PPTX, PDF e o script que gera o deck
 docs/                user stories, concorrência, conferência dos números e referências (ata, plano V3)
 identidade-visual/   logos, design system e tokens oficiais da Fleet Force
-prototipo/           caso demonstrativo, cálculo das 3 US, testes, telas e diagrama de componentes
+prototipo/           caso demonstrativo, cálculo das 3 US, testes, telas, diagrama de componentes e o wireframe navegável da Sprint 2 (wireframe/)
 wokwi/               kit de sensores simulado (acelerômetro e GPS), firmware em C++
 ```
 

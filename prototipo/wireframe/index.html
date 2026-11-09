@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleet Force - wireframe da Sprint 2</title>
+<meta name="description" content="Wireframe navegável do Fleet Force (calculadora de custos de frota) com dados de demonstração. Sprint 2 do Challenge Sem Parar.">
+<link rel="icon" href="assets/logo-symbol.svg">
+<style>
+:root{
+  --blue-50:#EEF4FF;--blue-100:#D9E6FF;--blue-200:#B6CEFF;--blue-500:#0750ED;--blue-600:#0643C7;--blue-700:#07379F;--blue-950:#07183D;
+  --n-50:#F6F8FC;--n-100:#EEF1F6;--n-200:#D8DEE9;--n-300:#B8C0CC;--n-400:#98A2B3;--n-500:#667085;--n-600:#475467;--n-700:#344054;--n-800:#2E2D2D;--n-900:#1D1C1C;
+  --ok:#168A53;--warn:#C97A00;--err:#C9362B;
+  --ok-bg:#E8F5EE;--warn-bg:#FFF3DF;--err-bg:#FCEAE8;
+  --bg:#FFFFFF;--surface:#F6F8FC;--text:#2E2D2D;--muted:#667085;--border:#D8DEE9;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;
+  --font:Inter,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);color:var(--text);background:var(--surface);font-size:16px;line-height:1.5}
+a{color:var(--blue-500)}
+:focus-visible{outline:3px solid var(--blue-200);outline-offset:2px;border-radius:6px}
+button{font:inherit;cursor:pointer}
+h1,h2,h3,h4{margin:0;letter-spacing:-.01em;color:var(--text)}
+h1{font-size:40px;line-height:1.1;font-weight:800;letter-spacing:-.015em}
+h2{font-size:28px;line-height:1.15;font-weight:750}
+h3{font-size:20px;line-height:1.25;font-weight:700}
+h4{font-size:16px;font-weight:700}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* topo */
+.top{background:#fff}
+.top-in{max-width:1200px;margin:0 auto;padding:10px 32px;display:flex;align-items:center;gap:24px}
+.stepbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--border)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+/* o arquivo do logo tem margem branca grande; so enquadramos a area desenhada (sem alterar a arte). Largura minima do lockup: 140 px */
+.logo{display:block;width:144px;height:68px;overflow:hidden;position:relative}
+.logo img{position:absolute;width:168px;height:auto;left:-13px;top:-50.5px;max-width:none}
+.pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:999px;font-size:12px;font-weight:650;letter-spacing:.01em;background:var(--n-100);color:var(--n-700);white-space:nowrap}
+.pill.blue{background:var(--blue-50);color:var(--blue-700)}
+.spacer{flex:1}
+.switch{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--n-700);cursor:pointer;user-select:none}
+.switch input{position:absolute;opacity:0}
+.switch .track{width:40px;height:24px;border-radius:999px;background:var(--n-300);position:relative;transition:background .15s}
+.switch .track:after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .15s}
+.switch input:checked + .track{background:var(--blue-500)}
+.switch input:checked + .track:after{transform:translateX(16px)}
+.switch input:focus-visible + .track{outline:3px solid var(--blue-200);outline-offset:2px}
+
+/* passos */
+.steps{max-width:1200px;margin:0 auto;padding:0 32px 12px;display:flex;gap:4px;overflow-x:auto;list-style:none;margin-block:0}
+.steps li{flex:1;min-width:128px}
+.steps a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r-sm);text-decoration:none;color:var(--n-600);font-size:13px;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
+.steps a:hover{background:var(--n-50)}
+.steps .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--n-100);font-size:12px;font-weight:700;color:var(--n-700);flex:none}
+.steps a[aria-current="step"]{color:var(--blue-500);border-bottom-color:var(--blue-500)}
+.steps a[aria-current="step"] .n{background:var(--blue-500);color:#fff}
+.steps a.done .n{background:var(--blue-100);color:var(--blue-700)}
+
+/* palco */
+main{max-width:1200px;margin:0 auto;padding:32px 32px 64px}
+.screen{display:none}
+.screen.on{display:block}
+.eyebrow{font-size:13px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--blue-500);margin-bottom:8px}
+.lead{font-size:18px;color:var(--n-600);max-width:720px;margin:12px 0 0}
+.head{margin-bottom:24px}
+.grid{display:grid;gap:24px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g-8-4{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:24px}
+.card.flat{background:var(--n-50)}
+.card h3{margin-bottom:4px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.cap{font-size:12px;font-weight:500;letter-spacing:.01em;color:var(--muted)}
+.row{display:flex;align-items:center;gap:12px}
+.wrap{flex-wrap:wrap}
+
+/* botoes e campos */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:var(--r-md);border:1px solid transparent;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:.005em}
+.btn.p{background:var(--blue-500);color:#fff}
+.btn.p:hover{background:var(--blue-600)}
+.btn.s{background:#fff;color:var(--text);border-color:var(--n-300)}
+.btn.s:hover{background:var(--n-50)}
+.btn.sm{height:36px;padding:0 14px;font-size:13px}
+.btn svg{width:18px;height:18px}
+label.f{display:block;font-size:13px;font-weight:650;margin-bottom:6px;letter-spacing:.01em}
+.in,select.in{width:100%;height:46px;padding:0 14px;border-radius:var(--r-md);border:1px solid var(--n-300);background:#fff;font:inherit;color:var(--text)}
+.in:focus{outline:none;border-color:var(--blue-500);box-shadow:0 0 0 3px var(--blue-100)}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+
+/* selos de status (texto + icone, nunca so cor) */
+.badge{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap}
+.badge svg{width:14px;height:14px;flex:none}
+.b-ok{background:var(--ok-bg);color:#0E6A3E}
+.b-warn{background:var(--warn-bg);color:#8A5200}
+.b-err{background:var(--err-bg);color:#9C2018}
+.b-none{background:var(--n-100);color:var(--n-600)}
+.b-sim{background:var(--blue-50);color:var(--blue-700)}
+
+/* tabelas */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:12px;font-weight:650;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 12px;border-bottom:1px solid var(--border);background:var(--n-50);position:sticky;top:0}
+.tbl td{padding:12px;border-bottom:1px solid var(--n-100);vertical-align:middle;min-height:48px}
+.tbl .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl th.num{text-align:right}
+.scroll-x{overflow-x:auto}
+
+/* metricas */
+.kpi{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px}
+.kpi .l{font-size:13px;font-weight:650;color:var(--muted);letter-spacing:.01em}
+.kpi .v{font-size:30px;font-weight:750;letter-spacing:-.01em;line-height:1.1;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.kpi.focus{border-color:var(--blue-500);box-shadow:inset 0 0 0 1px var(--blue-500)}
+.kpi.focus .v{color:var(--blue-500)}
+
+/* barras */
+.bars{display:grid;gap:14px}
+.bar-row{display:grid;grid-template-columns:200px 1fr 170px;align-items:center;gap:16px;font-size:14px}
+.bar-row .name{font-weight:600}
+.track-b{height:14px;border-radius:7px;background:var(--n-100);position:relative;overflow:hidden}
+.track-b i{display:block;height:100%;border-radius:7px;background:var(--n-300)}
+.track-b i.f{background:var(--blue-500)}
+.bar-row .val{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar-row .val b{font-weight:700}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;background:var(--n-300);vertical-align:-1px}
+.legend .lb:before{background:var(--blue-500)}
+
+/* upload */
+.drop{border:2px dashed var(--n-300);border-radius:var(--r-lg);padding:28px;background:var(--n-50);display:flex;gap:20px;align-items:center}
+.drop.has{border-style:solid;border-color:var(--blue-200);background:var(--blue-50)}
+.ico-box{width:56px;height:56px;border-radius:var(--r-md);background:#fff;border:1px solid var(--border);display:grid;place-items:center;flex:none;color:var(--blue-500)}
+.ico-box svg{width:28px;height:28px}
+.tabs{display:inline-flex;background:var(--n-100);border-radius:var(--r-md);padding:4px;gap:4px;margin-bottom:20px}
+.tabs button{border:0;background:transparent;height:38px;padding:0 18px;border-radius:9px;font-weight:650;font-size:14px;color:var(--n-600)}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--blue-500);box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:var(--n-100);font-size:13px;font-weight:600;color:var(--n-700)}
+.chip.on{background:var(--blue-50);color:var(--blue-700)}
+.chip svg{width:14px;height:14px}
+
+/* criterios (anotacao) */
+.crit{display:none;margin-bottom:16px;border:1.5px dashed var(--blue-500);background:var(--blue-50);border-radius:var(--r-md);padding:10px 14px;font-size:13px;color:var(--blue-950)}
+.show-crit .crit{display:block}
+.crit b{color:var(--blue-700)}
+.crit .tag{display:inline-block;background:var(--blue-500);color:#fff;border-radius:6px;padding:1px 8px;font-size:11px;font-weight:700;letter-spacing:.04em;margin-right:8px}
+.crit.extra{border-color:var(--n-300);background:var(--n-50);color:var(--n-700)}
+.crit.extra .tag{background:var(--n-600)}
+
+/* rodape de navegacao */
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.demo-note{font-size:12px;color:var(--muted)}
+
+/* detalhes */
+details.calc{margin-top:2px}
+details.calc summary{list-style:none;cursor:pointer}
+details.calc summary::-webkit-details-marker{display:none}
+.rank-row{padding:16px 0;border-bottom:1px solid var(--n-100)}
+.rank-row:last-child{border-bottom:0}
+.rank-head{display:grid;grid-template-columns:26px 190px 1fr 230px 40px;gap:16px;align-items:center;font-size:14px}
+.rank-head .pos{width:26px;height:26px;border-radius:50%;background:var(--n-100);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--n-700)}
+.rank-head .name{font-weight:650}
+.rank-head .val{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.rank-head .tg{border:0;background:transparent;color:var(--blue-500);font-weight:700;font-size:22px;width:44px;height:44px;border-radius:10px}
+.rank-head .tg:hover{background:var(--blue-50)}
+.rank-body{display:none;margin:14px 0 0 42px;background:var(--n-50);border:1px solid var(--n-200);border-radius:var(--r-md);padding:16px 18px;font-size:14px}
+.rank-row.open .rank-body{display:block}
+.rank-body h4{font-size:13px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin:0 0 4px}
+.rank-body .blk{margin-bottom:12px}
+.rank-body .blk:last-child{margin-bottom:0}
+.formula{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:10px 12px;display:block}
+
+.insight{margin:0 0 24px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-left:4px solid var(--blue-500);border-radius:var(--r-md);font-size:16px;font-weight:550}
+.insight b{color:var(--blue-700)}
+.trend{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:12px;font-weight:650;color:var(--n-700)}
+.trend svg{width:14px;height:14px;flex:none}
+.trend.dn{color:#0E6A3E}
+.scn{display:flex;gap:8px;margin-bottom:0}
+.scn button{border:1px solid var(--n-300);background:#fff;height:38px;padding:0 16px;border-radius:999px;font-weight:650;font-size:13px;color:var(--n-700)}
+.scn button[aria-pressed="true"]{background:var(--blue-500);border-color:var(--blue-500);color:#fff}
+
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;align-items:center;padding:24px 0 8px}
+.hero .cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.hero .pic{background:linear-gradient(135deg,var(--blue-950),var(--blue-700));border-radius:24px;padding:28px;color:#fff;min-height:320px;position:relative;overflow:hidden}
+.hero .pic:before{content:"";position:absolute;right:-60px;top:-40px;width:260px;height:520px;background:rgba(255,255,255,.07);transform:skewX(-14deg)}
+.hero .pic .k{font-size:13px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;opacity:.8}
+.hero .pic .big{font-size:48px;font-weight:800;letter-spacing:-.02em;line-height:1;margin:10px 0 6px;font-variant-numeric:tabular-nums}
+.hero .pic .mini{position:relative;margin-top:24px;display:grid;gap:10px}
+.hero .pic .mini div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:10px 14px;font-size:14px;display:flex;justify-content:space-between}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.how .card{padding:20px}
+.how .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--blue-50);color:var(--blue-500);font-weight:800;margin-bottom:12px}
+.fleet-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ft{border:1px solid var(--border);border-radius:var(--r-md);padding:14px 16px;background:#fff}
+.ft b{font-size:26px;font-weight:750;display:block}
+.ok-box{display:none;margin-top:16px}
+.ok-box.on{display:block}
+
+@media (max-width:900px){
+  main{padding:24px 16px 48px}.top-in{padding:10px 16px;flex-wrap:wrap}.steps{padding:0 16px 12px}
+  h1{font-size:32px}
+  .g2,.g3,.g4,.g-8-4,.hero,.how,.fleet-types{grid-template-columns:1fr}
+  .bar-row{grid-template-columns:1fr}.bar-row .val{text-align:left}
+  .rank-head{grid-template-columns:26px 1fr 40px}.rank-head .barwrap,.rank-head .val{grid-column:2 / 4}
+  .rank-body{margin-left:0}
+  .drop{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#/1" aria-label="Fleet Force, ir para o início"><span class="logo"><img src="assets/logo-wordmark.svg" alt="" width="168" height="168"></span></a>
+    <span class="pill blue">Wireframe · Sprint 2</span>
+    <span class="pill" title="Todos os valores desta maquete vêm da frota fictícia do protótipo da Sprint 1">Dados de demonstração</span>
+    <span class="spacer"></span>
+    <label class="switch"><input type="checkbox" id="tg-crit"><span class="track"></span><span>Mostrar critérios de aceite</span></label>
+  </div>
+</header>
+<div class="stepbar"><ol class="steps" id="steps" aria-label="Etapas do diagnóstico"></ol></div>
+
+<main id="main">
+
+<!-- 1. INICIO -->
+<section class="screen" id="s1" aria-labelledby="t1">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Diagnóstico gratuito de custos de frota</div>
+      <h1 id="t1">Quanto sua frota custa de verdade e por onde começar a economizar</h1>
+      <p class="lead">Envie a planilha que você já tem. Em poucos minutos você vê o custo consolidado, compara com referências públicas e descobre a economia potencial em reais, com a conta aberta.</p>
+      <div class="cta">
+        <a class="btn p" href="#/2">Começar o diagnóstico <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn s" href="#/4">Ver com dados de demonstração</a>
+      </div>
+      <p class="hint" style="margin-top:14px">Sem cadastro para começar. O contato com a Sem Parar só aparece no final, e é opcional.</p>
+    </div>
+    <div class="pic" aria-hidden="true">
+      <div class="k">Exemplo: frota fictícia de 40 veículos</div>
+      <div class="big">R$ 406 mil a R$ 650 mil</div>
+      <div>de economia potencial por ano</div>
+      <div class="mini">
+        <div><span>Combustível acima da ANP</span><b>+15,2%</b></div>
+        <div><span>Manutenção fora da curva</span><b>11 veículos</b></div>
+        <div><span>Pedágio cobrado em dobro</span><b>133 passagens</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="how">
+    <div class="card"><div class="num">1</div><h3>Quanto gasto?</h3><p class="muted small" style="margin:6px 0 0">Junta combustível, pedágio, manutenção, pneus, seguro e mais em um só painel.</p></div>
+    <div class="card"><div class="num">2</div><h3>Gasto bem?</h3><p class="muted small" style="margin:6px 0 0">Compara cada categoria com uma referência, com fonte e data na tela.</p></div>
+    <div class="card"><div class="num">3</div><h3>Onde agir primeiro?</h3><p class="muted small" style="margin:6px 0 0">Mostra a economia em R$ por ação, do maior para o menor valor.</p></div>
+  </div>
+</section>
+
+<!-- 2. FROTA -->
+<section class="screen" id="s2" aria-labelledby="t2">
+  <div class="head">
+    <div class="eyebrow">Passo 1 de 3 · Sua frota</div>
+    <h2 id="t2">Cadastro rápido da frota</h2>
+    <p class="lead">Preenchido uma vez. É o que permite comparar cada veículo só com os do mesmo tipo e usar a alíquota e o preço de combustível certos.</p>
+  </div>
+  <div class="crit extra"><span class="tag">US01 · apoio</span><b>Entrada manual:</b> o gestor informa nº de veículos e tipo de veículo, sem ser obrigado a preencher todas as categorias.</div>
+  <div class="grid g-8-4">
+    <div class="card">
+      <div class="row wrap" style="justify-content:space-between;margin-bottom:16px">
+        <h3>Veículos</h3>
+        <div class="row"><button class="btn s sm" type="button"><svg><use href="#i-upload"/></svg> Importar cadastro (CSV)</button><button class="btn p sm" type="button">+ Adicionar veículo</button></div>
+      </div>
+      <div class="scroll-x"><table class="tbl" id="tb-frota"><thead><tr><th>Placa</th><th>Tipo</th><th>Combustível</th><th class="num">Ano</th><th class="num">Valor venal</th></tr></thead><tbody></tbody></table></div>
+      <p class="hint" style="margin-top:12px">Mostrando 6 de 40 veículos da frota de demonstração.</p>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div class="card flat">
+        <h3>Resumo da frota</h3>
+        <div class="fleet-types" style="grid-template-columns:1fr;margin-top:12px">
+          <div class="ft"><span class="cap">Caminhões</span><b>16</b></div>
+          <div class="ft"><span class="cap">Vans</span><b>12</b></div>
+          <div class="ft"><span class="cap">Carros flex</span><b>12</b></div>
+        </div>
+        <p class="hint" style="margin-top:12px">Total: 40 veículos. Tipo com menos de 5 veículos fica "sem referência na frota".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. DADOS -->
+<section class="screen" id="s3" aria-labelledby="t3">
+  <div class="head">
+    <div class="eyebrow">Passo 2 de 3 · Seus custos</div>
+    <h2 id="t3">Entrada dos dados financeiros</h2>
+    <p class="lead">Envie o arquivo que você já tem ou preencha à mão. Nenhuma categoria é obrigatória.</p>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Forma de entrada">
+    <button role="tab" id="tab-up" aria-selected="true" aria-controls="pn-up">Enviar planilha</button>
+    <button role="tab" id="tab-man" aria-selected="false" aria-controls="pn-man">Preencher manualmente</button>
+  </div>
+
+  <div id="pn-up" role="tabpanel" aria-labelledby="tab-up">
+    <div class="crit extra"><span class="tag">US01 · apoio</span><b>Upload de planilha:</b> com um Excel ou CSV, o sistema identifica as colunas, mostra o mapeamento para confirmação e só pede o que não encontrou.</div>
+    <div class="drop has">
+      <div class="ico-box"><svg><use href="#i-file"/></svg></div>
+      <div style="flex:1">
+        <h3>frota_demo.csv</h3>
+        <div class="small muted">3.944 linhas · julho a setembro de 2026 · separador ponto e vírgula</div>
+      </div>
+      <button class="btn s sm" type="button"><svg><use href="#i-upload"/></svg> Trocar arquivo</button>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <div class="row wrap" style="justify-content:space-between;margin-bottom:12px">
+        <div><h3>Como entendemos as colunas</h3><div class="small muted">Confira antes de calcular. Nenhuma linha do arquivo é descartada sem aviso.</div></div>
+        <span class="badge b-ok"><svg><use href="#i-check"/></svg> 3.944 de 3.944 linhas classificadas</span>
+      </div>
+      <div class="scroll-x"><table class="tbl"><thead><tr><th>Coluna do arquivo</th><th>Entendida como</th><th>Exemplo</th><th>Situação</th></tr></thead><tbody id="tb-map"></tbody></table></div>
+    </div>
+
+    <div class="card flat" style="margin-top:24px">
+      <h3>Categorias encontradas</h3>
+      <p class="small muted" style="margin:4px 0 12px">8 de 8 categorias com dado. Categoria sem dado aparece como "não informado", nunca como R$ 0,00.</p>
+      <div class="chips" id="chips-cat"></div>
+    </div>
+  </div>
+
+  <div id="pn-man" role="tabpanel" aria-labelledby="tab-man" hidden>
+    <div class="card">
+      <h3>Custos por categoria (mensal)</h3>
+      <p class="small muted" style="margin:4px 0 16px">Preencha só o que souber. O que ficar em branco será marcado como "não informado".</p>
+      <div class="grid g3" id="man-fields"></div>
+      <div class="row" style="margin-top:20px"><button class="btn p" type="button">Calcular</button><span class="hint">Ao alterar um valor, o total é recalculado na hora.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. DASHBOARD -->
+<section class="screen" id="s4" aria-labelledby="t4">
+  <div class="head">
+    <div class="row wrap" style="justify-content:space-between;align-items:flex-end">
+      <div><div class="eyebrow">Resultado 1 de 3 · Quanto gasto?</div><h2 id="t4">Custo consolidado da frota</h2></div>
+      <div class="row"><span class="pill blue">jul a set/2026 · 3 meses</span><span class="badge b-sim">8 de 8 categorias</span></div>
+    </div>
+  </div>
+  <div class="crit"><span class="tag">CRITÉRIO 1 · US01</span><b>Consolidação:</b> mostra custo total mensal e anual, divisão por categoria e custo médio por veículo.</div>
+  <p class="insight" id="ins4"></p>
+  <div class="grid g4">
+    <div class="kpi focus"><div class="l">Custo médio por mês</div><div class="v" id="k-mes"></div><div class="cap">total do período: <span id="k-tot"></span></div><div class="trend dn" id="k-trend"></div></div>
+    <div class="kpi"><div class="l">Projeção anual</div><div class="v" id="k-ano"></div><div class="cap">média mensal × 12 (estimativa)</div></div>
+    <div class="kpi"><div class="l">Custo médio por veículo</div><div class="v" id="k-veic"></div><div class="cap">por mês · 40 veículos</div></div>
+    <div class="kpi"><div class="l">Custo por km</div><div class="v" id="k-km"></div><div class="cap">481.098 km no período</div></div>
+  </div>
+  <div class="grid g-8-4" style="margin-top:24px">
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:16px"><h3>Para onde vai o dinheiro</h3><span class="cap">R$ e % do total</span></div>
+      <div class="bars" id="bars-cat"></div>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div class="card">
+        <h3>Por tipo de veículo</h3>
+        <div class="bars" id="bars-tipo" style="margin-top:12px"></div>
+      </div>
+      <div class="card">
+        <h3>Por mês</h3>
+        <div class="bars" id="bars-mes" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+  <p class="demo-note" style="margin-top:16px">Dados de demonstração. Valores da frota fictícia de 40 veículos (16 caminhões, 12 vans e 12 carros flex).</p>
+</section>
+
+<!-- 5. COMPARACAO -->
+<section class="screen" id="s5" aria-labelledby="t5">
+  <div class="head">
+    <div class="eyebrow">Resultado 2 de 3 · Gasto bem?</div>
+    <h2 id="t5">Comparação com referências</h2>
+    <p class="lead">Cada categoria é comparada com uma referência que tem fonte e data. Onde não há referência, dizemos isso, e nunca marcamos como eficiente.</p>
+  </div>
+  <div class="crit"><span class="tag">CRITÉRIO 2 · US02</span><b>Comparação por categoria:</b> o gestor vê o próprio custo, o de referência e a diferença em % e em R$.</div>
+  <div class="card">
+    <div class="row wrap" style="justify-content:space-between;margin-bottom:12px">
+      <div class="cap">Referência pública (ANP, lei, extrato) ou mediana da própria frota, só entre veículos do mesmo tipo.</div>
+      <div class="row small"><span class="cap">Limites do semáforo (configuráveis):</span><span class="badge b-ok">até 5%</span><span class="badge b-warn">5 a 15%</span><span class="badge b-err">acima de 15%</span></div>
+    </div>
+    <div class="scroll-x"><table class="tbl"><thead><tr><th>Categoria</th><th class="num">Custo próprio</th><th class="num">Referência</th><th class="num">Diferença %</th><th class="num">Diferença R$</th><th>Situação</th></tr></thead><tbody id="tb-comp"></tbody></table></div>
+    <p class="hint" style="margin-top:12px">Versão das referências 2026-10-12.1 · preços ANP de 04 a 10/10/2026 (SP) · valores do período jul a set/2026. Abra "Fonte" em cada linha para ver a origem.</p>
+  </div>
+</section>
+
+<!-- 6. ECONOMIA -->
+<section class="screen" id="s6" aria-labelledby="t6">
+  <div class="head">
+    <div class="eyebrow">Resultado 3 de 3 · Onde agir primeiro?</div>
+    <h2 id="t6">Economia potencial em reais</h2>
+    <p class="lead">Da maior para a menor economia por ano. Toque em uma linha para ver a conta e o que fazer.</p>
+  </div>
+  <div class="crit"><span class="tag">CRITÉRIO 3 · US03</span><b>Priorização e Total:</b> categorias ordenadas do maior para o menor valor anual em R$, com a economia total mensal e anual nos dois cenários.</div>
+  <p class="insight" id="ins6"></p>
+  <div class="grid g3" style="margin-bottom:24px">
+    <div class="kpi"><div class="l">Conservador (50% da diferença)</div><div class="v" id="e-c-ano"></div><div class="cap">por ano · <span id="e-c-mes"></span> por mês</div></div>
+    <div class="kpi focus"><div class="l">Realista (80% da diferença)</div><div class="v" id="e-r-ano"></div><div class="cap">por ano · <span id="e-r-mes"></span> por mês</div></div>
+    <div class="kpi" style="background:var(--n-50)"><div class="l">Fora do total</div><div class="v" style="font-size:22px">Ociosidade <span class="badge b-sim" style="vertical-align:middle">simulado</span></div><div class="cap">R$ 957 por mês, veículo DEM0C00 (kit ESP32 no Wokwi). Estimado e simulado não entram no total.</div></div>
+  </div>
+  <div class="card">
+    <div class="row wrap" style="justify-content:space-between;margin-bottom:8px">
+      <h3>Ranking de oportunidades (por ano)</h3>
+      <div class="legend"><span class="lb">Realista</span><span>Conservador</span></div>
+    </div>
+    <div id="rank"></div>
+  </div>
+</section>
+
+<!-- 7. CONTATO -->
+<section class="screen" id="s7" aria-labelledby="t7">
+  <div class="head">
+    <div class="eyebrow">Opcional · Próximos passos</div>
+    <h2 id="t7">Quer ajuda para colocar isso em prática?</h2>
+    <p class="lead">Você já viu o custo, a comparação e a economia. Se quiser, deixe seu contato e a Sem Parar Empresas fala com você. Se preferir, é só guardar o relatório.</p>
+  </div>
+  <div class="crit extra"><span class="tag">BACKLOG · US04</span>Fluxo ilustrativo, fora dos 3 critérios da Sprint 2. O cadastro só é pedido depois que o gestor viu o custo total e a economia, com consentimento LGPD.</div>
+  <div class="grid g-8-4">
+    <form class="card" id="f-contato" novalidate>
+      <h3>Seus dados</h3>
+      <div class="grid g2" style="margin-top:16px">
+        <div><label class="f" for="c-nome">Nome</label><input class="in" id="c-nome" autocomplete="name" placeholder="Seu nome"></div>
+        <div><label class="f" for="c-emp">Empresa</label><input class="in" id="c-emp" autocomplete="organization" placeholder="Nome da empresa"></div>
+        <div><label class="f" for="c-cnpj">CNPJ</label><input class="in" id="c-cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"><div class="hint">Validação do CNPJ na versão funcional.</div></div>
+        <div><label class="f" for="c-tel">Telefone</label><input class="in" id="c-tel" autocomplete="tel" placeholder="(11) 90000-0000"></div>
+        <div style="grid-column:1/-1"><label class="f" for="c-mail">E-mail</label><input class="in" id="c-mail" type="email" autocomplete="email" placeholder="voce@empresa.com.br"></div>
+      </div>
+      <label class="row" style="margin-top:20px;align-items:flex-start;gap:10px"><input type="checkbox" id="c-lgpd" style="margin-top:4px;width:18px;height:18px"><span class="small">Aceito que meus dados e este diagnóstico sejam usados pela Sem Parar Empresas para entrar em contato. Posso pedir a exclusão a qualquer momento.</span></label>
+      <div class="row" style="margin-top:20px"><button class="btn p" type="submit">Quero ser contatado</button><button class="btn s" type="button">Só guardar o relatório (PDF)</button></div>
+      <div class="ok-box" id="ok-box"><span class="badge b-ok"><svg><use href="#i-check"/></svg> Wireframe: aqui o contato seria enviado</span></div>
+    </form>
+    <div class="card flat" style="align-self:start">
+      <h3>O que será enviado</h3>
+      <ul class="small" style="padding-left:18px;margin:10px 0 0;display:grid;gap:8px">
+        <li>Custo consolidado: <b id="r-mes"></b> por mês</li>
+        <li>Economia potencial: <b id="r-eco"></b> por ano</li>
+        <li>As 3 maiores oportunidades e o próximo passo recomendado</li>
+        <li>Versão das referências e categorias estimadas</li>
+      </ul>
+      <p class="hint" style="margin-top:12px">Relatório executivo de até 2 páginas (US05, backlog).</p>
+    </div>
+  </div>
+</section>
+
+<nav class="nav" aria-label="Navegação do wireframe">
+  <a class="btn s" id="b-prev" href="#/1"><svg><use href="#i-back"/></svg> Voltar</a>
+  <span class="demo-note" id="b-pos"></span>
+  <a class="btn p" id="b-next" href="#/2">Avançar <svg><use href="#i-arrow"/></svg></a>
+</nav>
+</main>
+
+<script>
+const BRL=(v,d=2)=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
+const PCT=(v,d=1)=>new Intl.NumberFormat('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}).format(v)+'%';
+const ic=(n)=>`<svg><use href="#i-${n}"/></svg>`;
+const $=(s,r=document)=>r.querySelector(s);
+
+/* dados de demonstracao: prototipo/dados/resultados.json (frota ficticia, versao de referencias 2026-10-12.1) */
+const D={
+  total:1550632.84,mes:516877.61,veic:12921.94,km:3.22,
+  cats:[['Combustível',960525.83,61.94],['Manutenção',218797.19,14.11],['Pneus',112327.78,7.24],['Seguro',102000.00,6.58],['IPVA/licenciamento',73800.24,4.76],['Pedágio',63707.00,4.11],['Estacionamento',15696.57,1.01],['Multas',3778.23,0.24]],
+  tipos:[['Caminhão (16)',24871.05,4.72],['Van (12)',6792.20,1.88],['Carro flex (12)',3119.54,1.15]],
+  meses:[['07/2026',521578.32],['08/2026',527866.74],['09/2026',501187.78]],
+  comp:[
+    {n:'Combustível: preço',p:960525.83,r:834142.53,pc:15.15,rs:126383.30,s:'err',f:'ANP, Levantamento de Preços de Combustíveis (resumo semanal), 04 a 10/10/2026. Diesel R$ 8,49 contra R$ 7,32; gasolina R$ 6,64 contra R$ 6,36; etanol R$ 4,01 contra R$ 3,86.'},
+    {n:'Combustível: consumo',p:177112.41,r:145616.32,pc:21.63,rs:31496.09,s:'err',f:'Mediana da própria frota, por tipo de veículo (7 de 40 veículos acima). Medianas: caminhão 2,9 km/l, van 8,2 km/l, carro 11,3 km/l.'},
+    {n:'Manutenção',p:78090.25,r:51132.68,pc:52.72,rs:26957.57,s:'err',f:'Mediana da própria frota, por tipo (11 de 40 veículos acima). Medianas por km: caminhão R$ 0,61, van R$ 0,22, carro R$ 0,12.'},
+    {n:'Pneus',p:33631.38,r:24609.56,pc:36.66,rs:9021.82,s:'err',f:'Mediana da própria frota, por tipo (9 de 40 veículos acima). Medianas por km: caminhão R$ 0,35, van R$ 0,09, carro R$ 0,04.'},
+    {n:'Flex: etanol x gasolina',p:41449.39,r:35937.70,pc:15.34,rs:5511.69,s:'err',f:'ANP, 04 a 10/10/2026. Etanol a 61% do preço da gasolina; compensa abaixo de 70%. Rendimento do etanol: 70% da gasolina (regra prática; no produto, usar o consumo real).'},
+    {n:'Pedágio',p:63707.00,r:59983.50,pc:6.21,rs:3723.50,s:'warn',f:'Conferência do extrato: cada passagem cobrada uma vez. 133 passagens cobradas em duplicidade.'},
+    {n:'IPVA/licenciamento',p:73800.24,r:73800.24,pc:0,rs:0,s:'ok',f:'Lei estadual SP 13.296/2008, art. 9º (alíquota vigente).'},
+    {n:'Estacionamento',s:'none'},{n:'Seguro',s:'none'},{n:'Multas',s:'none'}
+  ],
+  eco:[
+    {n:'Combustível: preço',c:252766.60,r:404426.56,dif:126383.30,acao:'Negociar preço com a rede de postos e controlar onde a frota abastece.',v:[],fonte:'ANP, Levantamento de Preços de Combustíveis'},
+    {n:'Combustível: consumo',c:62992.18,r:100787.49,dif:31496.09,acao:'Revisar rota, carga e condução dos veículos com pior consumo do seu tipo e checar o motor deles.',v:['DEM0C01','DEM1C03','DEM0C02','DEM0V06','DEM0V05','DEM1F01','DEM0F08'],fonte:'Mediana da própria frota, por tipo'},
+    {n:'Manutenção',c:53915.14,r:86264.22,dif:26957.57,acao:'Trocar conserto corretivo por preventivo nos veículos que mais custam por km e avaliar a renovação.',v:['DEM1C01','DEM0C08','DEM0V08','DEM0V03','DEM0F01','DEM1C04','DEM0C02','DEM0V00','DEM0V02','DEM0F04','DEM0F08'],fonte:'Mediana da própria frota, por tipo'},
+    {n:'Pneus',c:18043.64,r:28869.82,dif:9021.82,acao:'Calibragem, alinhamento e rodízio nos veículos que gastam mais pneu por km.',v:['DEM0C05','DEM1C02','DEM1V00','DEM0C01','DEM1C04','DEM0F03','DEM0V05','DEM0F06','DEM0F09'],fonte:'Mediana da própria frota, por tipo'},
+    {n:'Flex: etanol x gasolina',c:11023.38,r:17637.41,dif:5511.69,acao:'Abastecer os carros flex com etanol enquanto ele custar menos de 70% da gasolina.',v:[],fonte:'ANP, Levantamento de Preços de Combustíveis'},
+    {n:'Pedágio',c:7447.00,r:11915.20,dif:3723.50,acao:'Contestar as cobranças em dobro e conferir o extrato todo mês.',v:[],fonte:'Conferência do extrato'},
+    {n:'IPVA/licenciamento',c:0,r:0,dif:0,acao:'Nada a fazer: pago na alíquota correta.',v:[],fonte:'Lei estadual SP 13.296/2008, art. 9º'}
+  ],
+  tot:{cm:33848.99,ca:406187.94,rm:54158.39,ra:649900.70},
+  map:[['Data/Hora','Data','01/07/2026 05:20','ok'],['Placa','Placa','DEM0C06','ok'],['Tipo de despesa','Categoria','Tag pedagio','ok'],['Descricao','Descrição','Praca Campinas','ok'],['Qtd (L)','Litros','106,2','ok'],['Km','Quilometragem','84.210','ok'],['Valor (R$)','Valor','41,10','ok'],['Centro de custo','Não reconhecida (exemplo ilustrativo)','Filial SP','ask']],
+  man:['Combustível','Pedágio','Estacionamento','Manutenção','Pneus','Seguro','IPVA/licenciamento','Multas'],
+  frota:[['DEM0C00','Caminhão','Diesel S10',2016,520000],['DEM0C01','Caminhão','Diesel S10',2021,520000],['DEM0C02','Caminhão','Diesel S10',2018,520000]]
+};
+
+const badge={
+  ok:`<span class="badge b-ok">${ic('check')} Eficiente</span>`,
+  warn:`<span class="badge b-warn">${ic('alert')} Atenção</span>`,
+  err:`<span class="badge b-err">${ic('x')} Crítico</span>`,
+  none:`<span class="badge b-none">${ic('minus')} Sem referência disponível</span>`
+};
+
+/* telas e navegacao */
+const TELAS=['Início','Sua frota','Seus custos','Custo consolidado','Comparação','Economia','Contato'];
+const steps=$('#steps');
+steps.innerHTML=TELAS.map((t,i)=>`<li><a href="#/${i+1}" data-i="${i+1}"><span class="n">${i+1}</span>${t}</a></li>`).join('');
+function go(){
+  let i=parseInt((location.hash.match(/#\/(\d)/)||[])[1],10);
+  if(!(i>=1&&i<=7))i=1;
+  document.querySelectorAll('.screen').forEach((s,k)=>s.classList.toggle('on',k===i-1));
+  steps.querySelectorAll('a').forEach(a=>{const n=+a.dataset.i;a.classList.toggle('done',n<i);n===i?a.setAttribute('aria-current','step'):a.removeAttribute('aria-current')});
+  const prev=$('#b-prev'),next=$('#b-next');
+  prev.style.visibility=i===1?'hidden':'visible';prev.href='#/'+Math.max(1,i-1);
+  next.style.visibility=i===7?'hidden':'visible';next.href='#/'+Math.min(7,i+1);
+  next.innerHTML=(i===1?'Começar':i===6?'Contato (opcional)':'Avançar')+' '+ic('arrow');
+  $('#b-pos').textContent=`Tela ${i} de 7 · ${TELAS[i-1]}`;
+  document.title=`${TELAS[i-1]} · Fleet Force, wireframe da Sprint 2`;
+  window.scrollTo({top:0,left:0,behavior:'instant'});
+  $('#s'+i+' h1, #s'+i+' h2').setAttribute('tabindex','-1');
+}
+try{history.scrollRestoration='manual'}catch(e){}
+addEventListener('hashchange',go);
+document.addEventListener('keydown',e=>{
+  if(/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName))return;
+  const cur=parseInt((location.hash.match(/#\/(\d)/)||[,1])[1],10);
+  if(e.key==='ArrowRight'&&cur<7)location.hash='#/'+(cur+1);
+  if(e.key==='ArrowLeft'&&cur>1)location.hash='#/'+(cur-1);
+});
+
+/* criterios */
+const tg=$('#tg-crit');
+tg.addEventListener('change',()=>{document.body.classList.toggle('show-crit',tg.checked);try{localStorage.setItem('ff-crit',tg.checked?'1':'0')}catch(e){}});
+try{if(localStorage.getItem('ff-crit')==='1'){tg.checked=true;document.body.classList.add('show-crit')}}catch(e){}
+if(/[?&]crit=1/.test(location.search)){tg.checked=true;document.body.classList.add('show-crit')}
+if(/[?&]crit=0/.test(location.search)){tg.checked=false;document.body.classList.remove('show-crit')}
+
+/* tela 2 */
+$('#tb-frota tbody').innerHTML=D.frota.concat([['DEM1V01','Van','Diesel S10',2022,180000],['DEM0F00','Carro','Flex',2023,95000],['DEM0F01','Carro','Flex',2021,82000]])
+ .map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td class="num">${r[3]}</td><td class="num">${BRL(r[4],0)}</td></tr>`).join('');
+
+/* tela 3 */
+$('#tb-map').innerHTML=D.map.map(r=>`<tr><td><code>${r[0]}</code></td><td>${r[1]}</td><td class="muted">${r[2]}</td><td>${r[3]==='ok'?`<span class="badge b-ok">${ic('check')} Reconhecida</span>`:`<div class="row wrap"><span class="badge b-warn">${ic('alert')} Precisa confirmar</span><select class="in" style="height:36px;width:200px" aria-label="Categoria da coluna Centro de custo"><option>Escolha a categoria</option>${D.man.map(m=>`<option>${m}</option>`).join('')}<option>Ignorar esta coluna</option></select></div>`}</td></tr>`).join('');
+$('#chips-cat').innerHTML=D.man.map(m=>`<span class="chip on">${ic('check')}${m}</span>`).join('');
+$('#man-fields').innerHTML=D.man.map((m,i)=>`<div><label class="f" for="m${i}">${m}</label><input class="in" id="m${i}" inputmode="decimal" placeholder="R$ 0,00 (opcional)"></div>`).join('');
+const tU=$('#tab-up'),tM=$('#tab-man');
+function tab(up){tU.setAttribute('aria-selected',up);tM.setAttribute('aria-selected',!up);$('#pn-up').hidden=!up;$('#pn-man').hidden=up}
+tU.onclick=()=>tab(true);tM.onclick=()=>tab(false);
+
+/* tela 4 */
+$('#k-mes').textContent=BRL(D.mes,0);$('#k-tot').textContent=BRL(D.total,0);$('#k-ano').textContent=BRL(D.mes*12,0);$('#k-veic').textContent=BRL(D.veic,0);$('#k-km').textContent=BRL(D.km);
+{const m=D.meses,v=(m[2][1]-m[1][1])/m[1][1]*100;
+ $('#k-trend').innerHTML=`${ic('arrow')} ${PCT(Math.abs(v))} ${v<0?'menor':'maior'} em ${m[2][0]} que em ${m[1][0]}`;
+ $('#k-trend').querySelector('svg').style.transform=v<0?'rotate(45deg)':'rotate(-45deg)';
+ const top3=D.cats[0][2]+D.cats[1][2]+D.cats[2][2];
+ $('#ins4').innerHTML=`<b>${D.cats[0][0]}</b> pesa ${PCT(D.cats[0][2])} do custo. Combustível, manutenção e pneus juntos são <b>${PCT(top3)}</b>.`;}
+const maxC=D.cats[0][1];
+$('#bars-cat').innerHTML=D.cats.map((c,i)=>`<div class="bar-row"><span class="name">${c[0]}</span><div class="track-b" role="img" aria-label="${c[0]}: ${PCT(c[2])}"><i class="${i===0?'f':''}" style="width:${c[1]/maxC*100}%"></i></div><span class="val"><b>${BRL(c[1],0)}</b> · ${PCT(c[2])}</span></div>`).join('');
+const small=(arr,max,fmt,hi)=>arr.map((c,i)=>`<div class="bar-row" style="grid-template-columns:108px 1fr;gap:10px"><span class="name small">${c[0]}</span><div><div class="track-b"><i class="${i===hi?'f':''}" style="width:${c[1]/max*100}%"></i></div><div class="cap" style="margin-top:2px">${fmt(c)}</div></div></div>`).join('');
+$('#bars-tipo').innerHTML=small(D.tipos,D.tipos[0][1],c=>`${BRL(c[1],0)} por veículo/mês · ${BRL(c[2])}/km`,0);
+$('#bars-mes').innerHTML=small(D.meses,Math.max(...D.meses.map(m=>m[1])),c=>BRL(c[1],0),D.meses.length-1);
+
+/* tela 5 */
+$('#tb-comp').innerHTML=D.comp.map(c=>{
+  if(c.s==='none')return `<tr><td><b>${c.n}</b></td><td class="num muted" colspan="4">Sem referência disponível para comparar (entra na Sprint 3)</td><td>${badge.none}</td></tr>`;
+  const fr=/consumo|Manuten|Pneus/.test(c.n);
+  return `<tr><td><b>${c.n}</b> <span class="chip ${fr?'on':''}" style="height:24px;font-size:12px;margin-left:4px">${fr?'Mediana da frota':'Referência pública'}</span><details class="calc"><summary class="cap" style="color:var(--blue-500);font-weight:650">Fonte</summary><div class="cap" style="max-width:380px;margin-top:4px">${c.f}</div></details></td><td class="num">${BRL(c.p)}</td><td class="num">${BRL(c.r)}</td><td class="num"><b>${c.pc>0?'+':''}${PCT(c.pc)}</b></td><td class="num">${BRL(c.rs)}</td><td>${badge[c.s]}</td></tr>`}).join('');
+
+/* tela 6 */
+$('#e-c-ano').textContent=BRL(D.tot.ca,0);$('#e-c-mes').textContent=BRL(D.tot.cm,0);$('#e-r-ano').textContent=BRL(D.tot.ra,0);$('#e-r-mes').textContent=BRL(D.tot.rm,0);
+const maxE=D.eco[0].r;
+let acc=0;const cum=D.eco.map(e=>(acc+=e.r)/D.tot.ra*100);
+$('#ins6').innerHTML=`As <b>3 primeiras ações</b> respondem por <b>${PCT(cum[2],0)}</b> da economia no cenário realista. Comece por <b>${D.eco[0].n.toLowerCase()}</b>.`;
+$('#rank').innerHTML=D.eco.map((e,i)=>{
+  const mensal=e.dif/3, anualC=mensal*12*.5, anualR=mensal*12*.8;
+  return `<div class="rank-row" data-i="${i}">
+    <div class="rank-head"><span class="pos">${i+1}</span><span class="name">${e.n}</span>
+      <div class="barwrap"><div class="track-b" style="margin-bottom:4px"><i class="f" style="width:${e.r/maxE*100}%"></i></div><div class="track-b" style="height:8px"><i style="width:${e.c/maxE*100}%"></i></div></div>
+      <span class="val">${BRL(e.r,0)}<div class="cap" style="font-weight:500">cons. ${BRL(e.c,0)} · acum. ${PCT(cum[i],0)}</div></span>
+      <button class="tg" type="button" aria-expanded="false" aria-label="Ver a conta de ${e.n}">+</button></div>
+    <div class="rank-body">
+      <div class="blk"><h4>O que fazer</h4>${e.acao}${e.v.length?`<div class="chips" style="margin-top:8px">${e.v.map(v=>`<span class="chip">${v}</span>`).join('')}</div>`:''}</div>
+      <div class="blk"><h4>Como chegamos neste número</h4><span class="formula">diferença no período ${BRL(e.dif)} ÷ 3 meses × 12 × cenário<br>conservador (50%): ${BRL(e.dif/3*12*.5)}<br>realista (80%): ${BRL(e.dif/3*12*.8)}</span></div>
+      <div class="blk"><h4>Fonte da referência</h4>${e.fonte}</div>
+    </div></div>`}).join('');
+document.querySelectorAll('.rank-head .tg').forEach(b=>b.onclick=()=>{const r=b.closest('.rank-row');const o=r.classList.toggle('open');b.textContent=o?'−':'+';b.setAttribute('aria-expanded',o)});
+
+/* tela 7 */
+$('#r-mes').textContent=BRL(D.mes,0);$('#r-eco').textContent=BRL(D.tot.ca,0)+' a '+BRL(D.tot.ra,0);
+$('#f-contato').addEventListener('submit',e=>{e.preventDefault();$('#ok-box').classList.add('on')});
+
+go();
+</script>
+</body>
+</html>
