@@ -62,7 +62,15 @@ python -m pytest -q           # 28 testes, um por critério de aceite
 python gerar_telas.py         # telas/fleet-force.html, abre direto no navegador
 ```
 
-**Deck** (Node.js; a fonte Inter precisa estar instalada para o PDF sair certo):
+**Wireframe da Sprint 2** (HTML único, não precisa instalar nada; rode da raiz do repositório):
+
+```bash
+python -m http.server 4326 --directory prototipo/wireframe
+```
+
+Abra http://localhost:4326 (ou o `prototipo/wireframe/index.html` direto no navegador). Setas esquerda e direita trocam de tela; o interruptor "Mostrar critérios de aceite" mostra o texto dos critérios do Trello nas telas 4, 5 e 6. Detalhes em [prototipo/wireframe/LEIA-ME.md](prototipo/wireframe/LEIA-ME.md).
+
+**Deck da Sprint 1** (Node.js; a fonte Inter precisa estar instalada para o PDF sair certo):
 
 ```bash
 cd deck
