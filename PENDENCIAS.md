@@ -1,8 +1,13 @@
 # O que ainda falta
 
-Estado em **12/11/2026**, Sprint 2. Marque `[x]` quando fechar e preencha o responsável. Pendências sem dono não andam: escolha um nome.
+Estado em **15/11/2026**, Sprint 2. Contexto em [docs/sprint-2.md](docs/sprint-2.md). Marque `[x]` quando fechar e preencha o responsável. Pendências sem dono não andam: escolha um nome.
 
-As [issues](https://github.com/guhlrezende/fleet-force-challenge/issues) #1 a #27 foram criadas na Sprint 1 (milestone "Sprint 1 (Review em 22/10)") e **ainda não foram revisadas**: algumas já foram feitas e outras mudaram. Este arquivo é a lista atual; ao assumir algo, use a issue correspondente ou abra uma nova com o milestone da Sprint 2.
+As [issues](https://github.com/guhlrezende/fleet-force-challenge/issues) #1 a #27 foram criadas na Sprint 1 e **revisadas em 15/11**: 11 fechadas (#1 a #8, #11, #15 e #21), 6 movidas para o milestone da Sprint 2 (#9, #10, #12, #16, #17 e #27), a #22 reescrita e 11 novas abertas (#31 a #41). Este arquivo é a lista de tarefas; ao assumir algo, atribua-se na issue correspondente.
+
+## Repositório
+
+- [ ] **Aceitar o convite do repositório** (Rafa Medici, João Paulo e Ludson ainda estão pendentes; só o Vini aceitou). Em https://github.com/guhlrezende/fleet-force-challenge/invitations. Responsável: cada um
+- [x] **Revisar as issues #1 a #27** (feito em 15/11, ver acima).
 
 ## Prazos que mandam
 
@@ -15,7 +20,7 @@ As [issues](https://github.com/guhlrezende/fleet-force-challenge/issues) #1 a #2
 
 O enunciado pede wireframes, implementação inicial de **3 critérios de aceite** da Sprint 1, PDF único, Trello atualizado e vídeo de até 5 minutos com todos os integrantes (parte 1 wireframes, parte 2 demonstração técnica dos 3 critérios).
 
-- [ ] **Wireframe navegável (TASK-04, 18/11):** a versão 1 com as 7 telas está no [PR 28](https://github.com/guhlrezende/fleet-force-challenge/pull/28). Falta o grupo aprovar o conteúdo das telas, o Vini conferir contra o design system e anexar as capturas ao card TASK-04 e aos cards US01 a US03. Responsável: Gustavo e Rafa Medici
+- [ ] **Wireframe navegável (TASK-04, 18/11):** a versão 1 com as 7 telas entrou na `main` pelo [PR 28](https://github.com/guhlrezende/fleet-force-challenge/pull/28) (15/11). Falta o grupo aprovar o conteúdo das telas, o Vini conferir contra o design system e anexar as capturas ao card TASK-04 e aos cards US01 a US03. Responsável: Gustavo e Rafa Medici
 - [ ] **Aprovar os 3 critérios de aceite.** Proposta (usar o texto dos cards do Trello): US01 "Consolidação" (custo total mensal e anual, divisão por categoria e custo médio por veículo, com a soma conferida contra a planilha); US02 "Comparação por categoria" (custo próprio, referência e diferença em % e em R$); US03 "Priorização" e "Total" (ranking do maior para o menor valor anual e economia total nos dois cenários). Responsável: ___
 - [ ] **Resolver o conflito de escopo no Trello:** o quadro põe a implementação na Sprint 3, mas o AIC pede implementação inicial de 3 critérios na Sprint 2. Criar um card (ou ajustar a Etapa 3 das US) para os 3 critérios e para a demonstração técnica do vídeo. Responsável: ___
 - [ ] **Preparar o Trello para a avaliação:** mover US01 a US03 de A Fazer para Fazendo ou Feito, marcar as etapas 1 e 2, anexar evidências (capturas do wireframe e dos testes), corrigir os rótulos de Sprint (US02, US03 e TASK-02 ainda estão como "Sprint 1"), pôr o Rafa no card TASK-04, repriorizar US04 a US07 e criar card para o PDF e o vídeo. Combinar com o grupo antes de mexer no quadro. Responsável: ___
@@ -75,5 +80,7 @@ O detalhe está em [PROJETO.md](PROJETO.md#roadmap).
 - [x] Pesquisa de concorrentes com fontes.
 - [x] Orientação do professor registrada (ata de 19/10) e aplicada no deck.
 - [x] **Sprint 1 concluída:** deck v5 (identidade própria da Fleet Force), vídeo do pitch (CP2 de AI Challenges), Sprint Review 1 realizada e entregas lançadas no Portal.
-- [x] Wireframe navegável v1 com as 7 telas do TASK-04 (PR 28, falta aprovação do grupo).
+- [x] Wireframe navegável v1 com as 7 telas do TASK-04, na `main` desde 15/11 (PR 28); falta a aprovação do grupo sobre o conteúdo das telas.
 - [x] Parte de Cyber da Sprint 2 entregue pelo João Paulo (08/11), aguardando revisão.
+- [x] Issues do GitHub revisadas para a Sprint 2 (15/11).
+- [x] README, PROJETO e PENDENCIAS na Sprint 2 (PR 29) e documentos [docs/sprint-1-resultados.md](docs/sprint-1-resultados.md) e [docs/sprint-2.md](docs/sprint-2.md).

@@ -1,6 +1,6 @@
 # Revisão de design: wireframe do Fleet Force (Sprint 2)
 
-Revisado em 09/11/2026 contra o design system do pacote `anexos/assets-fleet-force-v0.0.1/design-system.md` e o card TASK-04 do Trello (7 telas). Direção estética: funcionalista (estilo Dieter Rams/Swiss): neutros, azul `#0750ED` como único acento, dados como protagonista. A skill `frontend-design` desaconselha a Inter, mas a marca a exige, então a Inter fica.
+Revisado em 09/11/2026 contra o design system da Fleet Force (`../../identidade-visual/design-system.md`) e o card TASK-04 do Trello (7 telas). Direção estética: funcionalista (estilo Dieter Rams/Swiss): neutros, azul `#0750ED` como único acento, dados como protagonista. A skill `frontend-design` desaconselha a Inter, mas a marca a exige, então a Inter fica.
 
 Referências usadas (web, padrões e não cópia de layout): KPIs de custo por km no topo e detalhe abaixo, tendência no período em vez de só o número ([Oxmaint](https://oxmaint.com/industries/fleet-management/fleet-analytics-dashboard-real-time-kpis-2026), [Geotab](https://geotab.com/blog/fleet-management-kpis)); ranking em estilo Pareto com percentual acumulado ([InetSoft](https://inetsoft.com/info/how-to-make-a-pareto-chart-definition-uses)). O A1 Gallery não foi usado porque exige login.
 
