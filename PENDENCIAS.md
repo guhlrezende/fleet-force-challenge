@@ -2,12 +2,12 @@
 
 Estado em **15/11/2026**, Sprint 2. Contexto em [docs/sprint-2.md](docs/sprint-2.md). Marque `[x]` quando fechar e preencha o responsável. Pendências sem dono não andam: escolha um nome.
 
-As [issues](https://github.com/guhlrezende/fleet-force-challenge/issues) #1 a #27 foram criadas na Sprint 1 (milestone "Sprint 1 (Review em 22/10)") e **ainda não foram revisadas**: algumas já foram feitas e outras mudaram. Este arquivo é a lista atual; ao assumir algo, use a issue correspondente ou abra uma nova com o milestone da Sprint 2.
+As [issues](https://github.com/guhlrezende/fleet-force-challenge/issues) #1 a #27 foram criadas na Sprint 1 e **revisadas em 15/11**: 11 fechadas (#1 a #8, #11, #15 e #21), 6 movidas para o milestone da Sprint 2 (#9, #10, #12, #16, #17 e #27), a #22 reescrita e 11 novas abertas (#31 a #41). Este arquivo é a lista de tarefas; ao assumir algo, atribua-se na issue correspondente.
 
 ## Repositório
 
 - [ ] **Aceitar o convite do repositório** (Rafa Medici, João Paulo e Ludson ainda estão pendentes; só o Vini aceitou). Em https://github.com/guhlrezende/fleet-force-challenge/invitations. Responsável: cada um
-- [ ] **Revisar as issues #1 a #27**, todas com milestone da Sprint 1: fechar as que já foram feitas e abrir as da Sprint 2. Responsável: ___
+- [x] **Revisar as issues #1 a #27** (feito em 15/11, ver acima).
 
 ## Prazos que mandam
 
@@ -82,4 +82,5 @@ O detalhe está em [PROJETO.md](PROJETO.md#roadmap).
 - [x] **Sprint 1 concluída:** deck v5 (identidade própria da Fleet Force), vídeo do pitch (CP2 de AI Challenges), Sprint Review 1 realizada e entregas lançadas no Portal.
 - [x] Wireframe navegável v1 com as 7 telas do TASK-04, na `main` desde 15/11 (PR 28); falta a aprovação do grupo sobre o conteúdo das telas.
 - [x] Parte de Cyber da Sprint 2 entregue pelo João Paulo (08/11), aguardando revisão.
+- [x] Issues do GitHub revisadas para a Sprint 2 (15/11).
 - [x] README, PROJETO e PENDENCIAS na Sprint 2 (PR 29) e documentos [docs/sprint-1-resultados.md](docs/sprint-1-resultados.md) e [docs/sprint-2.md](docs/sprint-2.md).
