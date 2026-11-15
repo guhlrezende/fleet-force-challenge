@@ -1,6 +1,6 @@
-# Protótipo da Sprint 1 (Fleet Force)
+# Protótipo do Fleet Force (base da Sprint 1 e da Sprint 2)
 
-Caso demonstrativo, cálculo das 3 US, telas e UML. Tudo com **dados de demonstração** (frota fictícia e mista de 40 veículos: 16 caminhões, 12 vans e 12 carros flex, jul a set/2026). As referências (ANP de diesel, gasolina e etanol, lei do IPVA, consumo parado) são reais e com fonte em `dados/referencias.json`.
+Caso demonstrativo, cálculo das 3 US, telas, UML e, desde a Sprint 2, o **wireframe navegável** em [`wireframe/`](wireframe/LEIA-ME.md) (7 telas do card TASK-04 do Trello). O que muda da Sprint 1 para a 2 está em [../PROJETO.md](../PROJETO.md#sprint-2-em-andamento). Tudo com **dados de demonstração** (frota fictícia e mista de 40 veículos: 16 caminhões, 12 vans e 12 carros flex, jul a set/2026). As referências (ANP de diesel, gasolina e etanol, lei do IPVA, consumo parado) são reais e com fonte em `dados/referencias.json`.
 
 ## Comandos
 
@@ -9,9 +9,12 @@ python gerar_caso_demo.py     # gera dados/frota_demo.csv, dados/veiculos_demo.c
 python calcular.py            # US01, US02, US03 -> dados/resultados.json e resumo no terminal
 python -m pytest -q           # 28 testes, um por critério de aceite (CA1.1 a CA3.9)
 python gerar_telas.py         # telas/fleet-force.html (abre direto no navegador, sem servidor)
+python -m http.server 4326 --directory wireframe   # wireframe da Sprint 2 em http://localhost:4326
 ```
 
-### Deck e PDFs (regerar depois de mudar dados ou textos)
+### Deck e PDFs (histórico da Sprint 1)
+
+> **O deck atual (v5) é gerado na pasta `deck/` da raiz do repositório** (`cd deck; npm install; npm run build`; ver o [README da raiz](../README.md)). Os comandos abaixo são do deck v2, na identidade antiga da Sem Parar, e ficam só como registro. **Não usar a identidade da Sem Parar**: a visual oficial está em [../identidade-visual/](../identidade-visual/).
 
 ```bash
 # deck: precisa de pptxgenjs@3.12.0 react-icons@5.3.0 react@18.3.1 react-dom@18.3.1 sharp@0.33.5 numa pasta com npm install
@@ -43,6 +46,7 @@ Identidade visual (do site sempararempresas.com.br): magenta `#D60852`, quase pr
 | `telas/fleet-force.html` | Protótipo de tela (4 abas: importar, custo total, benchmark, economia) |
 | `telas/capturas/*.png` | Capturas 1280x720 usadas no deck |
 | `uml/componentes.svg` e `.png` | Diagrama de componentes |
+| `wireframe/index.html` | Wireframe navegável da Sprint 2 (7 telas, identidade Fleet Force); capturas, revisão de design e instruções na própria pasta |
 
 ## Números do caso demonstrativo
 
@@ -57,7 +61,7 @@ Identidade visual (do site sempararempresas.com.br): magenta `#D60852`, quase pr
 ## Limites (dizer na apresentação)
 
 - Não é o produto: é um protótipo para mostrar as telas e provar que os critérios são verificáveis.
-- A referência de preço é da semana de 04 a 10/10, e os dados são de jul a set (simplificação do caso demo).
+- A referência de preço é da semana de 04 a 10/10 (ANP, SP), e os dados são de jul a set (simplificação do caso demo). O projeto tem outras duas referências de preço da ANP (Brasil de 18 a 24/10 no Statistical e MG do 1º semestre no motor do João Paulo); a escolha do pitch está pendente em [../PENDENCIAS.md](../PENDENCIAS.md), e trocar a referência exige ajustar este caso demo e os testes.
 - Seguro, multas e estacionamento ainda não têm referência (Sprint 3). Consumo, manutenção e pneus usam a mediana dos veículos do mesmo tipo (mínimo de 5 por grupo), que mostra quem está fora da curva, não se a frota inteira gasta demais.
 - Três meses é pouco para manutenção e pneus, que têm gastos concentrados (troca de jogo de pneus, retífica). No produto, usar 12 meses. No caso demo esses gastos foram gerados proporcionais ao km para a comparação ficar legível.
 - As alíquotas do IPVA (caminhão 1,5%; van e carro flex 4%, assumido) precisam ser conferidas no texto consolidado da lei.
