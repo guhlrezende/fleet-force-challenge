@@ -1,6 +1,6 @@
 # Parâmetros gerais do projeto
 
-Referência única do grupo. Estado em **12/11/2026** (Sprint 2). Quando uma decisão mudar, altere aqui no mesmo Pull Request. As seções de **user stories, entrada de dados, hardware e arquitetura** descrevem a proposta da Sprint 1 e ainda não foram reescritas para a Sprint 2; o que mudou nela está em [Sprint 2](#sprint-2-em-andamento).
+Referência única do grupo. Estado em **15/11/2026** (Sprint 2). Quando uma decisão mudar, altere aqui no mesmo Pull Request. As seções de **user stories, entrada de dados, hardware e arquitetura** descrevem a proposta da Sprint 1 e ainda não foram reescritas para a Sprint 2; o que mudou nela está em [Sprint 2](#sprint-2-em-andamento).
 
 ## Em uma frase
 
@@ -82,7 +82,7 @@ Estrutura da aula (ponto de partida, não regra fixa): user stories, problema, p
 Aberta em 03/11/2026, com entrega no Portal até 30/11 e **Sprint Review 2 com a Corpay (Sem Parar) na segunda 23/11, às 20h20**, online no Teams (5 minutos de apresentação e 10 de perguntas). Datas e responsáveis em [PENDENCIAS.md](PENDENCIAS.md).
 
 - **O que o AI Challenges pede:** wireframes das principais telas, implementação inicial de **3 critérios de aceite** da Sprint 1 (de uma ou mais US; não é preciso implementar a US inteira), PDF único, Trello atualizado e vídeo de até 5 minutos com todos os integrantes.
-- **Wireframe:** versão 1 navegável com as 7 telas do card TASK-04 em `prototipo/wireframe/` (PR 28), na identidade da Fleet Force. Falta a aprovação do grupo.
+- **Wireframe:** versão 1 navegável com as 7 telas do card TASK-04 em `prototipo/wireframe/` (PR 28, mesclado na `main` em 15/11), na identidade da Fleet Force. Falta a aprovação do grupo sobre o conteúdo das telas. Prazos, entregáveis e decisões abertas em [docs/sprint-2.md](docs/sprint-2.md); resultados da Sprint 1 em [docs/sprint-1-resultados.md](docs/sprint-1-resultados.md).
 - **Os 3 critérios:** ainda **não decididos**. A proposta em discussão usa o texto dos cards do Trello: Consolidação (US01), Comparação por categoria (US02) e Priorização com Total (US03). A numeração CA1.x a CA3.x de `docs/user-stories-sprint-1.md` é uma versão estendida que o Trello nunca recebeu; no PDF e no vídeo os critérios devem aparecer com o texto e a ordem do Trello.
 - **Conflito de escopo a resolver:** o quadro do Trello diz que a Sprint 2 é concepção e prototipação visual e que a implementação fica para a Sprint 3, enquanto o AIC pede implementação inicial de 3 critérios. O protótipo da Sprint 1 (28 testes) é o que sustenta a demonstração.
 - **Retorno da Sem Parar na Review 1:** não usar só telemetria, mas também outros tipos de dados. O SPIKE-01 (telemetria *software-first*) e os dados públicos (Inmetro e ANP) respondem a isso; o feedback também teria mostrado preocupação com custos (a confirmar).

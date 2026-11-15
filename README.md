@@ -12,6 +12,8 @@ A empresa envia a planilha de gastos que já tem. A ferramenta mostra **quanto a
 |---|---|
 | O que é o projeto e quais são as regras do jogo | [PROJETO.md](PROJETO.md) |
 | O que falta na Sprint 2, prazos e quem faz | [PENDENCIAS.md](PENDENCIAS.md) |
+| Prazos, entregáveis, os 3 critérios e as decisões abertas da Sprint 2 | [docs/sprint-2.md](docs/sprint-2.md) |
+| Notas, feedbacks e lições da Sprint 1 | [docs/sprint-1-resultados.md](docs/sprint-1-resultados.md) |
 | As três user stories e seus critérios de aceite (base da Sprint 2) | [docs/user-stories-sprint-1.md](docs/user-stories-sprint-1.md) |
 | Quem são os concorrentes, com fontes | [docs/concorrencia.md](docs/concorrencia.md) |
 | Como os testes e os números foram conferidos | [docs/simulados-passo-a-passo.md](docs/simulados-passo-a-passo.md) |
@@ -29,7 +31,7 @@ A empresa envia a planilha de gastos que já tem. A ferramenta mostra **quanto a
 
 | Quando | O quê |
 |---|---|
-| Qui 12/11 | Card TASK-05 do Trello: revisar a proposta de valor e a jornada comercial (Vini) |
+| Qui 12/11 | Card TASK-05 do Trello: revisar a proposta de valor e a jornada comercial (Vini; o prazo já passou, confirmar no Trello) |
 | Seg 16/11 | SPIKE-01: avaliação de telemetria *software-first* (João Paulo) |
 | Qua 18/11 | TASK-04: wireframe do Fleet Force (Gustavo e Rafa Medici) |
 | Sex 20/11 | TASK-03: estruturar a demonstração e a validação da Sprint 2 (Vini) |
@@ -44,7 +46,7 @@ Prazos dos cards conforme o quadro do Trello na última leitura (09/11). A data 
 
 ```
 deck/                pitch da Sprint 1 (v5): PPTX, PDF e o script que gera o deck
-docs/                user stories, concorrência, conferência dos números e referências (ata, plano V3)
+docs/                Sprint 1 (resultados, user stories, concorrência, conferência dos números), Sprint 2 e referências (ata, plano V3)
 identidade-visual/   logos, design system e tokens oficiais da Fleet Force
 prototipo/           caso demonstrativo, cálculo das 3 US, testes, telas, diagrama de componentes e o wireframe navegável da Sprint 2 (wireframe/)
 wokwi/               kit de sensores simulado (acelerômetro e GPS), firmware em C++
