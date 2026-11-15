@@ -27,7 +27,7 @@ msedge --headless --no-pdf-header-footer --virtual-time-budget=6000 --print-to-p
 
 Capturas das telas (usadas no deck): `msedge --headless --hide-scrollbars --virtual-time-budget=6000 --window-size=1280,900 --screenshot=telas/capturas/us01.png "file:///.../telas/fleet-force.html#us01"` (abas: importar, us01, us02, us03). A da US03 usa `fleet-force.html?item=1#us03` para abrir a conta do consumo.
 
-Deck v4 (19/10, identidade Fleet Force): `deck/build-fleet-force.js` gera `../anexos/Fleet_Force_Pitch_Sprint1_v4-identidade-fleet-force.pptx` (use `OUT=` para outro destino). Usa os logos e as telas/UML re-tematizados de `deck/assets-fleet-force/` e a fonte Inter (Regular, SemiBold, Bold). O PowerPoint salva com as fontes embutidas e exporta o PDF, como no v2.
+Deck v4 (19/10, identidade Fleet Force): `deck/build-fleet-force.js` gera o deck da Sprint 1 (a versão atual é a v5, em `../deck/`; use `OUT=` para outro destino). Usa os logos e as telas/UML re-tematizados de `deck/assets-fleet-force/` e a fonte Inter (Regular, SemiBold, Bold). O PowerPoint salva com as fontes embutidas e exporta o PDF, como no v2.
 
 Deck v2 (12/10): mesmo visual da versão no Figma Slides, com fontes Saira Condensed Black, Hanken Grotesk e JetBrains Mono (Google Fonts, instaladas só no PC do Gustavo). Depois de gerar, abrir no PowerPoint e salvar com as fontes embutidas e exportar o PDF (`SaveAs` com `EmbedTrueTypeFonts`), senão quem não tem as fontes vê fonte substituta.
 

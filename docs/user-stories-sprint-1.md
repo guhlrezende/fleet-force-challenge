@@ -11,7 +11,7 @@ summary: Documento único das 3 user stories da Sprint 1 do Fleet Force (custo t
 
 # User Stories da Sprint 1
 
-> **Proposta para o grupo aprovar.** É o que o enunciado do CP2 cobra para cada US: o valor que ela entrega, a proposta de funcionalidades e os critérios de aceite. Fontes: pitch da US1 de 05/10 (`anexos/Pitch US1 – Custo total da frota.pptx`), cards do Trello (cards-trello), `anexos/Fleet_Force_Plano_Consolidado_V3.pdf` e `anexos/Fleet_Force_Roteiro_Sprint1.pdf`. Onde as fontes divergem, a escolha feita aqui está marcada com **(decidir)**.
+> **Proposta para o grupo aprovar.** É o que o enunciado do CP2 cobra para cada US: o valor que ela entrega, a proposta de funcionalidades e os critérios de aceite. Fontes: pitch da US1 de 05/10 (arquivo da aula, fora do repositório), cards do Trello, [Plano Consolidado V3](referencias/Fleet_Force_Plano_Consolidado_V3.pdf) e [Roteiro da Sprint 1](referencias/Fleet_Force_Roteiro_Sprint1.pdf). Onde as fontes divergem, a escolha feita aqui está marcada com **(decidir)**.
 >
 > **Responsáveis: em aberto.** O grupo decide quem fica com cada US e com cada parte (ver a seção "Quem faz o quê" no fim).
 
